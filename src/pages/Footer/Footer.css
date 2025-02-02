@@ -1,0 +1,25 @@
+@media screen and (min-width: 358px) {
+ 
+  .Footer {
+
+  }
+
+  .Footer_container {
+
+    background-color: #00254a;
+  }
+
+  .Footer_content {
+
+    width: 100%;
+    height: 600px;
+
+    padding: 0 .5rem 0 .5rem;
+
+    box-sizing: border-box;
+  }
+
+  .Footer_content-box {
+    
+  }
+}

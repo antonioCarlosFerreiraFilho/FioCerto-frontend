@@ -1,0 +1,154 @@
+@media screen and (min-width: 358px) {
+ 
+  .BoxService {
+   
+  }
+
+  .BoxService_container {
+
+    background: linear-gradient(45deg, #032546, #052c50, #031628);
+
+    width: 100%;
+
+    padding: 0 .5rem 0 .5rem;
+    box-sizing: border-box;
+
+  }
+
+  .BoxService_content {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    padding-top: 2rem;
+  }
+
+  .BoxService_content-services {
+
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .BoxService_content-services-service {
+
+    background: linear-gradient(70deg, #032546, #052c50, #031628);
+    width: 100%;
+    height: 300px;
+    border-top: 4px solid orange;
+
+    margin-bottom: 2rem;
+  }
+
+  .BoxService_content-services-service-boxImage {
+
+    width: 100%;
+    height: 45%;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 10px;
+
+    box-sizing: border-box;
+  }
+
+  .BoxService_content-services-service-boxImage img {
+
+    width: 140px;
+    height: 130px;
+  }
+
+  .BoxService_content-services-service-boxDescription {
+
+    width: 100%;
+    height: 55%;
+
+    overflow: hidden;
+  }
+
+  .BoxService_content-services-service-boxDescription h1 {
+
+    color: orangered;
+
+    font-size: 1.2rem;
+    font-family: "Titillium Web", serif;
+    font-weight: bold;
+    text-align: center;
+    font-style: normal;
+    margin: .5rem 0 .5rem 0;
+  }
+
+  .BoxService_content-services-service-boxDescription p {
+
+    color: white;
+
+    font-size: 1rem;
+    font-family: "Noto Sans Tai Viet", sans-serif;
+    font-weight: 100;
+    text-align: center;
+    font-style: normal;
+
+    margin: 0;
+  }
+
+  /* Box call */
+
+  .BoxService_content-description {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .BoxService_content-descriptionContainer {
+
+    width: 80%;
+  }
+
+  .BoxService_content-descriptionContainer h1 {
+
+    color: white;
+
+    font-size: 1.5rem;
+    font-family: "Permanent Marker", cursive;
+    font-weight: 200;
+    text-align: center;
+  }
+
+  .BoxService_content-descriptionContainerCall {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .BoxService_content-descriptionContainerCall-iconCall {
+
+    color: rgb(184, 172, 219);
+
+    font-size: 1.5rem;
+    margin: 0 1rem 1rem 0;
+  }
+
+  .BoxService_content-descriptionContainerCall p {
+
+    color: rgb(184, 172, 219);
+
+    font-size: 1.5rem;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 200;
+    text-align: center;
+
+    margin: 0 0 1rem 0;
+  }
+}

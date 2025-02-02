@@ -1,0 +1,144 @@
+@media screen and (min-width: 358px) {
+ 
+  .Services {
+
+
+  }
+
+  .Services_container {
+
+    width: 100%;
+
+    margin-top: 2rem;
+  }
+
+  .Services_content {
+
+    width: 100%;
+
+    box-sizing: border-box;
+    padding: 0 .7rem 0 .7rem;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .Services_content-boxes {
+
+    width: 95%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .Services_content-box {
+
+    width: 100%;
+
+    margin-bottom: 2rem;
+  }
+
+  .Services_content-box-Image {
+
+    width: 100%;
+    height: 150px;
+
+    overflow: hidden;
+
+    border-bottom: 2px solid orange;
+  }
+
+  .Services_content-box-Image img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .Services_content-box-descriprion h1{
+
+    color: black;
+
+    font-size: 1.2rem;
+    font-family: "Acme", sans-serif;
+    font-weight: 200;
+
+    margin: .5rem 0 0 0;
+    padding: 0;
+  }
+
+  .Services_content-box-descriprion p {
+
+    color: black;
+
+    font-size: .9rem;
+
+    font-family: "Noto Sans Tai Viet", sans-serif;
+    font-weight: 100;
+
+    margin: .5rem 0 .5rem 0;
+    padding: 0;
+  }
+
+  .Services_content-box-descriprion a {
+
+    color: blue;
+
+    font-size: 1.1rem;
+    font-family: "Titillium Web", serif;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .Services_content-InfoProficional {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Services_content-InfoProficional-box {
+
+    width: 95%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-top: 2px solid rgb(226, 226, 226);
+    padding: 2rem 0 1rem 0;
+  }
+
+  .Services_content-InfoProficional-box1 {
+
+    background-color: aqua;
+
+    width: 100%;
+    height: 200px;
+
+    margin-bottom: 2rem;
+  }
+
+  .Services_content-InfoProficional-box2 {
+    background-color: aqua;
+
+    width: 100%;
+    height: 300px;
+
+    margin-bottom: 2rem;
+  }
+
+  .Services_content-InfoProficional-box3 {
+    background-color: aqua;
+
+    width: 100%;
+    height: 400px;
+
+    margin-bottom: 2rem;
+  }
+}
