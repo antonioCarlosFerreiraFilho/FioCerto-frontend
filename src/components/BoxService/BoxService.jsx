@@ -2,8 +2,10 @@
 import "./BoxService.css";
 //react icons
 import { FaPhoneVolume } from "react-icons/fa6";
+import { useEffect } from "react";
 
 const BoxService = () => {
+
   return (
     <div className="BoxService">
       <div className="BoxService_container">
@@ -71,9 +73,7 @@ const BoxService = () => {
             <h1>Meis impedit Labitur Voluptatum mea ut!</h1>
             <div className="BoxService_content-descriptionContainerCall">
               <FaPhoneVolume className="BoxService_content-descriptionContainerCall-iconCall" />
-              <p>
-                932 015 787
-              </p>
+              <p>932 015 787</p>
             </div>
           </div>
         </div>

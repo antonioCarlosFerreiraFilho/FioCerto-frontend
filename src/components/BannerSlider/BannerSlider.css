@@ -48,7 +48,7 @@
   .BannerSlider_content-call-box {
 
     width: 85%;
-
+    max-width: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,5 +75,36 @@
 
     margin-top: 1rem;
     padding: 5px 20px;
+  }
+}
+
+@media screen and (min-width: 650px) {
+
+  .BannerSlider_content-call {
+    background: url("../../../public/background/pattern_green.png")  #FED829;
+    background-position: center;
+    background-repeat: repeat;
+
+    width: 100%;
+    height: 190px;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .BannerSlider_content-call-box p{
+
+    color: black;
+
+    font-size: 1.5rem;
+  }
+
+  .BannerSlider_content-call-box a {
+
+  
+    font-size: 1.1rem;
+    
+    margin-top: 1rem;
+    padding: 5px 5rem;
   }
 }
