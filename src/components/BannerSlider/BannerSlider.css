@@ -1,39 +1,169 @@
 @media screen and (min-width: 358px) {
- 
-  .BannerSlider {
 
-   
-  }
+  .BannerSlider {}
 
-  .BannerSlider_container {
-
-   
-  }
+  .BannerSlider_container {}
 
   .BannerSlider_content {
 
     width: 100%;
     height: 350px;
+
     overflow: hidden;
+
+    position: relative;
+  }
+
+  .BannerSlider_content-box-Slide-ArrowLeft {
+
+    width: 15%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 300;
+
+    opacity: 0;
+    transition: all ease-in-out 2s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 500;
+  }
+
+  .BannerSlider_content-box-Slide-ArrowLeft-icon {
+
+    color: white;
+
+    font-size: 4rem;   
+    margin-top: 100px;
+  }
+
+  .BannerSlider_content-box-Slide-ArrowLeftActive {
+    opacity: 1;
+    transition: all ease-in-out 2s;
+  }
+
+  .BannerSlider_content-box-Slide-ArrowRight {
+
+    width: 15%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    z-index: 300;
+
+    opacity: 0;
+    transition: all ease-in-out 2s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .BannerSlider_content-box-Slide-ArrowRight-icon {
+
+    color: white;
+
+    font-size: 4rem;
+    font-weight: bold;
+
+    margin-top: 100px;
+
+  }
+
+  .BannerSlider_content-box-Slide-ArrowRightActive {
+    opacity: 1;
+    transition: all ease-in-out 2s;
   }
 
   .BannerSlider_content-box-Slide {
 
-    width: 100%;
-  }
 
-  .BannerSlider_content-SlideImage img{
-
-    background-color: aqua;
-
-    width: 100%;
     height: 350px;
+
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+
+    position: relative;
+
+    z-index: 200;
   }
+
+  .BannerSlider_content-SlideImage {
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+
+    opacity: 0;
+    scale: 1;
+    transition: all ease-in-out 2s;
+    object-fit: cover;
+
+    filter: brightness(0.4);
+  }
+
+  .activeBanner {
+
+    opacity: 1;
+    transition: all ease-in-out 2s;
+    filter: brightness(0.6);
+  }
+
+  .BannerSlider_content-box-Slide-BoxCounter {
+
+    width: 70%;
+    height: 50px;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+
+    z-index: 300;
+  }
+
+  .BannerSlider_content-box-Slide-accountants {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .BannerSlider_content-box-Slide-counter {
+
+    width: 10px;
+    height: 10px;
+
+    border: 2px solid white;
+    border-radius: 50%;
+
+    margin: 0 .4rem 0 .4rem;
+  }
+
+  .activeCurrent {
+
+    background-color: white;
+  }
+
 
   /* Style Call */
 
   .BannerSlider_content-call {
-    background: url("../../../public/background/pattern_green.png")  #FED829;
+    background: url("../../../public/background/pattern_green.png") #FED829;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -55,7 +185,7 @@
     justify-content: center;
   }
 
-  .BannerSlider_content-call-box p{
+  .BannerSlider_content-call-box p {
 
     font-family: "Permanent Marker", cursive;
     font-size: 1.2rem;
@@ -81,7 +211,7 @@
 @media screen and (min-width: 650px) {
 
   .BannerSlider_content-call {
-    background: url("../../../public/background/pattern_green.png")  #FED829;
+    background: url("../../../public/background/pattern_green.png") #FED829;
     background-position: center;
     background-repeat: repeat;
 
@@ -92,7 +222,7 @@
     justify-content: center;
   }
 
-  .BannerSlider_content-call-box p{
+  .BannerSlider_content-call-box p {
 
     color: black;
 
@@ -101,9 +231,9 @@
 
   .BannerSlider_content-call-box a {
 
-  
+
     font-size: 1.1rem;
-    
+
     margin-top: 1rem;
     padding: 5px 5rem;
   }
