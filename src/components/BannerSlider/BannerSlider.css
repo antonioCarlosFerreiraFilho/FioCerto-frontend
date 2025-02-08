@@ -26,7 +26,7 @@
     z-index: 300;
 
     opacity: 0;
-    transition: all ease-in-out 2s;
+    transition: all ease-in-out 400ms;
 
     display: flex;
     justify-content: center;
@@ -45,7 +45,7 @@
 
   .BannerSlider_content-box-Slide-ArrowLeftActive {
     opacity: 1;
-    transition: all ease-in-out 2s;
+    transition: all ease-in-out 400ms;
   }
 
   .BannerSlider_content-box-Slide-ArrowRight {
@@ -60,7 +60,7 @@
     z-index: 300;
 
     opacity: 0;
-    transition: all ease-in-out 2s;
+    transition: all ease-in-out 400ms;
 
     display: flex;
     justify-content: center;
@@ -80,7 +80,7 @@
 
   .BannerSlider_content-box-Slide-ArrowRightActive {
     opacity: 1;
-    transition: all ease-in-out 2s;
+    transition: all ease-in-out 400ms;
   }
 
   .BannerSlider_content-box-Slide {
@@ -159,6 +159,43 @@
     background-color: white;
   }
 
+
+  .BannerSlider_content-box-Slide-Pause {
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .BannerSlider_content-box-Pause-icon {
+
+    font-size: 1rem;
+
+    color: white;
+    font-weight: bold;
+  }
+
+  .BannerSlider_content-box-Pause-iconJS {
+
+    display: none;
+  }
+
+  .BannerSlider_content-box-Play-icon {
+
+    font-size: .9rem;
+
+    color: white;
+    font-weight: bold;
+    display: none;
+  }
+
+  .BannerSlider_content-box-Play-iconJS {
+
+    display: block;
+  }
 
   /* Style Call */
 
