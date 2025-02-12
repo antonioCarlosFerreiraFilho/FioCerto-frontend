@@ -7,99 +7,13 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import { FaPause } from "react-icons/fa";
 import { FaPlay } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const BannerSlider = () => {
   const [isRunning, setIsRunning] = useState(true);
-  const [count, setCount] = useState(0);
-  const [toggleCount, setToggleCount] = useState(0);
+  let [counter, setCounter] = useState(0);
 
-  function All() {
-    //Banner Image Array
-    const Images = document.querySelectorAll(
-      ".BannerSlider_content-SlideImage"
-    );
-    const boxes = document.querySelectorAll(
-      ".BannerSlider_content-box-Slide-counter"
-    );
-    const maxImages = Images.length;
-    let imageCurrent = 0;
-
-    //Arrow
-    const controllersArrow = document.querySelectorAll(".Controllers");
-    const ArrowRight = document.querySelector(
-      ".BannerSlider_content-box-Slide-ArrowRight"
-    );
-    const ArrowLeft = document.querySelector(
-      ".BannerSlider_content-box-Slide-ArrowLeft"
-    );
-    const Banner = document.querySelector(".BannerSlider_content");
-
-    controllersArrow.forEach((arrows) => {
-      arrows.addEventListener("click", () => {
-        if (
-          arrows.classList.contains(
-            "BannerSlider_content-box-Slide-ArrowLeft-icon"
-          )
-        ) {
-          boxes[imageCurrent].classList.remove("activeCurrent");
-          Images[imageCurrent].classList.remove("activeBanner");
-
-          if (imageCurrent <= 0) {
-            imageCurrent = maxImages;
-          }
-          imageCurrent = imageCurrent - 1;
-
-          boxes[imageCurrent].classList.add("activeCurrent");
-          Images[imageCurrent].classList.add("activeBanner");
-        } else {
-          boxes[imageCurrent].classList.remove("activeCurrent");
-          Images[imageCurrent].classList.remove("activeBanner");
-
-          imageCurrent++;
-
-          if (imageCurrent >= maxImages) {
-            imageCurrent = 0;
-          }
-
-          Images[imageCurrent].classList.add("activeBanner");
-          boxes[imageCurrent].classList.add("activeCurrent");
-        }
-      });
-    });
-
-    Banner.addEventListener("click", () => {
-      ArrowLeft.classList.add("BannerSlider_content-box-Slide-ArrowLeftActive");
-      ArrowRight.classList.add(
-        "BannerSlider_content-box-Slide-ArrowRightActive"
-      );
-
-      setTimeout(() => {
-        ArrowLeft.classList.remove(
-          "BannerSlider_content-box-Slide-ArrowLeftActive"
-        );
-        ArrowRight.classList.remove(
-          "BannerSlider_content-box-Slide-ArrowRightActive"
-        );
-      }, 9000);
-    });
-  }
-
-  useEffect(() => {
-    //Banner Image Array
-    const Images = document.querySelectorAll(
-      ".BannerSlider_content-SlideImage"
-    );
-    const boxes = document.querySelectorAll(
-      ".BannerSlider_content-box-Slide-counter"
-    );
-    const maxImages = Images.length;
-    let imageCurrent = 0;
-
-   
-
-    Images[count].classList.remove("activeBanner");
-  }, [count]);
-
+  //Pause | Start Banner
   function controllerBanner() {
     //Play | Pause
     const buttonPause = document.querySelector(
@@ -126,47 +40,48 @@ const BannerSlider = () => {
     });
   }
 
+  //Loop
   useEffect(() => {
     if (!isRunning) return;
 
+    //Loop Images
     const Images = document.querySelectorAll(
       ".BannerSlider_content-SlideImage"
     );
-
-  
-    if (count >= 3) {
-      setCount((prev) => {
-        return (prev = 0);
-      });
-    }
-
-    const interval = setInterval(() => {
-    
-      setCount((prev) => {
-        return prev + 1;
-      });
-
-     
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [isRunning, count]);
-
-  useEffect(() => {
-    //Banner Image Array
-    const Images = document.querySelectorAll(
-      ".BannerSlider_content-SlideImage"
+    const boxesDescription = document.querySelectorAll(
+      ".BannerSlider_content-box-Description-content"
     );
     const boxes = document.querySelectorAll(
       ".BannerSlider_content-box-Slide-counter"
     );
-    const maxImages = Images.length;
-    let imageCurrent = 0;
 
-   
+    function nextImage() {
+      setCounter((counter = counter + 1));
 
-    Images[count].classList.add("activeBanner");
-  }, [count]);
+      boxesDescription[counter].classList.add("CurrentDescription");
+      boxes[counter].classList.add("activeCurrent");
+      Images[counter].classList.add("activeBanner");
+    }
+
+    const interval = setInterval(() => {
+      if (counter == 3) {
+        Images.forEach((Element) => {
+          Element.classList.remove("activeBanner");
+        });
+      }
+
+      boxesDescription[counter].classList.remove("CurrentDescription");
+      boxes[counter].classList.remove("activeCurrent");
+
+      if (counter >= 3) {
+        setCounter((counter = -1));
+      }
+
+      nextImage();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isRunning]);
 
   //start
   useEffect(() => {
@@ -181,34 +96,60 @@ const BannerSlider = () => {
     <div className="BannerSlider">
       <div className="BannerSlider_container">
         <div className="BannerSlider_content">
-          <div className="BannerSlider_content-box-Slide-ArrowLeft">
-            <IoIosArrowBack className="BannerSlider_content-box-Slide-ArrowLeft-icon Controllers" />
-          </div>
+
           <div className="BannerSlider_content-box-Slide">
             <img
-              src="./public/banner/image_00.png"
+              src="./public/banner/slide_1.jpg"
               alt=""
               className="BannerSlider_content-SlideImage activeBanner"
             />
             <img
-              src="./public/banner/image_01.png"
+              src="./public/banner/slide_2.jpg"
               alt=""
               className="BannerSlider_content-SlideImage"
             />
             <img
-              src="./public/banner/image_02.png"
+              src="./public/banner/slide_3.jpg"
               alt=""
               className="BannerSlider_content-SlideImage"
             />
             <img
-              src="./public/banner/image_03.png"
+              src="./public/banner/slide_4.jpg"
               alt=""
               className="BannerSlider_content-SlideImage"
             />
           </div>
-          <div className="BannerSlider_content-box-Slide-ArrowRight">
-            <IoIosArrowForward className="BannerSlider_content-box-Slide-ArrowRight-icon Controllers" />
+
+          <div className="BannerSlider_content-box-Description">
+            <div className="BannerSlider_content-box-Description-container">
+
+              <div className="BannerSlider_content-box-Description-content CurrentDescription">
+                <h1>Proteção contra Curtos</h1>
+                <p>Our professional provide Services</p>
+                <NavLink>Saber Mais..</NavLink>
+              </div>
+
+              <div className="BannerSlider_content-box-Description-content">
+                <h1>Projeto elétrico Certificado</h1>
+                <p>Our professional provide Services</p>
+                <NavLink>Saber Mais..</NavLink>
+              </div>
+
+              <div className="BannerSlider_content-box-Description-content">
+                <h1>Manutenção preventiva</h1>
+                <p>Our professional provide Services</p>
+                <NavLink>Saber Mais..</NavLink>
+              </div>
+
+              <div className="BannerSlider_content-box-Description-content">
+                <h1>Portinhola é Aterramentos</h1>
+                <p>Our professional provide Services</p>
+                <NavLink>Saber Mais..</NavLink>
+              </div>
+
+            </div>
           </div>
+
           <div className="BannerSlider_content-box-Slide-BoxCounter">
             <div className="BannerSlider_content-box-Slide-accountants">
               <div className="BannerSlider_content-box-Slide-Pause">
@@ -221,6 +162,7 @@ const BannerSlider = () => {
               <div className="BannerSlider_content-box-Slide-counter"></div>
             </div>
           </div>
+
         </div>
         <div className="BannerSlider_content-call">
           <div className="BannerSlider_content-call-box">
