@@ -23,6 +23,8 @@
     justify-content: center;
   }
 
+  /* Style Boxes Services */
+
   .Services_content-boxes {
 
     width: 95%;
@@ -91,6 +93,8 @@
     text-decoration: none;
   }
 
+  /* Style Services Proficional */
+
   .Services_content-InfoProficional {
 
     width: 100%;
@@ -114,43 +118,205 @@
     padding: 2rem 0 1rem 0;
   }
 
+  /* box 1 */
+
   .Services_content-InfoProficional-box1 {
 
-    background-color: aqua;
-
     width: 100%;
-    height: 200px;
+    height: auto;
 
-    margin-bottom: 2rem;
+    margin: 0;
   }
+
+  .Services_content-InfoProficional-box1-content {
+
+    padding: .4rem;
+
+    box-sizing: border-box;
+  }
+
+  .Services_content-InfoProficional-box1-content h1{
+
+    color: black;
+
+    font-size: 1.2rem;
+    font-family: "Jost", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+
+    margin: 0 0 .5rem 0;
+  }
+
+  .Services_content-InfoProficional-box1-content p{
+
+    color: black;
+
+    font-size: .9rem;
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+
+    margin: 0 0 1rem 0;
+  }
+
+  /* box 2 */
 
   .Services_content-InfoProficional-box2 {
-    background-color: aqua;
 
     width: 100%;
-    height: 300px;
+    height: auto;
 
-    margin-bottom: 2rem;
+    margin: 0;
   }
+
+  .Services_content-InfoProficional-box2-content {
+
+    padding: .4rem;
+
+    box-sizing: border-box;
+  }
+
+  .Services_content-InfoProficional-box2-content h1{
+
+    color: black;
+
+    font-size: 1.2rem;
+    font-family: "Jost", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+
+    margin: 0 0 .5rem 0;
+  }
+
+  .Services_content-InfoProficional-box2-content p{
+
+    color: black;
+
+    font-size: .9rem;
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+
+    margin: 0 0 1rem 0;
+  }
+
+  .Services_content-InfoProficional-box2-content ul {
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .Services_content-InfoProficional-box2-content li {
+
+    color: black;
+
+    font-size: 1rem;
+    font-family: "Acme", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    margin: .5rem 0 0 0;
+    padding: 0;
+  }
+
+  .Services_content-InfoProficional-box2-content li::before {
+
+    content: "";
+
+    background-color: orange;
+    width: 10px;
+    height: 10px;  
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    border: 1px solid black;
+
+    margin-right: 10px;
+  }
+
+  /* box 3 */
 
   .Services_content-InfoProficional-box3 {
-    background-color: aqua;
-
     width: 100%;
-    height: 400px;
+    height: auto;
 
-    margin-bottom: 2rem;
+    margin: 1.5rem 0 0 0;
   }
-}
 
-@media screen and (min-width: 500px) {
+  .Services_content-InfoProficional-box3-content {
 
-  .Services_content-box-Image {
+    padding: .4rem;
 
-    width: 100%;
-    height: 250px;
+    box-sizing: border-box;
+  }
 
-    overflow: hidden;
-    border-bottom: 2px solid orange;
+  .Services_content-InfoProficional-box3-content h1{
+
+    color: black;
+
+    font-size: 1.2rem;
+    font-family: "Jost", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+
+    margin: 0 0 .5rem 0;
+  }
+
+  .Services_content-InfoProficional-box3-content p{
+
+    color: black;
+
+    font-size: .9rem;
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+
+    margin: 0 0 1rem 0;
+  }
+
+  .Services_content-InfoProficional-box3-content ul {
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .Services_content-InfoProficional-box3-content li {
+
+    color: black;
+
+    font-size: 1rem;
+    font-family: "Acme", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    margin: .5rem 0 0 0;
+    padding: 0;
+  }
+
+  .Services_content-InfoProficional-box3-content li::before {
+
+    content: "✔️";
+
+    width: 10px;
+    height: 10px;  
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 10px;
   }
 }

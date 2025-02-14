@@ -78,7 +78,7 @@ const BannerSlider = () => {
       }
 
       nextImage();
-    }, 5000);
+    }, 9000);
 
     return () => clearInterval(interval);
   }, [isRunning]);

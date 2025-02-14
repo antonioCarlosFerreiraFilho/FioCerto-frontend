@@ -1,25 +1,261 @@
 @media screen and (min-width: 358px) {
- 
-  .Footer {
 
-  }
+  .Footer {}
 
   .Footer_container {
 
     background-color: #00254a;
+
+
+    width: 100%;
+    height: auto;
   }
 
   .Footer_content {
 
     width: 100%;
-    height: 600px;
+    height: 100%;
 
-    padding: 0 .5rem 0 .5rem;
+    padding: 0 1rem 2rem 1rem;
 
     box-sizing: border-box;
   }
 
-  .Footer_content-box {
-    
+  .Footer_content-box {}
+
+  /* Style Box Logo */
+
+  .Footer_content-box-logo {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 2rem;
   }
+
+  .Footer_content-box-logo-FioCerto {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .Footer_content-box-logo-FioCerto-icon {
+
+    color: orange;
+
+    font-size: 2rem;
+    margin-bottom: 3px;
+  }
+
+  .Footer_content-box-logo-FioCerto-name {
+
+    color: white;
+
+    font-size: 2rem;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1px;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  .Footer_content-box-description-TXT {
+
+    width: 100%;
+  }
+
+  .Footer_content-box-description-TXT p {
+
+    color: white;
+
+    font-size: 1.1rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: start;
+
+    margin: 0;
+  }
+
+  /* Style List Links */
+
+  .Footer_content-box-navigate {
+
+    width: 100%;
+  }
+
+  .Footer_content-box-navigate-List {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    margin-top: 2rem;
+  }
+
+  .Footer_content-box-navigate-List h1 {
+
+    color: white;
+
+    font-size: 1.2rem;
+    font-family: "Acme", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+
+    margin: 0;
+  }
+
+  .Footer_content-box-navigate-List a {
+
+    color: white;
+
+    font-size: 1rem;
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    text-decoration: none;
+
+    margin: .3rem 0 0 0;
+  }
+
+  /* Style Contacts */
+
+  .Footer_content-box-contacts {
+
+    width: 100%;
+  }
+
+  .Footer_content-box-contacts h1 {
+
+    color: white;
+
+    font-size: 1.2rem;
+    font-family: "Acme", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+
+    margin: 2rem 0 .5rem 0;
+  }
+
+  .Footer_content-box-contacts-list {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .Footer_content-box-contacts-contact {
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    padding-top: 1rem;
+  }
+
+  .Footer_content-box-contacts-contact-icon {
+
+    color: orange;
+
+    font-size: 1.2rem;
+    margin-right: 10px;
+  }
+
+  .Footer_content-box-contacts-contact p {
+
+    color: white;
+
+    font-size: 1rem;
+
+    margin: 0 0 0 0;
+  }
+
+  /* Style SocialMedia */
+
+  .Footer_content-box-SocialMedia {
+
+    width: 100%;
+
+    padding-top: 2rem;
+  }
+
+  .Footer_content-box-SocialMedia-list {
+
+    border-top: 1px solid rgb(251, 251, 251);
+
+    display: flex;
+    justify-content: space-around;
+
+    padding-top: 2rem;
+  }
+
+  .Footer_content-box-SocialMedia-content {
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid white;
+    border-radius: 50%;
+
+    text-decoration: none;
+  }
+
+  .Footer_content-box-SocialMedia-content-icon {
+
+    color: white;
+
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+   /* Style AllRights */
+
+   .Footer_content-Allrights {
+
+    background-color: #011f3d;
+
+    width: 100%;
+    height: 50px;
+   }
+
+   .Footer_content-Allrights-box {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+
+   .Footer_content-Allrights-box p {
+
+      color: white;
+
+      font-size: .8rem;
+      font-family: "Titillium Web", serif;
+      font-weight: 400;
+      font-style: normal;
+      margin: 0;
+      padding: 0;
+   }
 }
