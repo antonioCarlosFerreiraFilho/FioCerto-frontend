@@ -19,6 +19,18 @@ body {
 
 /*
 
+.bree-serif-regular {
+  font-family: "Bree Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.boogaloo-regular {
+  font-family: "Boogaloo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .titillium-web-extralight {
   font-family: "Titillium Web", serif;
   font-weight: 200;
