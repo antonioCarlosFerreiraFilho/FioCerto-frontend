@@ -40,6 +40,11 @@
     z-index: 200;
   }
 
+  .BannerSlider_content-box-form-container {
+
+    display: none;
+  }
+
   .BannerSlider_content-SlideImage {
 
     width: 100%;
@@ -280,6 +285,18 @@
     margin-top: 1rem;
     padding: 5px 20px;
   }
+
+  /* Arrow */
+
+  .BannerSlider_content-box-Arroow-ArrowLeftBox {
+
+    display: none;
+  }
+
+  .BannerSlider_content-box-Arroow-ArrowRigthBox {
+
+    display: none;
+  }
 }
 
 @media screen and (min-width: 650px) {
@@ -361,5 +378,294 @@
   .BannerSlider_content-box-Slide {
 
     height: 600px;
+  }
+
+  /* Description */
+
+  .BannerSlider_content-box-Description {
+
+    width: 70%;
+    height: 240px;
+  }
+
+  /* Style Css Arrow */
+
+  .BannerSlider_content-box-Arroow-ArrowLeftBox {
+
+    width: 15%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 500;
+  }
+
+  .BannerSlider_content-box-Arroow-Left {
+
+    color: white;
+
+    font-size: 4rem;
+    font-weight: bold;
+    display: none;
+  }
+
+  .ArrowLeftActive {
+
+    display: block;
+  }
+
+  .BannerSlider_content-box-Arroow-ArrowRigthBox {
+
+    width: 15%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    z-index: 500;
+  }
+
+  .BannerSlider_content-box-Arroow-Right {
+
+    color: white;
+
+    font-size: 4rem;
+    font-weight: bold;
+
+    display: none;
+  }
+
+  .ArrowRightActive {
+
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  /* Banner */
+
+  .BannerSlider_content {
+
+    width: 100%;
+    height: 750px;
+  }
+
+  .BannerSlider_content-box-Slide {
+
+    height: 750px;
+  }
+
+  /* Description */
+
+  .BannerSlider_content-box-Description {
+
+    background-color: #FED829;
+
+    width: 45%;
+    height: 250px;
+
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -25%);
+  }
+
+  /* Style Css Arrow */
+
+  .BannerSlider_content-box-Arroow-ArrowLeftBox {
+
+    background-color: #FED829;
+
+    width: 10%;
+    height: 100%;
+  }
+
+  .BannerSlider_content-box-Arroow-ArrowRigthBox {
+
+    background-color: #FED829;
+
+    width: 10%;
+    height: 100%;
+  }
+
+  /* Style box form Banner */
+
+  .BannerSlider_content-box-form-container {
+
+    background-color: #120a8f90;
+
+    width: 30%;
+    height: 500px;
+
+    position: absolute;
+    top: 30%;
+    right: 0%;
+    transform: translate(-38%, -10%);
+
+    z-index: 500;
+    display: block;
+  }
+
+  .BannerSlider_content-box-form-container-content {
+
+    width: 100%;
+    height: 100%;
+
+    box-sizing: border-box;
+
+    padding: 1rem;
+  }
+
+  .BannerSlider_content-box-form-container-contentForm {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .BannerSlider_content-box-form-container-contentForm-title {}
+
+  .BannerSlider_content-box-form-container-contentForm-title h1 {
+
+    color: white;
+
+    font-size: 1.7rem;
+    font-family: "Jost", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+
+    margin: 0;
+  }
+
+  .BannerSlider_content-box-form-container-contentForm-inputs {
+
+    width: 100%;
+  }
+
+  .BannerSlider_content-box-form-container-contentForm-inputs label {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .BannerSlider_content-box-form-container-contentForm-inputs span {
+
+    color: white;
+
+    font-size: 1.1rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 1rem 0 0 0;
+  }
+
+  .BannerSlider_content-box-form-container-contentForm-inputs input {
+
+    width: 100%;
+    height: 30px;
+
+    color: black;
+
+    font-size: 1.1rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+
+    border: none;
+    border-radius: 5px;
+    outline: none;
+
+    padding: .4rem;
+
+    box-sizing: border-box;
+  }
+
+  .BannerSlider_content-box-form-container-contentForm-textarea {
+
+    width: 100%;
+  }
+
+  .BannerSlider_content-box-form-container-contentForm-textarea label{
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .BannerSlider_content-box-form-container-contentForm-textarea span{
+
+    color: white;
+
+    font-size: 1.1rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 1rem 0 0 0;
+  }
+
+  .BannerSlider_content-box-form-container-contentForm-textarea textarea {
+
+    width: 100%;
+    height: 100px;
+
+    color: black;
+
+    font-size: .9rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+
+    border: none;
+    border-radius: 5px;
+    outline: none;
+
+    padding: .4rem;
+
+    box-sizing: border-box;
+  }
+
+  .BannerSlider_content-box-form-container-contentForm-submit {
+
+    width: 100%;
+  }
+
+  .BannerSlider_content-box-form-container-contentForm-submit input {
+
+    width: 100%;
+    height: 40px;
+
+    background-color: #0770d8;
+    color: white;
+
+    font-size: 1.1rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    border: none;
+    border-radius: 5px;
+
+    margin-top: 1rem;
   }
 }

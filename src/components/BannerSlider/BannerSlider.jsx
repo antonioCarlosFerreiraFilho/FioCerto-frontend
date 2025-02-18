@@ -40,9 +40,69 @@ const BannerSlider = () => {
     });
   }
 
+  function adc() {}
+
   //Loop
   useEffect(() => {
-    if (!isRunning) return;
+    const Banner = document.querySelector(".BannerSlider_content");
+    const ArrowRight = document.querySelector(
+      ".BannerSlider_content-box-Arroow-Right"
+    );
+    const ArrowLeft = document.querySelector(
+      ".BannerSlider_content-box-Arroow-Left"
+    );
+    if (!isRunning) {
+      Banner.addEventListener("click", () => {
+        ArrowLeft.classList.add("ArrowLeftActive");
+        ArrowRight.classList.add("ArrowRightActive");
+      });
+
+      //Arrow
+      //Loop Images
+      const Images = document.querySelectorAll(
+        ".BannerSlider_content-SlideImage"
+      );
+      const boxesDescription = document.querySelectorAll(
+        ".BannerSlider_content-box-Description-content"
+      );
+      const boxes = document.querySelectorAll(
+        ".BannerSlider_content-box-Slide-counter"
+      );
+      const controllersArrow = document.querySelectorAll(".controller");
+      controllersArrow.forEach((arrows) => {
+        arrows.addEventListener("click", () => {
+          if (
+            arrows.classList.contains("BannerSlider_content-box-Arroow-Left")
+          ) {
+            Images[counter].classList.remove("activeBanner");
+            boxesDescription[counter].classList.remove("CurrentDescription");
+            boxes[counter].classList.remove("activeCurrent");
+
+            setCounter((counter = counter - 1));
+            if (counter < 0) {
+              setCounter((counter = 3));
+            }
+
+            Images[counter].classList.add("activeBanner");
+            boxesDescription[counter].classList.add("CurrentDescription");
+            boxes[counter].classList.add("activeCurrent");
+          } else {
+            Images[counter].classList.remove("activeBanner");
+            boxesDescription[counter].classList.remove("CurrentDescription");
+            boxes[counter].classList.remove("activeCurrent");
+            setCounter((counter = counter + 1));
+            if (counter > 3) {
+              setCounter((counter = 0));
+            }
+            Images[counter].classList.add("activeBanner");
+            boxesDescription[counter].classList.add("CurrentDescription");
+            boxes[counter].classList.add("activeCurrent");
+          }
+        });
+      });
+
+      return;
+    }
 
     //Loop Images
     const Images = document.querySelectorAll(
@@ -64,12 +124,15 @@ const BannerSlider = () => {
     }
 
     const interval = setInterval(() => {
-      if (counter == 3) {
-        Images.forEach((Element) => {
-          Element.classList.remove("activeBanner");
-        });
+      if (
+        ArrowLeft.classList.contains("ArrowLeftActive") &&
+        ArrowRight.classList.contains("ArrowRightActive")
+      ) {
+        ArrowLeft.classList.remove("ArrowLeftActive");
+        ArrowRight.classList.remove("ArrowRightActive");
       }
 
+      Images[counter].classList.remove("activeBanner");
       boxesDescription[counter].classList.remove("CurrentDescription");
       boxes[counter].classList.remove("activeCurrent");
 
@@ -81,7 +144,7 @@ const BannerSlider = () => {
     }, 9000);
 
     return () => clearInterval(interval);
-  }, [isRunning]);
+  }, [isRunning, counter]);
 
   //start
   useEffect(() => {
@@ -96,6 +159,9 @@ const BannerSlider = () => {
     <div className="BannerSlider">
       <div className="BannerSlider_container">
         <div className="BannerSlider_content">
+          <div className="BannerSlider_content-box-Arroow-ArrowLeftBox">
+            <IoIosArrowBack className="BannerSlider_content-box-Arroow-Left controller" />
+          </div>
 
           <div className="BannerSlider_content-box-Slide">
             <img
@@ -120,9 +186,57 @@ const BannerSlider = () => {
             />
           </div>
 
+          <div className="BannerSlider_content-box-form-container">
+            <div className="BannerSlider_content-box-form-container-content">
+              <form
+                action=""
+                className="BannerSlider_content-box-form-container-contentForm"
+              >
+                <div className="BannerSlider_content-box-form-container-contentForm-title">
+                  <h1>Quick Contact</h1>
+                </div>
+                {/* NAME */}
+                <div className="BannerSlider_content-box-form-container-contentForm-inputs">
+                  <label htmlFor="">
+                    <span>Name</span>
+                    <input type="text" />
+                  </label>
+                </div>
+                {/* PHONE */}
+                <div className="BannerSlider_content-box-form-container-contentForm-inputs">
+                  <label htmlFor="">
+                    <span>Numero</span>
+                    <input type="text" />
+                  </label>
+                </div>
+                {/* CITY */}
+                <div className="BannerSlider_content-box-form-container-contentForm-inputs">
+                  <label htmlFor="">
+                    <span>Localidade</span>
+                    <input type="text" />
+                  </label>
+                </div>
+                {/* Description */}
+                <div className="BannerSlider_content-box-form-container-contentForm-textarea">
+                  <label htmlFor="">
+                    <span>Descrição do Trabalho</span>
+                    <textarea name="" id=""></textarea>
+                  </label>
+                </div>
+                {/* Submit */}
+                <div className="BannerSlider_content-box-form-container-contentForm-submit">
+                  <input type="submit" />
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div className="BannerSlider_content-box-Arroow-ArrowRigthBox">
+            <IoIosArrowForward className="BannerSlider_content-box-Arroow-Right controller" />
+          </div>
+
           <div className="BannerSlider_content-box-Description">
             <div className="BannerSlider_content-box-Description-container">
-
               <div className="BannerSlider_content-box-Description-content CurrentDescription">
                 <h1>Proteção contra Curtos</h1>
                 <p>Our professional provide Services</p>
@@ -146,7 +260,6 @@ const BannerSlider = () => {
                 <p>Our professional provide Services</p>
                 <NavLink>Saber Mais..</NavLink>
               </div>
-
             </div>
           </div>
 
@@ -162,7 +275,6 @@ const BannerSlider = () => {
               <div className="BannerSlider_content-box-Slide-counter"></div>
             </div>
           </div>
-
         </div>
         <div className="BannerSlider_content-call">
           <div className="BannerSlider_content-call-box">
