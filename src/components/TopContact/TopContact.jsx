@@ -3,6 +3,8 @@ import "./TopContact.css";
 //react icons
 import { FaPhoneVolume } from "react-icons/fa6";
 import { IoTimeSharp } from "react-icons/io5";
+import { RiAlarmWarningFill } from "react-icons/ri";
+
 
 
 const TopContact = () => {
@@ -19,6 +21,10 @@ const TopContact = () => {
             <div className="TopContact_box-Time">
               <IoTimeSharp  className="TopContact_Icon"/>
               <p>Atendimento 24H</p>
+            </div>
+            <div className="TopContact_box-Time desck">
+              <RiAlarmWarningFill   className="TopContact_Icon"/>
+              <p>Serviços de Emergencia 24H</p>
             </div>
           </div>
 

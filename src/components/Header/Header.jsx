@@ -2,8 +2,9 @@
 import "./Header.css";
 //react icons
 import { SiThunderstore } from "react-icons/si";
-
 import { IoMenuOutline } from "react-icons/io5";
+//react
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -16,7 +17,17 @@ const Header = () => {
               <p>fiocerto</p>
             </div>
             <div className="Header_box-menu">
-              <IoMenuOutline className="Header_box-menu-Icon"/>
+              <IoMenuOutline className="Header_box-menu-Icon" />
+            </div>
+            <div className="Header_box-linksDescktop">
+              <div className="Header_box-linksDescktop-list">
+                <NavLink to="/">Ínicio</NavLink>
+                <NavLink to="/about">Sobre</NavLink>
+                <NavLink to="/galery">Galeria</NavLink>
+                <NavLink to="/contact">Contato</NavLink>
+                <NavLink to="/services">Serviços</NavLink>
+                <NavLink to="/registerORlogin">Logar / Cadastrar</NavLink>
+              </div>
             </div>
           </div>
         </div>

@@ -75,6 +75,11 @@
     align-items: center;
   }
 
+  .desck {
+
+    display: none;
+  }
+
   .TopContact_box-Time p{
 
     color: white;
@@ -84,5 +89,36 @@
     font-weight: bold;
     text-decoration: none;
     margin: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .TopContact_container {
+
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: .6rem .9rem .8rem .9rem;
+  }
+
+  .desck {
+
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+
+  .TopContact_content {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .TopContact_box {
+
+    max-width: 1300px;
   }
 }

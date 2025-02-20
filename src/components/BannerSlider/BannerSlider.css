@@ -337,12 +337,12 @@
   .BannerSlider_content {
 
     width: 100%;
-    height: 450px;
+    height: 500px;
   }
 
   .BannerSlider_content-box-Slide {
 
-    height: 450px;
+    height: 500px;
   }
 
   /* Box Description Style */
@@ -459,43 +459,44 @@
   .BannerSlider_content {
 
     width: 100%;
-    height: 750px;
+    height: 770px;
   }
 
   .BannerSlider_content-box-Slide {
 
-    height: 750px;
+    height: 770px;
   }
 
   /* Description */
 
   .BannerSlider_content-box-Description {
-
-    background-color: #FED829;
-
-    width: 45%;
+    width: 47%;
     height: 250px;
 
     position: absolute;
     top: 50%;
-    left: 35%;
+    left: 33%;
     transform: translate(-50%, -25%);
+  }
+
+  .BannerSlider_content-box-Description-content h1 {
+
+    font-size: 2.7rem;
+  }
+
+  .BannerSlider_content-box-Description-content p {
+
+    font-size: 1.7rem;
   }
 
   /* Style Css Arrow */
 
   .BannerSlider_content-box-Arroow-ArrowLeftBox {
-
-    background-color: #FED829;
-
     width: 10%;
     height: 100%;
   }
 
   .BannerSlider_content-box-Arroow-ArrowRigthBox {
-
-    background-color: #FED829;
-
     width: 10%;
     height: 100%;
   }
@@ -507,6 +508,7 @@
     background-color: #120a8f90;
 
     width: 30%;
+    max-width: 450px;
     height: 500px;
 
     position: absolute;
@@ -521,6 +523,7 @@
   .BannerSlider_content-box-form-container-content {
 
     width: 100%;
+
     height: 100%;
 
     box-sizing: border-box;
@@ -603,7 +606,7 @@
     width: 100%;
   }
 
-  .BannerSlider_content-box-form-container-contentForm-textarea label{
+  .BannerSlider_content-box-form-container-contentForm-textarea label {
 
     width: 100%;
 
@@ -611,7 +614,7 @@
     flex-direction: column;
   }
 
-  .BannerSlider_content-box-form-container-contentForm-textarea span{
+  .BannerSlider_content-box-form-container-contentForm-textarea span {
 
     color: white;
 
@@ -667,5 +670,27 @@
     border-radius: 5px;
 
     margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+
+  /* Style box form Banner */
+
+  .BannerSlider_content-box-form-container {
+
+    background-color: #120a8f90;
+
+    width: 30%;
+    max-width: 450px;
+    height: 500px;
+
+    position: absolute;
+    top: 30%;
+    right: 0%;
+    transform: translate(-90%, -10%);
+
+    z-index: 500;
+    display: block;
   }
 }

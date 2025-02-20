@@ -159,6 +159,7 @@ const BannerSlider = () => {
     <div className="BannerSlider">
       <div className="BannerSlider_container">
         <div className="BannerSlider_content">
+
           <div className="BannerSlider_content-box-Arroow-ArrowLeftBox">
             <IoIosArrowBack className="BannerSlider_content-box-Arroow-Left controller" />
           </div>
@@ -180,7 +181,7 @@ const BannerSlider = () => {
               className="BannerSlider_content-SlideImage"
             />
             <img
-              src="./public/banner/slide_4.jpg"
+              src="./public/banner/slide_2.jpg"
               alt=""
               className="BannerSlider_content-SlideImage"
             />
@@ -275,6 +276,7 @@ const BannerSlider = () => {
               <div className="BannerSlider_content-box-Slide-counter"></div>
             </div>
           </div>
+
         </div>
         <div className="BannerSlider_content-call">
           <div className="BannerSlider_content-call-box">

@@ -62,11 +62,128 @@
     align-items: center;
   }
 
+  .Header_box-linksDescktop {
+
+    display: none;
+  }
+
   .Header_box-menu-Icon {
 
     color: black;
 
     font-size: 1.9rem;
 
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+
+  .Header_container {
+
+    background-color: white;
+    width: 100%;
+
+    position: fixed;
+    top: 45px;
+    z-index: 600;
+  }
+
+  /* box logo */
+
+  .Header_box-logo {
+
+    width: 20%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Header_box-logo-icon {
+
+    font-size: 2rem;
+  }
+
+  .Header_box-logo p {
+
+    font-size: 2rem;
+  }
+
+  /* box menu */
+
+  .Header_box-menu {
+
+    display: none;
+  }
+
+  /* Liks Descktop */
+
+  .Header_box-linksDescktop {
+
+    width: 80%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Header_box-linksDescktop-list {
+
+    width: 100%;
+    max-width: 610px;
+
+    box-sizing: border-box;
+    padding: .5rem;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .Header_box-linksDescktop-list a {
+
+    color: black;
+
+    font-size: 1.2rem;
+    font-family: "Acme", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+
+    text-decoration: none;
+  }
+
+  .Header_box-linksDescktop-list a.active {
+
+    color: blue;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+
+  .Header_content {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Header_box {
+
+    max-width: 1500px;
+  }
+
+  /* box logo */
+
+  .Header_box-logo {
+
+    width: 40%;
+  }
+
+  /* Liks Descktop */
+
+  .Header_box-linksDescktop {
+
+    width: 60%;
   }
 }
