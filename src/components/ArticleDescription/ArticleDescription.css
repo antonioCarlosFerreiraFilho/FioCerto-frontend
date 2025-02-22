@@ -1,0 +1,149 @@
+@media screen and (min-width: 358px) {
+
+  .ArticleDescription {}
+
+  .ArticleDescription_container {
+
+    width: 100%;
+  }
+
+  .ArticleDescription_content {}
+
+  .ArticleDescription_box-Article {
+
+    width: 100%;
+    height: auto;
+
+    padding: .5rem;
+    margin-top: 2rem;
+    box-sizing: border-box;
+  }
+
+  /* box 1 */
+
+  .ArticleDescription_box-Article-box1 {
+
+    width: 100%;
+    height: auto;
+  }
+
+  .ArticleDescription_box-Article-box1-content img {
+
+    width: 100%;
+    height: 200px;
+
+    border-bottom: 4px solid orange;
+  }
+
+  .ArticleDescription_box-Article-box1-content h1 {
+
+    color: black;
+
+    font-size: 1.3rem;
+    font-family: "Acme", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 0;
+  }
+
+  .ArticleDescription_box-Article-box1-content p {
+
+    color: black;
+
+    font-size: 1rem;
+    font-family: "Noto Sans Tai Viet", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 1rem 0 0 0;
+  }
+
+
+  /* box 2 box 3 */
+  .ArticleDescription_box-Article-box2-box3 {
+
+    width: 100%;
+    margin-top: 4rem;
+  }
+
+  /* box 2 */
+  .ArticleDescription_box-Article-box2 {
+
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .ArticleDescription_box-Article-box2-content img {
+
+    width: 100%;
+    height: 200px;
+
+    border-bottom: 4px solid orange;
+  }
+
+  .ArticleDescription_box-Article-box2-content h1 {
+
+    color: black;
+
+    font-size: 1.3rem;
+    font-family: "Acme", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 0;
+  }
+
+  .ArticleDescription_box-Article-box2-content p {
+
+    color: black;
+
+    font-size: 1rem;
+    font-family: "Noto Sans Tai Viet", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 1rem 0 0 0;
+  }
+
+
+  /* box 3 */
+  .ArticleDescription_box-Article-box3 {
+
+    width: 100%;
+
+    margin: 1rem 0 0 0;
+  }
+
+  .ArticleDescription_box-Article-box3-content img {
+
+    width: 100%;
+    height: 200px;
+
+    border-bottom: 4px solid orange;
+  }
+
+  .ArticleDescription_box-Article-box3-content h1 {
+
+    color: black;
+
+    font-size: 1.3rem;
+    font-family: "Acme", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 0;
+  }
+
+  .ArticleDescription_box-Article-box3-content p {
+
+    color: black;
+
+    font-size: 1rem;
+    font-family: "Noto Sans Tai Viet", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 1rem 0 0 0;
+  }
+}

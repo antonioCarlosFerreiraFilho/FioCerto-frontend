@@ -13,8 +13,10 @@ const Footer = () => {
   return (
     <div className="Footer">
       <div className="Footer_container">
+
         <div className="Footer_content">
           <div className="Footer_content-box">
+
             <div className="Footer_content-box-logo">
               <div className="Footer_content-box-logo-FioCerto">
                 <SiThunderstore className="Footer_content-box-logo-FioCerto-icon" />
@@ -60,23 +62,11 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="Footer_content-box-SocialMedia">
-              <div className="Footer_content-box-SocialMedia-list">
-                <NavLink className="Footer_content-box-SocialMedia-content">
-                  <FiTwitter className="Footer_content-box-SocialMedia-content-icon" />
-                </NavLink>
+           
 
-                <NavLink className="Footer_content-box-SocialMedia-content">
-                  <LuFacebook className="Footer_content-box-SocialMedia-content-icon" />
-                </NavLink>
-
-                <NavLink className="Footer_content-box-SocialMedia-content">
-                  <FaInstagram className="Footer_content-box-SocialMedia-content-icon" />
-                </NavLink>
-              </div>
-            </div>
           </div>
         </div>
+
         <div className="Footer_content-Allrights">
           <div className="Footer_content-Allrights-box">
             <p>@ FioCerto 2025 - Todos os direitos reservados.</p>

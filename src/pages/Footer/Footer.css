@@ -227,17 +227,17 @@
     padding: 0;
   }
 
-   /* Style AllRights */
+  /* Style AllRights */
 
-   .Footer_content-Allrights {
+  .Footer_content-Allrights {
 
     background-color: #011f3d;
 
     width: 100%;
     height: 50px;
-   }
+  }
 
-   .Footer_content-Allrights-box {
+  .Footer_content-Allrights-box {
 
     width: 100%;
     height: 100%;
@@ -245,17 +245,127 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   }
+  }
 
-   .Footer_content-Allrights-box p {
+  .Footer_content-Allrights-box p {
 
-      color: white;
+    color: white;
 
-      font-size: .8rem;
-      font-family: "Titillium Web", serif;
-      font-weight: 400;
-      font-style: normal;
-      margin: 0;
-      padding: 0;
-   }
+    font-size: .8rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 450px) {
+
+  .Footer_content {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Footer_content-box {
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Logo Description */
+  .Footer_content-box-logo-FioCerto {
+
+    max-width: 150px;
+  }
+
+  .Footer_content-box-description {
+    max-width: 400px;
+  }
+
+  /* List Navigate */
+
+  .Footer_content-box-navigate-List {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Footer_content-box-contacts {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Footer_content-box-contacts-list {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Footer_content-box-SocialMedia {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .Footer_content-box-SocialMedia-list {
+
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+
+  .Footer_content {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Footer_content-box {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* logo description */
+  .Footer_content-box-logo {
+    width: 30%;
+  }
+
+  /* links navigate */
+  .Footer_content-box-navigate {
+    width: 25%;
+  }
+
+  /* Contact */
+  .Footer_content-box-contacts {
+    width: 35%;
+  }
 }
