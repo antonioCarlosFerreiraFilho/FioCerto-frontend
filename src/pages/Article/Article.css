@@ -1,3 +1,60 @@
-@media screen and (min-width: 358px) {
+@media screen and (min-width: 1050px) {
+ 
+  .Article_content {
+
+    width: 100%;
+  }
+
+  .Article_content-container {
+
+    width: 100%;
+  }
+
+  .Article_content-Description {
+    width: 100%;
+    display: flex;
+  }
+
+  .Article_content-BrokenBox-boxes {
+
+    width: 80%;
+  }
+
+  .Article_content-BrokenBox {
+
+    width: 20%;
+
+    background-color: aqua;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  .Article_content-container {
   
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Article_content-Description {
+    
+    max-width: 1200px;
+  } 
+
+  /* boxes */
+
+  .Article_content-BrokenBox-boxes {
+
+    width: 75%;
+  }
+
+  .Article_content-BrokenBox {
+
+    width: 25%;
+
+    background-color: aqua;
+  }
 }
