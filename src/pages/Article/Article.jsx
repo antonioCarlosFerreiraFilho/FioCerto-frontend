@@ -4,6 +4,7 @@ import "./Article.css";
 import BannerArticle from "../../components/BannerArticle/BannerArticle";
 import ArticleDescription from "../../components/ArticleDescription/ArticleDescription";
 import ArticleService from "../../components/ArticleService/ArticleService";
+import BrokenBox from "../../components/BrokenBox/BrokenBox";
 
 const Article = () => {
   return (
@@ -23,7 +24,9 @@ const Article = () => {
                 <ArticleService />
               </section>
             </div>
-            <div className="Article_content-BrokenBox"></div>
+            <div className="Article_content-BrokenBox">
+              <BrokenBox/>
+            </div>
           </div>
         </div>
       </section>

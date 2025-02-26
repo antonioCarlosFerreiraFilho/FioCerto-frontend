@@ -1,4 +1,262 @@
 @media screen and (min-width: 768px) {
-  
-  
+
+
+  .BrokenBox {}
+
+  .BrokenBox_container {
+
+    width: 100%;
+  }
+
+  .BrokenBox_content {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .BrokenBox_box-title-links {
+    background-color: rgb(248, 246, 246);
+    width: 100%;
+    height: 230px;
+    margin-top: 2.6rem;
+    padding: .4rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  /* link box */
+
+  .BrokenBox_box-title-links-content {
+
+    background-color: white;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    overflow: hidden;
+  }
+
+  .BrokenBox_box-title-links-content-link {
+
+    width: 200%;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    text-decoration: none;
+
+    box-sizing: border-box;
+    overflow: hidden;
+
+    padding: .1rem;
+
+    position: relative;
+  }
+
+  .BrokenBox_box-title-links-content-link h1 {
+
+    color: black;
+
+    font-size: 1.1rem;
+    margin: 0 0 0 0;
+  }
+
+  .BrokenBox_box-title-links-content-link-Arrow {
+
+    background-color: white;
+
+    width: 25px;
+
+    position: absolute;
+    right: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .BrokenBox_box-title-links-content-link-Arrow:nth-child(2) {
+
+    color: black;
+
+    font-size: 1.2rem;
+  }
+
+  /* Contacts */
+
+  .BrokenBox_content-content {
+
+    background-color: rgb(248, 246, 246);
+  }
+
+  .BrokenBox_content-content-LinkContact {
+
+    padding: .5rem;
+    box-sizing: border-box;
+  }
+
+  .BrokenBox_content-content-LinkContact h1 {
+
+    color: black;
+
+    font-size: 1.2rem;
+
+    font-family: "Acme", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    border-top: 2px solid rgb(214, 213, 213);
+    padding-top: .7rem;
+    margin: 0 0 0 0;
+  }
+
+  .BrokenBox_content-content-LinkContact p {
+
+    color: black;
+
+    font-size: .9rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+  }
+
+  .BrokenBox_content-content-LinkContact a {
+
+    color: blue;
+
+    font-family: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  /* content Professional */
+
+  .BrokenBox_content-infoProfessional {
+
+    margin: 1rem 0 1rem 0;
+  }
+
+  .BrokenBox_content-infoProfessional-title {
+
+    background-color: rgb(12, 12, 136);
+
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .BrokenBox_content-infoProfessional-title h1 {
+
+    color: white;
+
+    font-size: 1.3rem;
+    font-family: "Boogaloo", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .BrokenBox_content-infoProfessional-title-icon {
+
+    color: yellow;
+
+    font-size: 1.4rem;
+    margin-right: 5px;
+  }
+
+  /* Services */
+
+  .BrokenBox_content-Services {
+
+    width: 100%;
+    height: auto;
+
+    border: 1px solid rgb(193, 190, 190);
+
+    box-sizing: border-box;
+  }
+
+  .BrokenBox_content-Services-boxTitle {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .BrokenBox_content-Services-boxTitle-icon {
+
+    color: black;
+
+    font-size: 1.3rem;
+  }
+
+  .BrokenBox_content-Services-boxTitle h1{
+
+    color: black;
+
+    font-size: 1.2rem;
+    font-family: "Boogaloo", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin-left: 5px;
+  }
+
+  /* box List */
+
+  .BrokenBox_content-Services-boxList {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .BrokenBox_content-Services-List {
+
+    width: 85%;
+
+    list-style: none;
+    padding: .5rem;
+    margin: 0;
+  }
+
+  .BrokenBox_content-Services-List li {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+    margin-bottom: .5rem;
+  }
+
+  .BrokenBox_content-Services-List p {
+
+    font-size: .8rem;
+    font-family: "Noto Sans Tai Viet", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 19px;
+
+    margin: .5rem 0 0 0;
+  }
 }
