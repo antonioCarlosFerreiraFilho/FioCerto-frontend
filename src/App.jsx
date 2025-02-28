@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Article from "./pages/Article/Article";
 import Footer from "./pages/Footer/Footer";
+import About from "./pages/About/About";
 //components
 import TopHeader from "./components/TopContact/TopContact";
 import Header from "./components/Header/Header";
@@ -16,7 +17,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<Article />} />
+          <Route path="/about" element={<About />} />
           <Route path="/galery" element={<Article />} />
           <Route path="/article" element={<Article />} />
           <Route path="/contact" element={<Article />} />
