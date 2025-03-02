@@ -151,11 +151,19 @@
     font-style: normal;
 
     text-decoration: none;
+    margin-left: 3rem;
   }
 
   .Header_box-linksDescktop-list a.active {
 
     color: blue;
+  }
+
+  .Header_box-linksDescktop-list a:last-child {
+
+    color: rgb(146, 146, 151);
+
+    cursor: default;
   }
 }
 

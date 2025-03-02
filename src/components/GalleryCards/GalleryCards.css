@@ -1,0 +1,309 @@
+@media screen and (min-width: 358px) {
+
+
+  .GalleryCards {}
+
+  .GalleryCards_container {
+
+    width: 100%;
+  }
+
+  .GalleryCards_content {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .GalleryCards_Boxes {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    padding: .5rem;
+  }
+
+  /* Style Card */
+
+  .GalleryCards_card {
+
+    width: 100%;
+    height: auto;
+
+    margin: 2rem 0 2rem 0;
+  }
+
+  /* Card image */
+  .GalleryCards_card-image {
+
+    width: 100%;
+    height: 150px;
+
+    border-bottom: 3px solid orange;
+  }
+
+  .GalleryCards_card-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+  /* Card info */
+
+  .GalleryCards_card-info {
+
+    width: 100%;
+    height: 35px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .GalleryCards_card-info-BoxIcons {
+
+    width: 70%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 1px solid rgb(207, 202, 202);
+  }
+
+  .GalleryCards_card-info-ICON {
+
+    font-size: 1.1rem;
+  }
+
+  .GalleryCards_card-info-BoxIconDada {
+
+    width: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .GalleryCards_card-info-BoxIconDada p {
+
+    font-size: 1.1rem;
+
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0 0 0 .5rem;
+  }
+
+  .GalleryCards_card-info-BoxIconComments {
+
+    width: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .GalleryCards_card-info-BoxIconComments p {
+
+    font-size: 1.1rem;
+
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0 0 0 .5rem;
+  }
+
+  /* Card description */
+
+  .GalleryCards_card-description {
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .GalleryCards_card-description-boxInfo_card {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 0rem .5rem 0rem .5rem;
+  }
+
+  .GalleryCards_card-description-boxInfo_card h1 {
+
+    color: black;
+    font-size: 1.3rem;
+
+    font-family: "Boogaloo", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0 0 0 .5rem;
+    text-align: center;
+
+    margin: 1rem 0 0 0;
+  }
+
+  .GalleryCards_card-description-boxInfo_card p {
+
+    color: black;
+
+    font-size: 1.1rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0 0 0 .5rem;
+    text-align: start;
+
+    margin: .5rem 0 0 0;
+  }
+
+  /* Card Link */
+
+  .GalleryCards_card-Link {
+
+    width: 100%;
+  }
+
+  .GalleryCards_card-Link-box {
+
+    width: 90%;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .GalleryCards_card-Link-box a {
+
+    background-color: rgb(20, 20, 117);
+    color: white;
+
+    width: 50%;
+    height: 30px;
+
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+
+    margin-top: 2rem;
+  }
+
+  /* Paginations */
+
+  .GalleryCards_Pagination {
+    width: 100%;
+
+    margin: 2rem 0 0rem 0;
+  }
+
+  .GalleryCards_Pagination-container {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .GalleryCards_Pagination-content {
+
+    width: 80%;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .GalleryCards_Pagination-content p {
+
+    background-color: rgb(63, 40, 181);
+    color: white;
+
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(98, 54, 209);
+    border-radius: 50%;
+
+    font-size: 1.1rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem 0 1rem;
+
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 500px) {
+
+  /* Style Card */
+
+  .GalleryCards_card {
+
+    max-width: 500px;
+    margin: 2rem 0 1rem 0;
+  }
+
+  /* Card image */
+  .GalleryCards_card-image {
+    height: 240px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .GalleryCards_content {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Boxes */
+
+  .GalleryCards_Boxes {
+
+    width: 100%;
+    max-width: 1070px;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+
+  /* Style Card */
+
+  .GalleryCards_card {
+
+    width: 49%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+
+  .GalleryCards_content {
+
+    margin: 4rem 0 4rem 0;
+  }
+}

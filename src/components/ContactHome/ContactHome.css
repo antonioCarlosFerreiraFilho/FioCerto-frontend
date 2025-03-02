@@ -96,6 +96,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    position: relative;
   }
 
 
@@ -152,6 +154,8 @@
     margin: .5rem 0 .3rem 0;
   }
 
+  /* description */
+
   .ContactHome_content-form-boxes-description {
 
     width: 100%;
@@ -205,6 +209,8 @@
     outline: none;
   }
 
+  /* Submit */
+
   .ContactHome_content-form-boxes-submit {
 
     width: 100%;
@@ -240,6 +246,23 @@
     padding: 5px 50px;
 
     cursor: pointer;
+  }
+
+  /* Message Error */
+
+  .ContactHome_content-form-boxes-MessageError {
+
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+
+    position: absolute;
+    bottom: 0;
   }
 }
 

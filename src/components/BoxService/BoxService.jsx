@@ -55,7 +55,7 @@ const BoxService = () => {
 
             <div className="BoxService_content-services-service">
               <div className="BoxService_content-services-service-boxImage">
-                <img src="/public/imagesIcons/electric-appliances.png" alt="" />
+                <img src="/public/imagesIcons/charging-station.png" alt="" />
               </div>
               <div className="BoxService_content-services-service-boxDescription">
                 <h1>+1000 Happy Customers</h1>

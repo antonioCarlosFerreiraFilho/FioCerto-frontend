@@ -4,6 +4,7 @@ import "./About.css";
 import AboutBanner from "../../components/AboutBanner/AboutBanner";
 import AboutProfessional from "../../components/AboutProfessional/AboutProfessional";
 import AboutInfo from "../../components/AboutInfo/AboutInfo";
+import AboutProfile from "../../components/AboutProfile/AboutProfile";
 
 const About = () => {
   return (
@@ -16,6 +17,9 @@ const About = () => {
       </section>
       <section>
         <AboutInfo />
+      </section>
+      <section>
+        <AboutProfile />
       </section>
     </div>
   );

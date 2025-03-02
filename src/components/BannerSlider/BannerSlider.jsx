@@ -8,6 +8,10 @@ import { IoIosArrowBack } from "react-icons/io";
 import { FaPause } from "react-icons/fa";
 import { FaPlay } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+//Components
+import MessageError from "../MessageError/MessageError";
+//hooks
+import { useScroll } from "../../hooks/useScroll";
 
 const BannerSlider = () => {
   const [isRunning, setIsRunning] = useState(true);
@@ -40,7 +44,16 @@ const BannerSlider = () => {
     });
   }
 
-  function adc() {}
+  //Scroll top
+  function ScrollTop() {
+    const list = document.querySelectorAll(".ControllerLink");
+
+    list.forEach((Element) => {
+      Element.addEventListener("click", () => {
+        useScroll(0, 0, 0);
+      });
+    });
+  }
 
   //Loop
   useEffect(() => {
@@ -150,6 +163,7 @@ const BannerSlider = () => {
   useEffect(() => {
     const Time = setTimeout(() => {
       controllerBanner();
+      ScrollTop();
     }, 1000);
 
     return () => clearTimeout(Time);
@@ -159,7 +173,6 @@ const BannerSlider = () => {
     <div className="BannerSlider">
       <div className="BannerSlider_container">
         <div className="BannerSlider_content">
-
           <div className="BannerSlider_content-box-Arroow-ArrowLeftBox">
             <IoIosArrowBack className="BannerSlider_content-box-Arroow-Left controller" />
           </div>
@@ -228,6 +241,10 @@ const BannerSlider = () => {
                 <div className="BannerSlider_content-box-form-container-contentForm-submit">
                   <input type="submit" />
                 </div>
+                {/* Message Error */}
+                <div className="BannerSlider_content-box-form-container-contentForm-MessageError">
+                  <MessageError />
+                </div>
               </form>
             </div>
           </div>
@@ -241,25 +258,25 @@ const BannerSlider = () => {
               <div className="BannerSlider_content-box-Description-content CurrentDescription">
                 <h1>Proteção contra Curtos</h1>
                 <p>Our professional provide Services</p>
-                <NavLink>Saber Mais..</NavLink>
+                <NavLink className="ControllerLink">Saber Mais..</NavLink>
               </div>
 
               <div className="BannerSlider_content-box-Description-content">
                 <h1>Projeto elétrico Certificado</h1>
                 <p>Our professional provide Services</p>
-                <NavLink>Saber Mais..</NavLink>
+                <NavLink className="ControllerLink">Saber Mais..</NavLink>
               </div>
 
               <div className="BannerSlider_content-box-Description-content">
                 <h1>Manutenção preventiva</h1>
                 <p>Our professional provide Services</p>
-                <NavLink>Saber Mais..</NavLink>
+                <NavLink className="ControllerLink">Saber Mais..</NavLink>
               </div>
 
               <div className="BannerSlider_content-box-Description-content">
                 <h1>Portinhola é Aterramentos</h1>
                 <p>Our professional provide Services</p>
-                <NavLink>Saber Mais..</NavLink>
+                <NavLink className="ControllerLink">Saber Mais..</NavLink>
               </div>
             </div>
           </div>
@@ -276,12 +293,11 @@ const BannerSlider = () => {
               <div className="BannerSlider_content-box-Slide-counter"></div>
             </div>
           </div>
-
         </div>
         <div className="BannerSlider_content-call">
           <div className="BannerSlider_content-call-box">
             <p>Looking for a quality and affordable eletrician service ?</p>
-            <a href="">Get a Quote</a>
+            <NavLink className="ControllerLink" to="/about" >Get a Quote</NavLink>
           </div>
         </div>
       </div>

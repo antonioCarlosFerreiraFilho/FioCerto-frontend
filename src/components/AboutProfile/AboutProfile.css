@@ -1,0 +1,230 @@
+@media screen and (min-width: 358px) {
+
+
+  .AboutProfile {}
+
+  .AboutProfile_container {
+
+    width: 100%;
+  }
+
+  .AboutProfile_content {
+
+    background-image: url("../../../public/banner/slide_1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 500px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* STYLE Box */
+
+  .AboutProfile_box-description {
+
+    width: 95%;
+    height: 460px;
+
+  }
+
+  .AboutProfile_box-description-title {
+
+    width: 100%;
+  }
+
+  .AboutProfile_box-description-title h1 {
+
+    color: white;
+
+    font-size: 2rem;
+    font-family: "Boogaloo", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+
+    margin: 1rem 0 0 0;
+  }
+
+  .AboutProfile_box-description-title p {
+
+    color: white;
+
+    font-size: 1rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+
+    margin: 0rem 0 0 0;
+  }
+
+  .AboutProfile_box-description-profile {
+
+    background-color: #00000090;
+
+    width: 100%;
+    height: 300px;
+
+    overflow: hidden;
+
+    margin-top: 1rem;
+  }
+
+  .AboutProfile_box-description-profile-image {
+
+    width: 100%;
+    height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding: .5rem;
+  }
+
+  .AboutProfile_box-description-profile-image-background {
+
+    background-color: blue;
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+  }
+
+  .AboutProfile_box-description-profile-nameProfissional {}
+
+  .AboutProfile_box-description-profile-nameProfissional h1 {
+
+    color: white;
+
+    font-size: 1rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+
+    margin: .5rem 0 0 0;
+  }
+
+  .AboutProfile_box-description-profile-nameProfissional p {
+
+    color: white;
+
+    font-size: .8rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+
+    margin: .2rem 0 0 0;
+  }
+
+  .AboutProfile_box-description-profile-InfoBio {
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .AboutProfile_box-description-profile-InfoBio-TXT {
+
+    box-sizing: border-box;
+    padding: .5rem;
+  }
+
+  .AboutProfile_box-description-profile-InfoBio-TXT p {
+
+    color: white;
+
+    font-size: .9rem;
+    font-family: "Noto Sans Tai Viet", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+
+    margin: 0 0 0 0;
+  }
+}
+
+@media screen and (min-width: 500px) {
+
+
+  /* box descripoptin */
+
+  .AboutProfile_box-description-profile-InfoBio {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .AboutProfile_box-description-profile-InfoBio-TXT {
+
+    max-width: 500px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+
+  .AboutProfile_content {
+
+    background-image: url("../../../public/banner/slide_1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  /* STYLE Box */
+
+  .AboutProfile_box-description {
+
+    
+    max-width: 650px;
+    height: 300px;
+  }
+
+  /* box  PROFILEimage/box descripoptin */
+
+  .AboutProfile_box-description-profile {
+
+    max-width: 729px;
+    height: 200px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  /* PROFILE image */
+
+  .AboutProfile_box-description-profile-image {
+
+    width: 30%;
+    margin-bottom: 3rem;
+  }
+
+  /* box descripoptin */
+
+  .AboutProfile_box-description-profile-InfoBio {
+
+    width: 70%;
+    height: auto;
+  }
+
+  .AboutProfile_box-description-profile-InfoBio-TXT p {
+
+
+    text-align: start;
+  }
+}

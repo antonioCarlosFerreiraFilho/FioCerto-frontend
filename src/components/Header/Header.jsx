@@ -4,9 +4,30 @@ import "./Header.css";
 import { SiThunderstore } from "react-icons/si";
 import { IoMenuOutline } from "react-icons/io5";
 //react
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+//hooks
+import { useScroll } from "../../hooks/useScroll";
 
 const Header = () => {
+  function DescktopTop() {
+    const list = document.querySelectorAll(".linkController");
+
+    list.forEach((Element) => {
+      Element.addEventListener("click", () => {
+        useScroll(0, 0, 0);
+      });
+    });
+  }
+
+  useEffect(() => {
+    const Time = setTimeout(() => {
+      DescktopTop();
+    }, 1000);
+
+    return () => clearTimeout(Time);
+  }, []);
+
   return (
     <div className="Header">
       <div className="Header_container">
@@ -21,12 +42,21 @@ const Header = () => {
             </div>
             <div className="Header_box-linksDescktop">
               <div className="Header_box-linksDescktop-list">
-                <NavLink to="/">Ínicio</NavLink>
-                <NavLink to="/about">Sobre</NavLink>
-                <NavLink to="/galery">Galeria</NavLink>
-                <NavLink to="/contact">Contato</NavLink>
-                <NavLink to="/services">Serviços</NavLink>
-                <NavLink to="/registerORlogin">Logar / Cadastrar</NavLink>
+                <NavLink className="linkController" to="/">
+                  Ínicio
+                </NavLink>
+                <NavLink className="linkController" to="/about">
+                  Sobre
+                </NavLink>
+                <NavLink className="linkController" to="/gallery">
+                  Galeria
+                </NavLink>
+                <NavLink className="linkController" to="/contact">
+                  Contato
+                </NavLink>
+                <NavLink className="linkController" to="#">
+                  Logar / Cadastrar
+                </NavLink>
               </div>
             </div>
           </div>

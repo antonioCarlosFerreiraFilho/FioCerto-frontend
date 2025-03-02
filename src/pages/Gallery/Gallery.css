@@ -1,0 +1,40 @@
+@media screen and (min-width:358px) {
+  .Gallery_SidePackage {
+
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  .Gallery {
+
+  }
+
+  .Gallery_GelleryCards-SidePackage {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Gallery_GelleryCards-SidePackage-container {
+    width: 100%;
+    max-width: 1500px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .Gallery_GelleryCards {
+    width: 80%;
+    height: 100%;
+  }
+
+  .Gallery_SidePackage {
+    display: block;
+    width: 20%;
+  }
+}

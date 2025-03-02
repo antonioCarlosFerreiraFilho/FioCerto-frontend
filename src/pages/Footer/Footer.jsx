@@ -5,18 +5,37 @@ import "./Footer.css";
 import { SiThunderstore } from "react-icons/si";
 import { IoMdPhonePortrait } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
-import { FaInstagram } from "react-icons/fa";
-import { LuFacebook } from "react-icons/lu";
-import { FiTwitter } from "react-icons/fi";
+//hooks
+import { useScroll } from "../../hooks/useScroll";
+//react
+import { useEffect } from "react";
 
 const Footer = () => {
+  //Scroll top
+  function ScrollTop() {
+    const list = document.querySelectorAll(".ControllerLink-Footer");
+
+    list.forEach((Element) => {
+      Element.addEventListener("click", () => {
+        useScroll(0, 0, 0);
+      });
+    });
+  }
+
+  //start
+  useEffect(() => {
+    const Time = setTimeout(() => {
+      ScrollTop();
+    }, 1000);
+
+    return () => clearTimeout(Time);
+  }, []);
+
   return (
     <div className="Footer">
       <div className="Footer_container">
-
         <div className="Footer_content">
           <div className="Footer_content-box">
-
             <div className="Footer_content-box-logo">
               <div className="Footer_content-box-logo-FioCerto">
                 <SiThunderstore className="Footer_content-box-logo-FioCerto-icon" />
@@ -39,11 +58,11 @@ const Footer = () => {
             <div className="Footer_content-box-navigate">
               <div className="Footer_content-box-navigate-List">
                 <h1>Descobrir</h1>
-                <NavLink>Ínicio</NavLink>
-                <NavLink>Sobre</NavLink>
-                <NavLink>Galeria</NavLink>
-                <NavLink>Contato</NavLink>
-                <NavLink>Logar / Cadastrar</NavLink>
+                <NavLink to="/" className="ControllerLink-Footer" >Ínicio</NavLink>
+                <NavLink to="/about" className="ControllerLink-Footer" >Sobre</NavLink>
+                <NavLink to="/gallery" className="ControllerLink-Footer" >Galeria</NavLink>
+                <NavLink to="/contact" className="ControllerLink-Footer" >Contato</NavLink>
+                <NavLink to="#" className="ControllerLink-Footer" >Logar / Cadastrar</NavLink>
               </div>
             </div>
 
@@ -61,9 +80,6 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-
-           
-
           </div>
         </div>
 

@@ -2,14 +2,37 @@
 import "./Services.css";
 //react
 import { NavLink } from "react-router-dom";
+//hooks
+import { useScroll } from "../../hooks/useScroll";
+//react
+import { useEffect } from "react";
 
 const Services = () => {
+  //Scroll top
+  function ScrollTop() {
+    const list = document.querySelectorAll(".ControllerLink-service");
+
+    list.forEach((Element) => {
+      Element.addEventListener("click", () => {
+        useScroll(0, 0, 0);
+      });
+    });
+  }
+
+  //start
+  useEffect(() => {
+    const Time = setTimeout(() => {
+      ScrollTop();
+    }, 1000);
+
+    return () => clearTimeout(Time);
+  }, []);
+
   return (
     <div className="Services">
       <div className="Services_container">
         <div className="Services_content">
           <div className="Services_content-boxes">
-
             <div className="Services_content-box">
               <div className="Services_content-box-Image">
                 <img src="./public/background/service_home_1.jpg" alt="" />
@@ -21,7 +44,9 @@ const Services = () => {
                   facere repudiandae ipsum architecto vel quaerat commodi sed
                   consectetur, dolorem aliquam
                 </p>
-                <NavLink>Saiba mais.....</NavLink>
+                <NavLink className="ControllerLink-service">
+                  Saiba mais.....
+                </NavLink>
               </div>
             </div>
 
@@ -36,7 +61,9 @@ const Services = () => {
                   facere repudiandae ipsum architecto vel quaerat commodi sed
                   consectetur, dolorem aliquam
                 </p>
-                <NavLink>Saiba mais.....</NavLink>
+                <NavLink className="ControllerLink-service">
+                  Saiba mais.....
+                </NavLink>
               </div>
             </div>
 
@@ -51,15 +78,15 @@ const Services = () => {
                   facere repudiandae ipsum architecto vel quaerat commodi sed
                   consectetur, dolorem aliquam
                 </p>
-                <NavLink>Saiba mais.....</NavLink>
+                <NavLink className="ControllerLink-service">
+                  Saiba mais.....
+                </NavLink>
               </div>
             </div>
-
           </div>
         </div>
         <div className="Services_content-InfoProficional">
           <div className="Services_content-InfoProficional-box">
-            
             <div className="Services_content-InfoProficional-box1">
               <div className="Services_content-InfoProficional-box1-content">
                 <h1>Some words about us</h1>
@@ -115,7 +142,6 @@ const Services = () => {
                 </ul>
               </div>
             </div>
-
           </div>
         </div>
       </div>

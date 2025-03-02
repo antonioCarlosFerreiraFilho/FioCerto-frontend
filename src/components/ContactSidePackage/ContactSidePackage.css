@@ -1,0 +1,197 @@
+@media screen and (min-width: 358px) {
+
+  .ContactSidePackage {
+
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+
+  .ContactSidePackage {
+
+    display: block;
+  }
+
+  .ContactSidePackage_container {
+
+    width: 100%;
+  }
+
+  .ContactSidePackage_content {
+
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    margin-top: 6.4rem;
+    padding: .3rem;
+  }
+
+  /* Box Address / Contacts */
+
+  .ContactSidePackage_box-Address-Contacts {
+
+    width: 100%;
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    padding: .2rem;
+
+    border: 1px solid rgb(168, 166, 166);
+  }
+
+  /* Box Address */
+
+  .ContactSidePackage_box-Address {
+
+    width: 100%;
+  }
+
+  .ContactSidePackage_box-Address h1 {
+
+    color: black;
+
+    font-size: 1.4rem;
+    font-family: "Boogaloo", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 0 0 0 .5rem;
+  }
+
+  .ContactSidePackage_box-Address-List p {
+
+    color: rgb(43, 43, 227);
+
+    display: flex;
+    align-items: center;
+
+    font-size: .9rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 600;
+    font-style: normal;
+
+    margin: .5rem 0 0 .5rem;
+  }
+
+  .ContactSidePackage_box-Address-List p::before {
+
+    content: "";
+
+    background-color: blue;
+
+    display: flex;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+
+    margin-right: 5px;
+  }
+
+  /* Contacts */
+
+  .ContactSidePackage_box-Contacts {
+
+    width: 100%;
+
+    margin-top: 1rem;
+  }
+
+  .ContactSidePackage_box-Contacts h1 {
+
+    color: black;
+
+    font-size: 1.4rem;
+    font-family: "Boogaloo", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 0 0 0 .5rem;
+  }
+
+  .ContactSidePackage_box-Contacts-List p {
+
+    color: rgb(43, 43, 227);
+
+    display: flex;
+    align-items: center;
+
+    font-size: .9rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 600;
+    font-style: normal;
+
+    margin: .5rem 0 0 .5rem;
+  }
+
+  .ContactSidePackage_box-Contacts-List p::before {
+
+    content: "+";
+
+    display: flex;
+    margin-right: 5px;
+  }
+
+  /* Box Schedules */
+
+  .ContactSidePackage_box-Schedules {
+
+    width: 100%;
+
+    margin-top: 1rem;
+  }
+
+  .ContactSidePackage_box-Schedules h1{
+
+    color: black;
+
+    font-size: 1.2rem;
+    font-family: "Boogaloo", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 0 0 0 .5rem;
+  }
+
+  .ContactSidePackage_box-Schedules-List p{
+
+    color: rgb(43, 43, 227);
+
+    display: flex;
+    align-items: center;
+
+    font-size: .9rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 600;
+    font-style: normal;
+
+    margin: .5rem 0 0 .5rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+
+
+  .ContactSidePackage_container {
+
+    width: 100%;
+  }
+
+  .ContactSidePackage_content {
+    max-width: 240px;
+  }
+
+   /* Box Schedules */
+
+  .ContactSidePackage_box-Schedules h1{
+    font-size: 1.3rem;
+  }
+}

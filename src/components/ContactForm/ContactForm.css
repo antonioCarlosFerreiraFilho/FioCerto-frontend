@@ -1,0 +1,410 @@
+@media screen and (min-width: 358px) {
+
+  .ContactForm {}
+
+  .ContactForm_container {
+
+
+    width: 100%;
+  }
+
+  .ContactForm_content {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    box-sizing: border-box;
+    padding: .5rem;
+    margin: 4rem 0 4rem 0;
+  }
+
+  .ContactForm_boxForm {
+
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Form */
+
+  .ContactForm_Form {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    padding: .4rem;
+
+    position: relative;
+  }
+
+  /* Form Textarea */
+
+  .ContactForm_Form-Description {
+
+    width: 100%;
+  }
+
+  .ContactForm_Form-Description label {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .ContactForm_Form-Description span {
+
+    color: black;
+
+    font-size: 1rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 0 0 .4rem 0;
+  }
+
+  .ContactForm_Form-Description textarea {
+
+    color: black;
+
+    width: 100%;
+    height: 200px;
+
+    font-size: 1.1rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    box-sizing: border-box;
+    padding: .5rem;
+    border: 1px solid rgb(183, 178, 178);
+  }
+
+  .ContactForm_Form-Description textarea::placeholder {
+
+    color: rgb(112, 108, 108);
+
+    font-size: 1rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    box-sizing: border-box;
+  }
+
+  .ContactForm_Form-Description textarea:focus {
+
+    outline: none;
+  }
+
+  /* Form First/Last Name */
+
+  .ContactForm_Form-FirstLastName {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .ContactForm_Form-FirstLastName-Label {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ContactForm_Form-FirstLastName-Label span {
+
+    color: black;
+
+    font-size: 1rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: .5rem 0 .2rem 0;
+  }
+
+  .ContactForm_Form-FirstLastName-Label input {
+
+    color: black;
+
+    width: 100%;
+    height: 40px;
+
+    font-size: 1.1rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    box-sizing: border-box;
+    padding: .5rem;
+    border: 1px solid rgb(183, 178, 178);
+  }
+
+  .ContactForm_Form-FirstLastName-Label input::placeholder {
+
+    color: rgb(112, 108, 108);
+
+    font-size: 1rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    box-sizing: border-box;
+  }
+
+  .ContactForm_Form-FirstLastName-Label input:focus {
+
+    outline: none;
+  }
+
+  /* Form Email/Phone */
+
+  .ContactForm_Form-EmailPhone {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ContactForm_Form-EmailPhone-label {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ContactForm_Form-EmailPhone span {
+
+    color: black;
+
+    font-size: 1rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: .5rem 0 .2rem 0;
+  }
+
+  .ContactForm_Form-EmailPhone input {
+
+    color: black;
+
+    width: 100%;
+    height: 40px;
+
+    font-size: 1.1rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    box-sizing: border-box;
+    padding: .5rem;
+    border: 1px solid rgb(183, 178, 178);
+  }
+
+  .ContactForm_Form-EmailPhone input::placeholder {
+
+    color: rgb(112, 108, 108);
+
+    font-size: 1rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    box-sizing: border-box;
+  }
+
+  .ContactForm_Form-EmailPhone input:focus {
+    outline: none;
+  }
+
+  /* Form Captha */
+
+  .ContactForm_Form-Captha {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ContactForm_Form-Captha-label {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ContactForm_Form-Captha-label span {
+
+    color: black;
+
+    font-size: 1rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: .5rem 0 .2rem 0;
+  }
+
+  .ContactForm_Form-Captha-label input {
+
+    color: black;
+
+    width: 100%;
+    height: 40px;
+
+    font-size: 1.1rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    box-sizing: border-box;
+    padding: .5rem;
+    border: 1px solid rgb(183, 178, 178);
+  }
+
+  .ContactForm_Form-Captha-label input::placeholder {
+
+    color: rgb(112, 108, 108);
+
+    font-size: 1rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    box-sizing: border-box;
+  }
+
+  .ContactForm_Form-Captha-label input:focus {
+
+    outline: none;
+  }
+
+  /* Form Submit */
+
+  .ContactForm_Form-Submit {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ContactForm_Form-Submit-label {
+
+    width: 100%;
+
+    margin-top: 2rem;
+  }
+
+  .ContactForm_Form-Submit-label input {
+
+    background-color: blue;
+    color: white;
+
+    width: 200px;
+    height: 35px;
+
+    font-size: 1.1rem;
+    font-family: "Acme", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+
+    box-sizing: border-box;
+    border: none;
+
+    cursor: pointer;
+  }
+
+  .ContactForm_Form-MessageError {
+
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+@media screen and (min-width: 500px) {
+
+  /* Form First/Last Name */
+
+  .ContactForm_Form-FirstLastName {
+
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin: 1rem 0 1rem 0;
+  }
+
+  .ContactForm_Form-FirstLastName-Label {
+
+    width: 49%;
+  }
+
+  /* Form Email/Phone */
+
+  .ContactForm_Form-EmailPhone {
+
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin: 0rem 0 1rem 0;
+  }
+
+  .ContactForm_Form-EmailPhone-label {
+
+    width: 49%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+
+  /* Form content */
+  .ContactForm_boxForm {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Form */
+
+  .ContactForm_Form {
+
+    max-width: 700px;
+  }
+}

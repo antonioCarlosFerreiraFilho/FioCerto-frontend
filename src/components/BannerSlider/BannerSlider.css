@@ -218,6 +218,8 @@
 
     color: white;
     font-weight: bold;
+
+    cursor: pointer;
   }
 
   .BannerSlider_content-box-Pause-iconJS {
@@ -232,6 +234,8 @@
     color: white;
     font-weight: bold;
     display: none;
+
+    cursor: pointer;
   }
 
   .BannerSlider_content-box-Play-iconJS {
@@ -538,6 +542,8 @@
 
     display: flex;
     flex-direction: column;
+
+    position: relative;
   }
 
   .BannerSlider_content-box-form-container-contentForm-title {}
@@ -667,9 +673,27 @@
     font-style: normal;
 
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
 
     margin-top: 1rem;
+    cursor: pointer;
+  }
+
+  /* Message Error */
+
+  .BannerSlider_content-box-form-container-contentForm-MessageError {
+
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+
+    position: absolute;
+    bottom: 0;
   }
 }
 

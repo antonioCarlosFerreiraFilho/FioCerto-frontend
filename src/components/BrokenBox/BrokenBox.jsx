@@ -5,15 +5,39 @@ import "./BrokenBox.css";
 import { IoIosArrowForward } from "react-icons/io";
 import { AiFillThunderbolt } from "react-icons/ai";
 import { FaRegLightbulb } from "react-icons/fa6";
+//hooks
+import { useScroll } from "../../hooks/useScroll";
+//react
+import { useEffect } from "react";
 
 const BrokenBox = () => {
+  //Scroll top
+  function ScrollTop() {
+    const list = document.querySelectorAll(".ControllerLink-BrokenBox");
+
+    list.forEach((Element) => {
+      Element.addEventListener("click", () => {
+        useScroll(0, 0, 0);
+      });
+    });
+  }
+
+  //start
+  useEffect(() => {
+    const Time = setTimeout(() => {
+      ScrollTop();
+    }, 1000);
+
+    return () => clearTimeout(Time);
+  }, []);
+
   return (
     <div className="BrokenBox">
       <div className="BrokenBox_container">
         <div className="BrokenBox_content">
           <div className="BrokenBox_box-title-links">
             <div className="BrokenBox_box-title-links-content">
-              <NavLink className="BrokenBox_box-title-links-content-link">
+              <NavLink className="BrokenBox_box-title-links-content-link ControllerLink-BrokenBox">
                 <h1>Eletricidade Completa</h1>
                 <div className="BrokenBox_box-title-links-content-link-Arrow">
                   <IoIosArrowForward />
@@ -21,7 +45,7 @@ const BrokenBox = () => {
               </NavLink>
             </div>
             <div className="BrokenBox_box-title-links-content">
-              <NavLink className="BrokenBox_box-title-links-content-link">
+              <NavLink className="BrokenBox_box-title-links-content-link ControllerLink-BrokenBox">
                 <h1>Corte Geral</h1>
                 <div className="BrokenBox_box-title-links-content-link-Arrow">
                   <IoIosArrowForward />
@@ -29,7 +53,7 @@ const BrokenBox = () => {
               </NavLink>
             </div>
             <div className="BrokenBox_box-title-links-content">
-              <NavLink className="BrokenBox_box-title-links-content-link">
+              <NavLink className="BrokenBox_box-title-links-content-link ControllerLink-BrokenBox">
                 <h1>Manutenção De Quadros</h1>
                 <div className="BrokenBox_box-title-links-content-link-Arrow">
                   <IoIosArrowForward />
@@ -37,7 +61,7 @@ const BrokenBox = () => {
               </NavLink>
             </div>
             <div className="BrokenBox_box-title-links-content">
-              <NavLink className="BrokenBox_box-title-links-content-link">
+              <NavLink className="BrokenBox_box-title-links-content-link ControllerLink-BrokenBox">
                 <h1>Manutenção Eletrica</h1>
                 <div className="BrokenBox_box-title-links-content-link-Arrow">
                   <IoIosArrowForward />
@@ -45,7 +69,7 @@ const BrokenBox = () => {
               </NavLink>
             </div>
             <div className="BrokenBox_box-title-links-content">
-              <NavLink className="BrokenBox_box-title-links-content-link">
+              <NavLink className="BrokenBox_box-title-links-content-link ControllerLink-BrokenBox">
                 <h1>Quadro Trifasico</h1>
                 <div className="BrokenBox_box-title-links-content-link-Arrow">
                   <IoIosArrowForward />
@@ -53,7 +77,7 @@ const BrokenBox = () => {
               </NavLink>
             </div>
             <div className="BrokenBox_box-title-links-content">
-              <NavLink className="BrokenBox_box-title-links-content-link">
+              <NavLink className="BrokenBox_box-title-links-content-link ControllerLink-BrokenBox">
                 <h1>Novos Circuitos Eletricos</h1>
                 <div className="BrokenBox_box-title-links-content-link-Arrow">
                   <IoIosArrowForward />
@@ -69,7 +93,9 @@ const BrokenBox = () => {
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut ea
               fuga natus, qui labore veniam unde facilis.
             </p>
-            <NavLink>Contate-me</NavLink>
+            <NavLink to="/contact" className="ControllerLink-BrokenBox">
+              Contate-me
+            </NavLink>
           </div>
         </div>
         <div className="BrokenBox_content-infoProfessional">

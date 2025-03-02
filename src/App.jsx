@@ -2,9 +2,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 //pages
 import Home from "./pages/Home/Home";
-import Article from "./pages/Article/Article";
-import Footer from "./pages/Footer/Footer";
 import About from "./pages/About/About";
+import Gallery from "./pages/Gallery/Gallery";
+import Article from "./pages/Article/Article";
+import Contact from "./pages/Contact/Contact"
+import Footer from "./pages/Footer/Footer";
 //components
 import TopHeader from "./components/TopContact/TopContact";
 import Header from "./components/Header/Header";
@@ -18,10 +20,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/galery" element={<Article />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/article" element={<Article />} />
-          <Route path="/contact" element={<Article />} />
-          <Route path="/service" element={<Article />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<Home />} />
+          <Route path="/register" element={<Home />} />
         </Routes>
         <Footer />
       </BrowserRouter>

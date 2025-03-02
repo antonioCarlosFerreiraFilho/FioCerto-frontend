@@ -1,11 +1,13 @@
+//Css
 import "./ContactHome.css";
+//components
+import MessageError from "../MessageError/MessageError";
 
 const ContactHome = () => {
   return (
     <div className="ContactHome">
       <div className="ContactHome_container">
         <div className="ContactHome_content">
-
           <div className="ContactHome_content-title">
             <div className="ContactHome_content-title-box">
               <h1>Fill the form below for Aquotation</h1>
@@ -56,10 +58,13 @@ const ContactHome = () => {
                     <input type="submit" />
                   </div>
                 </div>
+                {/* Message Error */}
+                <div className="ContactHome_content-form-boxes-MessageError">
+                  <MessageError />
+                </div>
               </form>
             </div>
           </div>
-
         </div>
       </div>
     </div>
