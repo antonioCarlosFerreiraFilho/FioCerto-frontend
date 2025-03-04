@@ -1,0 +1,117 @@
+@media screen and (min-width: 358px) {
+  
+  .BannerSearch {
+
+
+  }
+
+  .BannerSearch_container {
+
+    width: 100%;
+
+    background-image: url("../../../public/banner/slide_2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .BannerSearch_content {
+
+
+  }
+
+  .BannerSearch_content-box-Banner {
+
+    width: 100%;
+    height: 300px;
+
+    position: relative;
+    z-index: 100;
+  }
+
+  .BannerSearch_content-box-Banner-titleDesctiption {
+
+    background-color: #00008B70;
+
+    width: 97%;
+    height: 120px;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .BannerSearch_content-box-Banner-titleDesctiption-box {
+
+    padding: .5rem 1rem .5rem 1rem;
+    box-sizing: border-box;
+  }
+
+  .BannerSearch_content-box-Banner-titleDesctiption-box h1{
+
+    color: white;
+
+    font-size: 1.6rem;
+    font-family: "Acme", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: start;
+    margin: 0;
+  }
+
+  .BannerSearch_content-box-Banner-titleDesctiption-box p{
+
+    color: white;
+
+    font-size: .9rem;
+    font-family: "Noto Sans Tai Viet", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: start;
+
+    margin: .5rem 0 0 0;
+  }
+}
+
+@media screen and (min-width: 500px)  {
+
+  /* box description */
+
+  .BannerSearch_content-box-Banner-titleDesctiption {
+    max-width: 480px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  /* box description */
+
+  .BannerSearch_content {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .BannerSearch_content-box-Banner {
+
+    max-width: 768px;
+  }
+
+  .BannerSearch_content-box-Banner-titleDesctiption {
+
+    left: 1%;
+    transform: translate(-0%);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  .BannerSearch_content-box-Banner-titleDesctiption {
+
+    left: 1%;
+    transform: translate(-32%);
+  }
+} 

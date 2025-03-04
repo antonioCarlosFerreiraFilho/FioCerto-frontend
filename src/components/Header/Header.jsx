@@ -8,6 +8,8 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 //hooks
 import { useScroll } from "../../hooks/useScroll";
+//Components
+import LateralMenu from "../LateralMenu/LateralMenu";
 
 const Header = () => {
   function DescktopTop() {
@@ -20,9 +22,34 @@ const Header = () => {
     });
   }
 
+  function OpenCloseMenu() {
+    const Box = document.querySelector(".Header_box-menu-Icon");
+    const Menu = document.querySelector(".Header_container-MenuLateral");
+    const ListLink = document.querySelector(".LateralMenu_boxMenu");
+    const IconAnimation = document.querySelector(".Navbar_content-Line");
+
+    Box.addEventListener("click", () => {
+      Menu.classList.toggle("Header_container-MenuLateralJS");
+      IconAnimation.classList.toggle("active");
+    });
+
+    ListLink.addEventListener("click", () => {
+      if (Menu.classList.contains("Header_container-MenuLateralJS")) {
+        Menu.classList.remove("Header_container-MenuLateralJS");
+      }
+
+      if (IconAnimation.classList.contains("active")) {
+        IconAnimation.classList.remove("active");
+      }
+
+      useScroll(0, 0, 0);
+    });
+  }
+
   useEffect(() => {
     const Time = setTimeout(() => {
       DescktopTop();
+      OpenCloseMenu();
     }, 1000);
 
     return () => clearTimeout(Time);
@@ -38,7 +65,9 @@ const Header = () => {
               <p>fiocerto</p>
             </div>
             <div className="Header_box-menu">
-              <IoMenuOutline className="Header_box-menu-Icon" />
+              <div className="Header_box-menu-Icon">
+                <span className="Navbar_content-Line"></span>
+              </div>
             </div>
             <div className="Header_box-linksDescktop">
               <div className="Header_box-linksDescktop-list">
@@ -60,6 +89,11 @@ const Header = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="Header_container-MenuLateral">
+        <div className="Header_container-MenuLateral-Container">
+          <LateralMenu />
         </div>
       </div>
     </div>

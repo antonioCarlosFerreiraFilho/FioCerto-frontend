@@ -1,0 +1,111 @@
+@media screen and (min-width:358px) {
+  
+  .LateralMenu {
+
+    width: 100vw;
+    height: 100vh;
+
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .LateralMenu_container {
+   
+    width: 100%;
+  }
+
+  .LateralMenu_content {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+   
+    padding: .5rem;
+  }
+
+  /* Box Menu */
+
+  .LateralMenu_boxMenu {
+
+    margin-top: 6rem;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .LateralMenu_boxMenu a {
+
+    color: black;
+
+    font-size: 1.3rem;
+    font-family: "Acme", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+
+    text-decoration: none;
+
+    margin: .5rem 0 0 .5rem;
+  }
+
+  .LateralMenu_boxMenu a.active {
+
+    color: blue;
+  }
+
+  .LateralMenu_boxMenu a:last-child {
+
+    color: rgb(146, 146, 151);
+    
+    cursor: default;
+  }
+
+  /* Box logo */
+
+  .LateralMenu_boxLogo {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 3rem;
+  }
+
+  .LateralMenu_boxLogo-container {
+
+    width: 100%;
+    height: 100px;
+  }
+
+  .LateralMenu_box-logo {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .LateralMenu_box-logo-icon {
+
+    color: rgb(254, 176, 32);
+
+    font-size: 2rem;
+    margin-bottom: 3px;
+  }
+
+  .LateralMenu_box-logo p {
+
+   color: black;
+
+    font-size: 1.8rem;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+}

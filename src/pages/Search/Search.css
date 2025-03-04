@@ -1,0 +1,70 @@
+@media screen and (min-width:358px) {
+  .Search_SidePackage-BrokenBox {
+
+    display: none;
+  }
+
+  .Search_ContactSidePackage {
+
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  .Search {
+
+  }
+
+  .Search_SearchView-SidePackage-BrokenBox {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Search_SearchView-SidePackage-BrokenBox-container {
+    width: 100%;
+    max-width: 1500px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .Search_ContactSidePackage {
+
+    display: block;
+    width: 20%;
+  }
+
+  .Search_SearchView {
+    width: 60%;
+    height: 100%;
+  }
+
+  .Search_SidePackage-BrokenBox {
+    display: block;
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+
+  .Search_ContactSidePackage {
+
+    display: block;
+    width: 15%;
+  }
+
+  .Search_SearchView {
+    width: 65%;
+    height: 100%;
+  }
+
+  .Search_SidePackage-BrokenBox {
+    display: block;
+    width: 20%;
+  }
+}

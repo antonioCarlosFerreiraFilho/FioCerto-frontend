@@ -2,6 +2,43 @@
 
   .Header {}
 
+  .Header_container-MenuLateral {
+
+    background-color: white;
+
+    visibility: hidden;
+
+    width: 0%;
+    height: 100vh;
+
+    position: fixed;
+    z-index: 600;
+
+    transition: all ease-in-out 1s;
+  }
+
+  .Header_container-MenuLateralJS {
+
+    background-color: white;
+    visibility: visible;
+
+    width: 100%;
+    height: 100vh;
+
+    position: fixed;
+    z-index: 600;
+
+    transition: all ease-in-out 1s;
+  }
+
+  .Header_container-MenuLateral-Container {
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+  }
+
   .Header_container {
 
     background-color: white;
@@ -9,7 +46,7 @@
 
     position: fixed;
     top: 40px;
-    z-index: 600;
+    z-index: 700;
   }
 
   .Header_content {
@@ -53,31 +90,93 @@
     letter-spacing: 1px;
   }
 
+  /* Icon Logo */
+
   .Header_box-menu {
 
     width: 100%;
+    height: 100%;
 
     display: flex;
     justify-content: end;
     align-items: center;
   }
 
+  .Header_box-menu-Icon {
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Navbar_content-Line {
+
+    width: 30px;
+
+    border-top: 3px solid black;
+
+    display: flex;
+
+    transition: .6s;
+    display: block;
+
+    position: relative;
+  }
+
+  .Navbar_content-Line::after,
+  .Navbar_content-Line::before {
+
+    content: "";
+    background-color: black;
+
+    display: block;
+    width: 100%;
+    height: 3px;
+
+    margin-top: 5px;
+    transition: .3s;
+    position: relative;
+  }
+
+  .Navbar_content-Line.active {
+
+    border-top-color: transparent;
+    transition: .3s;
+  }
+
+  .Navbar_content-Line.active::before {
+
+    transform: rotate(-45deg);
+    transition: .3s;
+  }
+
+  .Navbar_content-Line.active::after {
+
+    transform: rotate(45deg);
+    transition: .3s;
+    top: -8px;
+  }
+
+  /* Links Descktop */
+
   .Header_box-linksDescktop {
 
     display: none;
-  }
-
-  .Header_box-menu-Icon {
-
-    color: black;
-
-    font-size: 1.9rem;
-
   }
 }
 
 @media screen and (min-width: 768px) {
 
+  /* Menu Lateral */
+
+  .Header_container-MenuLateral {
+
+    display: none;
+  }
 
   .Header_container {
 
