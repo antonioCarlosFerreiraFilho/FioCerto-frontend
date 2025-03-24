@@ -1,0 +1,135 @@
+@media screen and (min-width: 358px) {
+
+  .ContainerAuth.visible {
+
+    display: block;
+    position: fixed;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 2000;
+  }
+
+  .ContainerAuth.visible .ContainerAuth_container {
+
+    background-color: yellow;
+
+    width: 100%;
+    max-width: 500px;
+    height: 350px;
+
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 2000;
+  }
+
+  .ContainerAuth.visible .ContainerAuth_content {
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+  }
+
+  /* Box */
+  .ContainerAuth.visible .ContainerAuth_Container {
+
+    background-color: white;
+
+    width: 100%;
+    height: 100%;
+
+    border-top: 3px solid orange;
+    border-bottom: 3px solid orange;
+
+    position: relative;
+  }
+
+
+  .ContainerAuth.visible .ContainerAuth_box-Logo-Close {
+
+    background-color: aqua;
+    width: 100%;
+
+    padding: .3rem;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 2000;
+  }
+
+  /* Box Logo */
+  .ContainerAuth_box-Logo-Close-content {
+
+    display: none;
+  }
+
+  .ContainerAuth.visible .ContainerAuth_box-Logo-Close-content {
+
+    display: flex;
+    align-items: center;
+  }
+
+  .ContainerAuth.visible .Close-content-logo-icon {
+
+    color: orange;
+
+    font-size: 1.9rem;
+  }
+
+  .ContainerAuth.visible .ContainerAuth_box-Logo-Close-content p {
+
+    color: black;
+
+    font-size: 1.8rem;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  /* Box Close */
+  .ContainerAuth_box-Logo-Close-content-close {
+
+    display: none;
+  }
+
+  .ContainerAuth.visible .ContainerAuth_box-Logo-Close-content-close:nth-child(2) {
+
+    color: black;
+    display: block;
+    font-size: 1.9rem;
+  }
+
+  /* Box Register */
+
+  .ContainerAuth.visible .ContainerAuth_box-Register {
+
+    width: 100%;
+    height: 85%;
+
+    position: absolute;
+    bottom: 0;
+
+    padding: .4rem;
+    box-sizing: border-box;
+  }
+
+  .ContainerAuth_box-Register-FirstLastName {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ContainerAuth_box-Register-FirstLastName label {
+
+    display: flex;
+    flex-direction: column;
+  }
+}

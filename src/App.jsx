@@ -6,7 +6,7 @@ import About from "./pages/About/About";
 import Gallery from "./pages/Gallery/Gallery";
 import Article from "./pages/Article/Article";
 import Search from "./pages/Search/Search";
-import Contact from "./pages/Contact/Contact"
+import Contact from "./pages/Contact/Contact";
 import Footer from "./pages/Footer/Footer";
 //components
 import TopHeader from "./components/TopContact/TopContact";
@@ -18,6 +18,7 @@ function App() {
       <BrowserRouter>
         <TopHeader />
         <Header />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

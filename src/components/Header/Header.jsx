@@ -4,14 +4,18 @@ import "./Header.css";
 import { SiThunderstore } from "react-icons/si";
 import { IoMenuOutline } from "react-icons/io5";
 //react
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 //hooks
 import { useScroll } from "../../hooks/useScroll";
 //Components
 import LateralMenu from "../LateralMenu/LateralMenu";
+import ContainerAuth from "../ContainerAuth/ContainerAuth";
 
 const Header = () => {
+
+  const [stage, setStage] = useState("");
+
   function DescktopTop() {
     const list = document.querySelectorAll(".linkController");
 
@@ -46,10 +50,19 @@ const Header = () => {
     });
   }
 
+  function controllerAuthForm() {
+    const Menu = document.querySelector(".controllerPupPop");
+
+    Menu.addEventListener("click", () => {
+      setStage("visible");
+    });
+  }
+
   useEffect(() => {
     const Time = setTimeout(() => {
       DescktopTop();
       OpenCloseMenu();
+      controllerAuthForm();
     }, 1000);
 
     return () => clearTimeout(Time);
@@ -83,7 +96,7 @@ const Header = () => {
                 <NavLink className="linkController" to="/contact">
                   Contato
                 </NavLink>
-                <NavLink className="linkController" to="#">
+                <NavLink className="linkController controllerPupPop" to="#">
                   Logar / Cadastrar
                 </NavLink>
               </div>
@@ -95,6 +108,9 @@ const Header = () => {
         <div className="Header_container-MenuLateral-Container">
           <LateralMenu />
         </div>
+      </div>
+      <div>
+        <ContainerAuth stage={stage} />  
       </div>
     </div>
   );
