@@ -13,7 +13,6 @@ import LateralMenu from "../LateralMenu/LateralMenu";
 import ContainerAuth from "../ContainerAuth/ContainerAuth";
 
 const Header = () => {
-
   const [stage, setStage] = useState("");
 
   function DescktopTop() {
@@ -52,9 +51,11 @@ const Header = () => {
 
   function controllerAuthForm() {
     const Menu = document.querySelector(".controllerPupPop");
+    const AuthForm = document.querySelector(".ContainerAuth");
 
     Menu.addEventListener("click", () => {
-      setStage("visible");
+      AuthForm.classList.remove("hidden");
+      AuthForm.classList.add("visible");
     });
   }
 
@@ -110,7 +111,7 @@ const Header = () => {
         </div>
       </div>
       <div>
-        <ContainerAuth stage={stage} />  
+        <ContainerAuth />
       </div>
     </div>
   );

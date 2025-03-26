@@ -260,9 +260,9 @@
 
   .Header_box-linksDescktop-list a:last-child {
 
-    color: rgb(146, 146, 151);
+    color: rgb(21, 21, 22);
 
-    cursor: default;
+    cursor: pointer;
   }
 }
 

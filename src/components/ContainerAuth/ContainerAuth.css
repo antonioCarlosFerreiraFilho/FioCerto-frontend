@@ -2,6 +2,8 @@
 
   .ContainerAuth.visible {
 
+    background-color: #FFFFFF;
+
     display: block;
     position: fixed;
 
@@ -11,16 +13,18 @@
     z-index: 2000;
   }
 
-  .ContainerAuth.visible .ContainerAuth_container {
+  .ContainerAuth.hidden {
 
-    background-color: yellow;
+    display: none;
+  }
+
+  .ContainerAuth.visible .ContainerAuth_container {
 
     width: 100%;
     max-width: 500px;
-    height: 350px;
 
     position: fixed;
-    top: 35%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%);
     z-index: 2000;
@@ -40,7 +44,7 @@
     background-color: white;
 
     width: 100%;
-    height: 100%;
+    height: 450px;
 
     border-top: 3px solid orange;
     border-bottom: 3px solid orange;
@@ -51,7 +55,7 @@
 
   .ContainerAuth.visible .ContainerAuth_box-Logo-Close {
 
-    background-color: aqua;
+
     width: 100%;
 
     padding: .3rem;
@@ -81,6 +85,7 @@
     color: orange;
 
     font-size: 1.9rem;
+    
   }
 
   .ContainerAuth.visible .ContainerAuth_box-Logo-Close-content p {
@@ -105,31 +110,281 @@
     color: black;
     display: block;
     font-size: 1.9rem;
+    cursor: pointer;
+  }
+
+  /* Box Register/Login */
+
+  .ContainerAuth.visible .ContainerAuth_box-Register-Login {
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    position: relative;
   }
 
   /* Box Register */
-
   .ContainerAuth.visible .ContainerAuth_box-Register {
 
-    width: 100%;
-    height: 85%;
+    background-color: white;
 
-    position: absolute;
-    bottom: 0;
+    width: 100%;
+    height: 300px;
 
     padding: .4rem;
     box-sizing: border-box;
+
+    position: absolute;
+    top: 0;
+
+    transition: all ease-in-out 600ms;
   }
 
-  .ContainerAuth_box-Register-FirstLastName {
+  .ContainerAuth.visible .ContainerAuth_box-RegisterJS {
+
+    background-color: white;
+
     width: 100%;
+    height: 300px;
+
+    padding: .4rem;
+    box-sizing: border-box;
+
+    position: absolute;
+    top: -350px;
+
+    transition: all ease-in-out 600ms;
+  }
+
+  .ContainerAuth_box-Register-form {
+
+    display: none;
+  }
+
+  .ContainerAuth.visible .ContainerAuth_box-Register-form {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Box Name */
+  .ContainerAuth_box-Register-form-boxName {
+
+    width: 100%;
+
     display: flex;
     flex-direction: column;
   }
 
-  .ContainerAuth_box-Register-FirstLastName label {
+  .ContainerAuth_box-Register-form-boxName label {
+
+    width: 100%;
 
     display: flex;
     flex-direction: column;
+
+    margin: .5rem 0 .5rem 0;
+  }
+
+  .ContainerAuth_box-Register-form-boxName span {
+
+    color: rgb(94, 93, 93);
+
+    font-size: .9rem;
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .ContainerAuth_box-Register-form-boxName input {
+
+    width: 100%;
+    height: 20px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(94, 93, 93);
+    box-sizing: border-box;
+
+    color: black;
+    font-size: 1.1rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Box Pass */
+  .ContainerAuth_box-Register-form-boxPass {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ContainerAuth_box-Register-form-boxPass label {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    margin: .5rem 0 .5rem 0;
+  }
+
+  .ContainerAuth_box-Register-form-boxPass span {
+
+    color: rgb(94, 93, 93);
+
+    font-size: .9rem;
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .ContainerAuth_box-Register-form-boxPass input {
+
+    width: 100%;
+    height: 20px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(94, 93, 93);
+    box-sizing: border-box;
+
+    color: black;
+    font-size: 1.1rem;
+    font-family: "Titillium Web", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Box Submit */
+
+  .ContainerAuth_box-Register-form-boxSubmit {
+
+    width: 100%;
+  }
+
+  .ContainerAuth_box-Register-form-boxSubmit-content {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .ContainerAuth_box-Register-form-boxSubmit-content input {
+
+    background-color: rgb(9, 9, 203);
+    color: white;
+
+    width: 35%;
+    height: 35px;
+
+    border: none;
+    border-radius: 20px;
+
+    font-size: .9rem;
+    font-weight: bold;
+
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+
+  /* Box Login */ 
+
+  .ContainerAuth.visible .ContainerAuth_box-Login {
+
+    background-color: white;
+
+    width: 100%;
+    height: 300px;
+
+    padding: .4rem;
+    box-sizing: border-box;
+
+    position: absolute;
+    bottom: -240px;
+
+    transition: all ease-in-out 600ms;
+  }
+
+  .ContainerAuth.visible .ContainerAuth_box-LoginJS {
+
+    background-color: white;
+
+    width: 100%;
+    height: 300px;
+
+    padding: .4rem;
+    box-sizing: border-box;
+
+    position: absolute;
+    bottom: 120px;
+
+    transition: all ease-in-out 600ms;
+  }
+
+  /* Register OR Login */
+
+  .ContainerAuth_box-registerORlogin {
+
+    display: none;
+  }
+
+  .ContainerAuth.visible .ContainerAuth_box-registerORlogin {
+
+    background-color: white;
+
+    display: block;
+    width: 100%;
+    height: 35px;
+
+    position: absolute;
+    bottom: -3px;
+
+    z-index: 2000;
+  }
+
+  .ContainerAuth_box-registerORlogin-content {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding: .6rem;
+  }
+
+  .ContainerAuth_box-registerORlogin-content p {
+
+    color: black;
+
+    font-size: 1.1rem;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    margin: 0;
+
+    cursor: pointer;
+  }
+
+  .ContainerAuth_box-registerORlogin-content strong {
+
+    color: blue;
+
+    font-size: 1.1rem;
+    font-family: "Noto Sans Tai Viet", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    margin: 0;
   }
 }
