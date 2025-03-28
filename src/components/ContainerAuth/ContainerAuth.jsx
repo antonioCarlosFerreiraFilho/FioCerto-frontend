@@ -7,25 +7,33 @@ import { IoClose } from "react-icons/io5";
 import { useEffect, useState } from "react";
 
 const ContainerAuth = () => {
+  // States Register
+  const [reFirstName, setReFirstName] = useState("");
+  const [reLastName, setReLastName] = useState("");
+  const [reEmail, setReEmail] = useState("");
+  const [rePass, setRePass] = useState("");
+  const [reConPass, setReConPass] = useState("");
+  // States Login
+  const [loFirstName, setLoFirstName] = useState("");
+  const [loLastName, setLoLastName] = useState("");
+  const [loEmailName, setLoEmailName] = useState("");
+  const [loPassName, setLoPassName] = useState("");
+
   function ScrollAuth() {
     const registerOrLogin = document.getElementById("ControllerAuth");
     const register = document.querySelector(".ContainerAuth_box-Register");
     const login = document.querySelector(".ContainerAuth_box-Login");
     const contentButton = document.getElementById("ControllerContent");
-    
-    registerOrLogin.addEventListener("click", ()=> {
 
+    registerOrLogin.addEventListener("click", () => {
       register.classList.toggle("ContainerAuth_box-RegisterJS");
       login.classList.toggle("ContainerAuth_box-LoginJS");
 
-      if(login.classList.contains("ContainerAuth_box-LoginJS")) {
-
+      if (login.classList.contains("ContainerAuth_box-LoginJS")) {
         contentButton.innerHTML = "Cadastrar";
-      }else {
-
+      } else {
         contentButton.innerHTML = "logar";
       }
-
     });
   }
 
@@ -36,7 +44,7 @@ const ContainerAuth = () => {
     iconClose.addEventListener("click", () => {
       if (boxAuth.classList.contains("visible")) {
         boxAuth.classList.remove("visible");
-        boxAuth.classList.add("hidden"); 
+        boxAuth.classList.add("hidden");
       }
     });
   }
@@ -73,26 +81,46 @@ const ContainerAuth = () => {
                   <div className="ContainerAuth_box-Register-form-boxName">
                     <label htmlFor="">
                       <span>Primeiro Nome</span>
-                      <input type="text" />
+                      <input
+                        type="text"
+                        onChange={(e) => setReFirstName(e.target.value)}
+                        value={reFirstName}
+                      />
                     </label>
                     <label htmlFor="">
                       <span>Ultimo Nome</span>
-                      <input type="text" />
+                      <input
+                        type="text"
+                        onChange={(e) => setReLastName(e.target.value)}
+                        value={reLastName}
+                      />
                     </label>
                   </div>
                   {/* Pass / Confirm Pass */}
                   <div className="ContainerAuth_box-Register-form-boxPass">
                     <label htmlFor="">
                       <span>Email / Gmail</span>
-                      <input type="text" />
+                      <input
+                        type="text"
+                        onChange={(e) => setReEmail(e.target.value)}
+                        value={reEmail}
+                      />
                     </label>
                     <label htmlFor="">
                       <span>Senha</span>
-                      <input type="text" />
+                      <input
+                        type="text"
+                        onChange={(e) => setRePass(e.target.value)}
+                        value={rePass}
+                      />
                     </label>
                     <label htmlFor="">
                       <span>Confirme Sua Senha</span>
-                      <input type="text" />
+                      <input
+                        type="text"
+                        onChange={(e) => setReConPass(e.target.value)}
+                        value={reConPass}
+                      />
                     </label>
                   </div>
                   {/* Submit */}
@@ -140,7 +168,8 @@ const ContainerAuth = () => {
               <div className="ContainerAuth_box-registerORlogin-content">
                 <p id="ControllerAuth">
                   {" "}
-                  já tem uma conta ? <strong id="ControllerContent">Logar</strong>
+                  já tem uma conta ?{" "}
+                  <strong id="ControllerContent">Logar</strong>
                 </p>
               </div>
             </div>
