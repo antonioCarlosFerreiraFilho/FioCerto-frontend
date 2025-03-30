@@ -56,9 +56,9 @@
 
   .LateralMenu_boxMenu a:last-child {
 
-    color: rgb(146, 146, 151);
+    color: black;
     
-    cursor: default;
+    cursor: pointer;
   }
 
   /* Box logo */

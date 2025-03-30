@@ -7,17 +7,22 @@ import { IoClose } from "react-icons/io5";
 import { useEffect, useState } from "react";
 
 const ContainerAuth = () => {
-  // States Register
-  const [reFirstName, setReFirstName] = useState("");
-  const [reLastName, setReLastName] = useState("");
-  const [reEmail, setReEmail] = useState("");
-  const [rePass, setRePass] = useState("");
-  const [reConPass, setReConPass] = useState("");
-  // States Login
-  const [loFirstName, setLoFirstName] = useState("");
-  const [loLastName, setLoLastName] = useState("");
-  const [loEmailName, setLoEmailName] = useState("");
-  const [loPassName, setLoPassName] = useState("");
+  // States User
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const [confirmPass, setConfirmPass] = useState("");
+
+  // login User
+  function registerUser(e) {
+    e.preventDefault();
+  }
+
+  // register User
+  function loginUser(e) {
+    e.preventDefault();
+  }
 
   function ScrollAuth() {
     const registerOrLogin = document.getElementById("ControllerAuth");
@@ -76,23 +81,26 @@ const ContainerAuth = () => {
             </div>
             <div className="ContainerAuth_box-Register-Login">
               <div className="ContainerAuth_box-Register">
-                <form className="ContainerAuth_box-Register-form">
+                <form
+                  className="ContainerAuth_box-Register-form"
+                  onSubmit={registerUser}
+                >
                   {/* Frist Name / Last Name */}
                   <div className="ContainerAuth_box-Register-form-boxName">
                     <label htmlFor="">
                       <span>Primeiro Nome</span>
                       <input
                         type="text"
-                        onChange={(e) => setReFirstName(e.target.value)}
-                        value={reFirstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        value={firstName}
                       />
                     </label>
                     <label htmlFor="">
                       <span>Ultimo Nome</span>
                       <input
                         type="text"
-                        onChange={(e) => setReLastName(e.target.value)}
-                        value={reLastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                        value={lastName}
                       />
                     </label>
                   </div>
@@ -102,24 +110,24 @@ const ContainerAuth = () => {
                       <span>Email / Gmail</span>
                       <input
                         type="text"
-                        onChange={(e) => setReEmail(e.target.value)}
-                        value={reEmail}
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
                       />
                     </label>
                     <label htmlFor="">
                       <span>Senha</span>
                       <input
                         type="text"
-                        onChange={(e) => setRePass(e.target.value)}
-                        value={rePass}
+                        onChange={(e) => setPass(e.target.value)}
+                        value={pass}
                       />
                     </label>
                     <label htmlFor="">
                       <span>Confirme Sua Senha</span>
                       <input
                         type="text"
-                        onChange={(e) => setReConPass(e.target.value)}
-                        value={reConPass}
+                        onChange={(e) => setConfirmPass(e.target.value)}
+                        value={confirmPass}
                       />
                     </label>
                   </div>
@@ -132,27 +140,46 @@ const ContainerAuth = () => {
                 </form>
               </div>
               <div className="ContainerAuth_box-Login">
-                <form className="ContainerAuth_box-Register-form">
+                <form
+                  className="ContainerAuth_box-Register-form"
+                  onSubmit={loginUser}
+                >
                   {/* Frist Name / Last Name */}
                   <div className="ContainerAuth_box-Register-form-boxName">
                     <label htmlFor="">
                       <span>Primeiro Nome</span>
-                      <input type="text" />
+                      <input
+                        type="text"
+                        onChange={(e) => setFirstName(e.target.value)}
+                        value={firstName}
+                      />
                     </label>
                     <label htmlFor="">
                       <span>Ultimo Nome</span>
-                      <input type="text" />
+                      <input
+                        type="text"
+                        onChange={(e) => setLastName(e.target.value)}
+                        value={lastName}
+                      />
                     </label>
                   </div>
-                  {/* Pass / Confirm Pass */}
+                  {/* Pass / Email */}
                   <div className="ContainerAuth_box-Register-form-boxPass">
                     <label htmlFor="">
                       <span>Email / Gmail</span>
-                      <input type="text" />
+                      <input
+                        type="text"
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                      />
                     </label>
                     <label htmlFor="">
                       <span>Senha</span>
-                      <input type="text" />
+                      <input
+                        type="text"
+                        onChange={(e) => setPass(e.target.value)}
+                        value={pass}
+                      />
                     </label>
                   </div>
                   {/* Submit */}

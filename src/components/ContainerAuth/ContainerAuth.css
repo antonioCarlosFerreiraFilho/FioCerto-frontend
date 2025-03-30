@@ -85,7 +85,7 @@
     color: orange;
 
     font-size: 1.9rem;
-    
+
   }
 
   .ContainerAuth.visible .ContainerAuth_box-Logo-Close-content p {
@@ -294,7 +294,7 @@
     cursor: pointer;
   }
 
-  /* Box Login */ 
+  /* Box Login */
 
   .ContainerAuth.visible .ContainerAuth_box-Login {
 
@@ -386,5 +386,36 @@
     font-style: normal;
 
     margin: 0;
+  }
+}
+
+@media screen and (min-width: 550px) {
+
+  /* REGISTER BOX */
+  .ContainerAuth.visible .ContainerAuth_box-Register {
+
+    padding: 0rem;
+  }
+
+  .ContainerAuth.visible .ContainerAuth_box-RegisterJS {
+
+
+    padding: 0rem;
+
+  }
+
+  /* LOGIN BOX */
+  .ContainerAuth.visible .ContainerAuth_box-Login {
+
+
+    padding: 0rem;
+
+  }
+
+  .ContainerAuth.visible .ContainerAuth_box-LoginJS {
+
+
+    padding: 0rem;
+
   }
 }

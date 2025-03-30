@@ -13,7 +13,6 @@ import LateralMenu from "../LateralMenu/LateralMenu";
 import ContainerAuth from "../ContainerAuth/ContainerAuth";
 
 const Header = () => {
-  const [stage, setStage] = useState("");
 
   function DescktopTop() {
     const list = document.querySelectorAll(".linkController");
@@ -51,9 +50,15 @@ const Header = () => {
 
   function controllerAuthForm() {
     const Menu = document.querySelector(".controllerPupPop");
+    const MobileMenu = document.querySelector(".controllerPupPopMenu");
     const AuthForm = document.querySelector(".ContainerAuth");
 
     Menu.addEventListener("click", () => {
+      AuthForm.classList.remove("hidden");
+      AuthForm.classList.add("visible");
+    });
+
+    MobileMenu.addEventListener("click", () => {
       AuthForm.classList.remove("hidden");
       AuthForm.classList.add("visible");
     });
