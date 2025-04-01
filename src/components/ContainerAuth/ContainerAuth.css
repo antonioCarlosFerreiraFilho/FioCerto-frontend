@@ -171,6 +171,31 @@
     height: 100%;
   }
 
+  /* Message Error */
+
+  .ContainerAuth.visible .ContainerAuth_box-Form-container-MessageError {
+
+    width: 100%;
+    height: 50px;
+
+    position: absolute;
+    top: 0%;
+
+    z-index: 2000;
+  }
+
+  .ContainerAuth.visible  .ContainerAuth_box-Form-container-MessageError-content {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 20px;
+  }
+
   /* Box Name */
   .ContainerAuth_box-Register-form-boxName {
 

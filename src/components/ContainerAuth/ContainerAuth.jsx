@@ -5,6 +5,8 @@ import { SiThunderstore } from "react-icons/si";
 import { IoClose } from "react-icons/io5";
 //react
 import { useEffect, useState } from "react";
+//components
+import MessageError from "../MessageError/MessageError";
 
 const ContainerAuth = () => {
   // States User
@@ -189,6 +191,12 @@ const ContainerAuth = () => {
                     </div>
                   </div>
                 </form>
+              </div>
+              {/* Message Error */}
+              <div className="ContainerAuth_box-Form-container-MessageError">
+                <div className="ContainerAuth_box-Form-container-MessageError-content">
+                  <MessageError />
+                </div>
               </div>
             </div>
             <div className="ContainerAuth_box-registerORlogin">
