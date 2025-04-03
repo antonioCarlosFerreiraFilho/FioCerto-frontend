@@ -21,6 +21,18 @@ const GalleryCards = () => {
     });
   }
 
+  //Delet Code
+  function olamundo() {
+    const list = document.querySelectorAll(".ControllerLink-Gallery");
+
+    list.forEach((Element) => {
+      Element.addEventListener("click", () => {
+        useScroll(0, 0, 0);
+      });
+    });
+  }
+  //Delet Code
+
   //start
   useEffect(() => {
     const Time = setTimeout(() => {
@@ -68,7 +80,9 @@ const GalleryCards = () => {
               {/* CARD Link */}
               <div className="GalleryCards_card-Link">
                 <div className="GalleryCards_card-Link-box">
-                  <NavLink to="/article" className="ControllerLink-Gallery">Saber Mais...</NavLink>
+                  <NavLink to="/article" className="ControllerLink-Gallery">
+                    Saber Mais...
+                  </NavLink>
                 </div>
               </div>
             </div>
