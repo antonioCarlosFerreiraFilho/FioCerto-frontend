@@ -258,9 +258,9 @@
     color: blue;
   }
 
-  .Header_box-linksDescktop-list a:last-child {
+  #controllerLink {
 
-    color: rgb(21, 21, 22);
+    color: rgb(18, 18, 19);
 
     cursor: pointer;
   }

@@ -54,7 +54,7 @@
     color: blue;
   }
 
-  .LateralMenu_boxMenu a:last-child {
+  #ContentLink {
 
     color: black;
     

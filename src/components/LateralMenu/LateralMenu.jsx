@@ -10,8 +10,7 @@ import ContainerAuth from "../ContainerAuth/ContainerAuth";
 //hooks
 import { useScroll } from "../../hooks/useScroll";
 
-const LateralMenu = () => {
-
+const LateralMenu = ({ userAuth }) => {
   return (
     <div className="LateralMenu">
       <div className="LateralMenu_container">
@@ -21,9 +20,12 @@ const LateralMenu = () => {
             <NavLink to="/about">Sobre</NavLink>
             <NavLink to="/gallery">Galeria</NavLink>
             <NavLink to="/contact">Contato</NavLink>
-            <NavLink to="#" className="controllerPupPopMenu">
-              Logar / Cadastrar
-            </NavLink>
+            {!userAuth && (
+              <NavLink to="#" className="controllerPupPopMenu" id="ContentLink">
+                Logar / Cadastrar
+              </NavLink>
+            )}
+            <NavLink to="/profile">Configurações</NavLink>
           </div>
           <div className="LateralMenu_boxLogo">
             <div className="LateralMenu_boxLogo-container">

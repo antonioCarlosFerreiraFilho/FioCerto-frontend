@@ -13,6 +13,7 @@ import LateralMenu from "../LateralMenu/LateralMenu";
 import ContainerAuth from "../ContainerAuth/ContainerAuth";
 
 const Header = () => {
+  const [userAuth, setUserAuth] = useState(true);
 
   function DescktopTop() {
     const list = document.querySelectorAll(".linkController");
@@ -53,15 +54,17 @@ const Header = () => {
     const MobileMenu = document.querySelector(".controllerPupPopMenu");
     const AuthForm = document.querySelector(".ContainerAuth");
 
-    Menu.addEventListener("click", () => {
-      AuthForm.classList.remove("hidden");
-      AuthForm.classList.add("visible");
-    });
+    if (Menu && MobileMenu) {
+      Menu.addEventListener("click", () => {
+        AuthForm.classList.remove("hidden");
+        AuthForm.classList.add("visible");
+      });
 
-    MobileMenu.addEventListener("click", () => {
-      AuthForm.classList.remove("hidden");
-      AuthForm.classList.add("visible");
-    });
+      MobileMenu.addEventListener("click", () => {
+        AuthForm.classList.remove("hidden");
+        AuthForm.classList.add("visible");
+      });
+    }
   }
 
   useEffect(() => {
@@ -102,9 +105,22 @@ const Header = () => {
                 <NavLink className="linkController" to="/contact">
                   Contato
                 </NavLink>
-                <NavLink className="linkController controllerPupPop" to="#">
-                  Logar / Cadastrar
-                </NavLink>
+
+                {!userAuth && (
+                  <NavLink
+                    className="linkController controllerPupPop"
+                    id="controllerLink"
+                    to="#"
+                  >
+                    Logar / Cadastrar
+                  </NavLink>
+                )}
+
+                {userAuth && (
+                  <NavLink className="linkController" to="/profile">
+                    Configurações
+                  </NavLink>
+                )}
               </div>
             </div>
           </div>
@@ -112,7 +128,7 @@ const Header = () => {
       </div>
       <div className="Header_container-MenuLateral">
         <div className="Header_container-MenuLateral-Container">
-          <LateralMenu />
+          <LateralMenu userAuth={userAuth} />
         </div>
       </div>
       <div>

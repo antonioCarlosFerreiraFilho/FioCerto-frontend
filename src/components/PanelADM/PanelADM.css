@@ -1,0 +1,418 @@
+@media screen and (min-width: 358px) {
+
+  .PanelADM {}
+
+  .PanelADM_container {}
+
+  .PanelADM_content {
+
+    width: 100%;
+
+    margin: 3rem 0 5rem 0;
+  }
+
+  /* Style Title */
+
+  .PanelADM_box-title {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .PanelADM_box-title-container {
+
+    width: 90%;
+  }
+
+  .PanelADM_box-title-container h1 {
+
+    color: black;
+
+    font-size: 1.2rem;
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Style ADM EVENTS */
+
+  .PanelADM_box-events {
+
+    width: 100%;
+  }
+
+  .PanelADM_box-events-container {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: .5rem;
+  }
+
+  .PanelADM_box-events-content {
+
+    width: 95%;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Style Show */
+
+  .PanelADM_box-Show {
+
+    background-color: white;
+
+    border: 1px solid rgb(78, 76, 76);
+
+    width: 100%;
+    height: 500px;
+
+    position: relative;
+  }
+
+  /* Style SearchBox*/
+
+  .PanelADM_box-Show-SearchBox {
+
+    background-color: white;
+
+    border-bottom: 1px solid black;
+
+    width: 100%;
+    height: 50px;
+
+    position: absolute;
+    top: 0;
+  }
+
+  .PanelADM_box-Show-SearchBox-content {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .PanelADM_box-Show-SearchBox-content input {
+
+    color: blue;
+
+    width: 80%;
+    height: 30px;
+
+    border-radius: 20px;
+    border: 1px solid black;
+    outline: none;
+
+    font-size: 1.1rem;
+    font-family: "Acme", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+
+    box-sizing: border-box;
+    padding: .5rem;
+
+    z-index: 300;
+  }
+
+  .PanelADM_box-Show-SearchBox-content input::placeholder {
+
+    color: rgb(105, 101, 101);
+
+    font-size: 1rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+  }
+
+  /* Style users*/
+
+  .PanelADM_box-Show-allUsers {
+
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+  }
+
+  .PanelADM_box-Show-Users {
+
+    width: 100%;
+    height: 450px;
+
+    overflow: hidden;
+    overflow-y: scroll;
+
+    padding: 0 .5rem 0 .5rem;
+    box-sizing: border-box;
+
+    position: absolute;
+    bottom: 0;
+  }
+
+  /* Style user*/
+
+  .PanelADM_box-Show-User {
+
+    width: 100%;
+    height: 100px;
+
+    display: flex;
+
+    margin: .5rem 0 .5rem 0;
+
+    border-bottom: 1px solid rgb(162, 157, 157);
+  }
+
+  /* Box user */
+
+  .PanelADM_box-Show-User-ContentImage-ContentInfo {
+
+    width: 80%;
+    height: 100%;
+
+    display: flex;
+  }
+
+  .PanelADM_box-Show-User-ContentImage-ContenImage {
+
+    width: 35%;
+    height: 100%;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .PanelADM_box-Show-User-ContentImage-box {
+
+    background-color: aqua;
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .PanelADM_box-Show-User-ContentImage-box img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+  /* Box Description */
+
+  .PanelADM_box-Show-User-ContentImage-ContenInfos {
+
+
+    width: 65%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+  }
+
+  .PanelADM_box-Show-User-ContentImage-ContenInfos-Description h1 {
+
+    color: black;
+
+    font-size: 1rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 0;
+  }
+
+  .PanelADM_box-Show-User-ContentImage-ContenInfos-Description p {
+
+    color: rgb(111, 107, 107);
+
+    font-size: 1rem;
+    font-family: "Boogaloo", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 0;
+  }
+
+  .PanelADM_box-Show-User-ContentImage-ContenInfos-Description strong {
+
+    color: rgb(38, 17, 231);
+
+    font-size: 1.2rem;
+    font-family: "Boogaloo", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Box Delete */
+
+  .PanelADM_box-Show-User-ContentEvents {
+
+    width: 20%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .PanelADM_box-Show-User-icon-delete {
+
+    color: red;
+
+    font-size: 1.4rem;
+  }
+
+  /* ADM Profile */
+
+  .PanelADM_box-ADMIMAGE {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .ADMProfile {
+
+    width: 93%;
+    height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    padding: 1rem;
+    margin-top: .4rem;
+    border: 2px solid rgb(187, 183, 183);
+
+  }
+
+  .Profile_content {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Profile_ImageUser {
+
+    background-image: url("../../../public/ImageDefault/vecteezy_man_1206101.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+    border: 2px solid rgb(101, 168, 228);
+
+    overflow: hidden;
+  }
+
+  .Profile_ImageUser img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+  .Profile-boxInputFile-icon-update {
+
+    color: blueviolet;
+
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding-top: 1rem;
+  }
+
+  .Profile-InputFile {
+
+    display: none;
+  }
+
+  .ADMProfile input {
+
+    color: black;
+
+    width: 100%;
+    height: 35px;
+
+    font-size: 1rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    border: 1px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+
+    margin: 1rem 0 1rem 0;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 500px) {
+
+  /* content box Event Users */
+
+  .PanelADM {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .PanelADM_container {
+
+    width: 100%;
+    max-width: 1070px;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  /* box Image User */
+
+  .PanelADM_box-Show-User-ContentImage-ContenImage {
+
+    width: 35%;
+    max-width: 100px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+
+  .PanelADM_box-containerProfileADM {
+
+    width: 100%;
+    display: flex;
+  }
+}

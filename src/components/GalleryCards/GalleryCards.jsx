@@ -21,18 +21,6 @@ const GalleryCards = () => {
     });
   }
 
-  //Delet Code
-  function olamundo() {
-    const list = document.querySelectorAll(".ControllerLink-Gallery");
-
-    list.forEach((Element) => {
-      Element.addEventListener("click", () => {
-        useScroll(0, 0, 0);
-      });
-    });
-  }
-  //Delet Code
-
   //start
   useEffect(() => {
     const Time = setTimeout(() => {
