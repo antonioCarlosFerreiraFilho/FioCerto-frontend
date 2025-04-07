@@ -3,14 +3,25 @@
   .ProfileUserADM {
 
     width: 100%;
+
+    position: relative;
+  }
+
+  .ProfileUserADM-MessageError {
+
+    position: absolute;
+    position: fixed;
+    top: 41%;
+    left: 50%;
+    transform: translate(-50%);
+
+    z-index: 1000;
   }
 
   .ProfileUserADM-container {
 
     width: 100%;
   }
-
- 
 
   .ProfileUserADM-content {
 

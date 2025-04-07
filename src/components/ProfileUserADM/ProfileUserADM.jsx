@@ -6,6 +6,7 @@ import { FaEdit } from "react-icons/fa";
 import { useEffect, useState } from "react";
 //componets
 import PanelADM from "../PanelADM/PanelADM";
+import PopUpMessage from "../PopUpMessage/PopUpMessage";
 
 const ProfileUserADM = () => {
   const [userAuth, setUserAuth] = useState(true);
@@ -56,6 +57,11 @@ const ProfileUserADM = () => {
       {userAuth && (
         <div className="ProfileUserADM-ADMPermissions">
           <PanelADM />
+        </div>
+      )}
+      {userAuth && (
+        <div className="ProfileUserADM-MessageError">
+          <PopUpMessage />
         </div>
       )}
     </div>
