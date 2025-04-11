@@ -10,8 +10,6 @@ import PopUpMessage from "../PopUpMessage/PopUpMessage";
 
 const ProfileUserADM = () => {
   const [userAuth, setUserAuth] = useState(false);
-  //delete
-  const [reduxUser, setReduxUser] = useState(false);
 
   return (
     <div className="ProfileUserADM">

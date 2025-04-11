@@ -297,7 +297,7 @@ const BannerSlider = () => {
         <div className="BannerSlider_content-call">
           <div className="BannerSlider_content-call-box">
             <p>Looking for a quality and affordable eletrician service ?</p>
-            <NavLink className="ControllerLink" to="/about" >Get a Quote</NavLink>
+            <NavLink className="ControllerLink" to="/about" >{import.meta.env.VITE_API_URL}</NavLink>
           </div>
         </div>
       </div>
