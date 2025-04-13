@@ -2,18 +2,20 @@
 import "./Header.css";
 //react icons
 import { SiThunderstore } from "react-icons/si";
-import { IoMenuOutline } from "react-icons/io5";
 //react
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 //hooks
 import { useScroll } from "../../hooks/useScroll";
 //Components
 import LateralMenu from "../LateralMenu/LateralMenu";
 import ContainerAuth from "../ContainerAuth/ContainerAuth";
+//Hooks
+import { useAuth } from "../../hooks/useAuth";
 
 const Header = () => {
-  const [userAuth, setUserAuth] = useState(true);
+  // Auth
+  const { auth, loading } = useAuth();
 
   function DescktopTop() {
     const list = document.querySelectorAll(".linkController");
@@ -106,7 +108,7 @@ const Header = () => {
                   Contato
                 </NavLink>
 
-                {!userAuth && (
+                {!auth && (
                   <NavLink
                     className="linkController controllerPupPop"
                     id="controllerLink"
@@ -116,7 +118,7 @@ const Header = () => {
                   </NavLink>
                 )}
 
-                {userAuth && (
+                {auth && (
                   <NavLink className="linkController" to="/profile">
                     Configurações
                   </NavLink>
@@ -128,12 +130,14 @@ const Header = () => {
       </div>
       <div className="Header_container-MenuLateral">
         <div className="Header_container-MenuLateral-Container">
-          <LateralMenu userAuth={userAuth} />
+          <LateralMenu auth={auth} />
         </div>
       </div>
-      <div>
-        <ContainerAuth />
-      </div>
+      {!auth && (
+        <div>
+          <ContainerAuth />
+        </div>
+      )}
     </div>
   );
 };

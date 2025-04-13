@@ -1,6 +1,6 @@
 import { api, requestConfig } from "../utils/config";
 
-// PROFILE
+// Profile
 const profile = async (data, token) => {
   const config = requestConfig("GET", data, token);
 
@@ -16,8 +16,8 @@ const profile = async (data, token) => {
 };
 
 // Update
-const updateUser = async (data, token) => {
-  const config = requestConfig("PUT", data, token, true);
+const updateUser = async (userData, token) => {
+  const config = requestConfig("PUT", userData, token, true);
 
   try {
     const res = await fetch(api + "/Users/Update", config)
@@ -30,7 +30,7 @@ const updateUser = async (data, token) => {
   }
 };
 
-// DELET POST
+// Delete User
 const deleteUser = async (id, token) => {
   const config = requestConfig("DELETE", null, token);
 
@@ -45,7 +45,7 @@ const deleteUser = async (id, token) => {
   }
 };
 
-// showUsers
+// ShowUsers
 const showUser = async () => {
   const config = requestConfig("GET");
 
@@ -60,7 +60,7 @@ const showUser = async () => {
   }
 };
 
-// SEARCH
+// Search
 const searchUser = async (query) => {
   const config = requestConfig("GET", null);
 

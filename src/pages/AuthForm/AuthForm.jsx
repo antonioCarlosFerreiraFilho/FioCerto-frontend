@@ -4,6 +4,7 @@ import "./AuthForm.css";
 import ContainerAuth from "../../components/ContainerAuth/ContainerAuth";
 
 const AuthForm = () => {
+
   return (
     <div>
       <section>

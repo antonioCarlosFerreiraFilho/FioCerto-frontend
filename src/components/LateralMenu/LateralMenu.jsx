@@ -2,15 +2,24 @@
 import "./LateralMenu.css";
 //React
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
 //react icons
 import { SiThunderstore } from "react-icons/si";
-//components
-import ContainerAuth from "../ContainerAuth/ContainerAuth";
-//hooks
-import { useScroll } from "../../hooks/useScroll";
+//Slices
+import { logout, reset } from "../../slices/authSlice";
+//redux
+import { useDispatch } from "react-redux";
 
-const LateralMenu = ({ userAuth }) => {
+const LateralMenu = ({ auth }) => {
+  //Redux
+  const dispatch = useDispatch();
+
+  //Logout
+  const handleLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    window.location.reload(true);
+  };
+
   return (
     <div className="LateralMenu">
       <div className="LateralMenu_container">
@@ -20,12 +29,18 @@ const LateralMenu = ({ userAuth }) => {
             <NavLink to="/about">Sobre</NavLink>
             <NavLink to="/gallery">Galeria</NavLink>
             <NavLink to="/contact">Contato</NavLink>
-            {!userAuth && (
+            {!auth && (
               <NavLink to="#" className="controllerPupPopMenu" id="ContentLink">
                 Logar / Cadastrar
               </NavLink>
             )}
-            <NavLink to="/profile">Configurações</NavLink>
+
+            {auth && <NavLink to="/profile">Configurações</NavLink>}
+            {auth && (
+              <NavLink to="#" id="ControllerLogout" onClick={handleLogout}>
+                Sair
+              </NavLink>
+            )}
           </div>
           <div className="LateralMenu_boxLogo">
             <div className="LateralMenu_boxLogo-container">

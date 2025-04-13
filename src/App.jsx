@@ -12,8 +12,17 @@ import Profile from "./pages/Profile/Profile";
 //components
 import TopHeader from "./components/TopContact/TopContact";
 import Header from "./components/Header/Header";
+//Hooks
+import { useAuth } from "./hooks/useAuth";
 
 function App() {
+  // Auth
+  const { auth, loading } = useAuth();
+
+  if (loading) {
+    return <p>Loading.....</p>;
+  }
+
   return (
     <div>
       <BrowserRouter>
@@ -26,8 +35,6 @@ function App() {
           <Route path="/article" element={<Article />} />
           <Route path="/search" element={<Search />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/services" element={<Home />} />
-          <Route path="/register" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
         <Footer />

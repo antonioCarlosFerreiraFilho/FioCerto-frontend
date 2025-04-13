@@ -5,13 +5,24 @@ import { SiThunderstore } from "react-icons/si";
 import { IoClose } from "react-icons/io5";
 //react
 import { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 //components
 import MessageError from "../MessageError/MessageError";
+//redux
+import { useDispatch, useSelector } from "react-redux";
+//Slices
+import { register, login, reset } from "../../slices/authSlice";
 
 const ContainerAuth = () => {
+  //redux
+  const dispatch = useDispatch();
+  const { loading, errors } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+
   // States User
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [phone, setPhonel] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
@@ -19,11 +30,39 @@ const ContainerAuth = () => {
   // login User
   function registerUser(e) {
     e.preventDefault();
+
+    const newUser = {
+      firstName: firstName,
+      lastName: lastName,
+      phone: phone,
+      email: email,
+      password: pass,
+      confirmPassword: confirmPass,
+    };
+
+    dispatch(register(newUser));
+
+    setTimeout(() => {
+      dispatch(reset());
+    }, 4000);
   }
 
   // register User
   function loginUser(e) {
     e.preventDefault();
+
+    const newUser = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: pass,
+    };
+
+    dispatch(login(newUser));
+
+    setTimeout(() => {
+      dispatch(reset());
+    }, 4000);
   }
 
   function ScrollAuth() {
@@ -136,7 +175,10 @@ const ContainerAuth = () => {
                   {/* Submit */}
                   <div className="ContainerAuth_box-Register-form-boxSubmit">
                     <div className="ContainerAuth_box-Register-form-boxSubmit-content">
-                      <input type="submit" value="Cadastrar" />
+                      {loading && (
+                        <input type="submit" value="Aguarde" disabled />
+                      )}
+                      {!loading && <input type="submit" value="Cadastrar" />}
                     </div>
                   </div>
                 </form>
@@ -187,17 +229,22 @@ const ContainerAuth = () => {
                   {/* Submit */}
                   <div className="ContainerAuth_box-Register-form-boxSubmit">
                     <div className="ContainerAuth_box-Register-form-boxSubmit-content">
-                      <input type="submit" value="Logar" />
+                      {loading && (
+                        <input type="submit" value="Aguarde" disabled />
+                      )}
+                      {!loading && <input type="submit" value="Logar" />}
                     </div>
                   </div>
                 </form>
               </div>
               {/* Message Error */}
-              <div className="ContainerAuth_box-Form-container-MessageError">
-                <div className="ContainerAuth_box-Form-container-MessageError-content">
-                  <MessageError />
+              {errors && (
+                <div className="ContainerAuth_box-Form-container-MessageError">
+                  <div className="ContainerAuth_box-Form-container-MessageError-content">
+                    <MessageError errors={errors} type="error" />
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
             <div className="ContainerAuth_box-registerORlogin">
               <div className="ContainerAuth_box-registerORlogin-content">

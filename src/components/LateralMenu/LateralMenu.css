@@ -61,6 +61,13 @@
     cursor: pointer;
   }
 
+  #ControllerLogout {
+
+    color: black;
+    
+    cursor: pointer;
+  }
+
   /* Box logo */
 
   .LateralMenu_boxLogo {

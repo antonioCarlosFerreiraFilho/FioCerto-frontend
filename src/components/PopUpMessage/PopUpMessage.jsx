@@ -6,7 +6,7 @@ import { TbAlertTriangleFilled } from "react-icons/tb";
 //components
 import MessageError from "../MessageError/MessageError";
 
-const PopUpMessage = ({error, type}) => {
+const PopUpMessage = ({errors, type}) => {
   return (
     <div className="PopUpMessage">
       <div className="PopUpMessage_container">
@@ -18,7 +18,7 @@ const PopUpMessage = ({error, type}) => {
             </div>
             <div className="PopUpMessage_box-MessageError">
               <div className="PopUpMessage_box-MessageError-content">
-                <MessageError/>
+                <MessageError errors={errors} type={type} />
               </div>
             </div>
           </div>

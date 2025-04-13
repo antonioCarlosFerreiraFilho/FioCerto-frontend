@@ -5,27 +5,29 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 const initialState = {
   user: user ? user : null,
-  error: false,
+  errors: false,
   success: false,
   loading: false,
   message: null,
 };
 
-// REGISTER
+// Register
 export const register = createAsyncThunk(
   "auth/register",
   async (user, thunkAPI) => {
+    
     const data = await authService.register(user);
 
     if (data.errors) {
       return thunkAPI.rejectWithValue(data.errors[0]);
     }
-
+    
+    
     return data;
   }
 );
 
-//LOGIN
+// Login
 export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
   const data = await authService.login(user);
 
@@ -36,7 +38,7 @@ export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
   return data;
 });
 
-// LOGOUT
+// Logout
 export const logout = createAsyncThunk("auth/logout", async () => {
   await authService.logout();
 });
@@ -48,49 +50,49 @@ export const authSlice = createSlice({
   reducers: {
     reset: (state) => {
       state.loading = false;
-      state.error = null;
+      state.errors = null;
       state.success = false;
       state.message = null;
     },
   },
   extraReducers: (builder) => {
     builder
-      // REGISTER
+      // Register
       .addCase(register.pending, (state) => {
         state.loading = true;
-        state.error = false;
+        state.errors = false;
       })
       .addCase(register.fulfilled, (state, action) => {
         state.loading = false;
         state.success = true;
-        state.error = null;
+        state.errors = null;
         state.user = action.payload;
       })
       .addCase(register.rejected, (state, action) => {
         state.loading = false;
         state.user = null;
-        state.error = action.payload;
+        state.errors = action.payload;
       })
-      // LOGIN
+      // Login
       .addCase(login.pending, (state) => {
         state.loading = false;
-        state.error = null;
+        state.errors = null;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.loading = false;
-        state.error = null;
+        state.errors = null;
         state.success = true;
         state.user = action.payload;
       })
       .addCase(login.rejected, (state, action) => {
         state.loading = false;
         state.user = null;
-        state.error = action.payload;
+        state.errors = action.payload;
       })
       // LOGOUT
       .addCase(logout.fulfilled, (state, action) => {
         state.loading = false;
-        state.error = null;
+        state.errors = null;
         state.user = null;
         state.success = true;
       });

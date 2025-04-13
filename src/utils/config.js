@@ -1,5 +1,7 @@
+const path =  import.meta.env.VITE_API_URL;
+const back = "api";
 export const uploads = import.meta.env.VITE_API_URL_UPLOADS;
-export const api = import.meta.env.VITE_API_URL;
+export const api = path + back;
 
 export const requestConfig = (method, data, token = null, image = null) => {
   let config;
@@ -29,8 +31,5 @@ export const requestConfig = (method, data, token = null, image = null) => {
     config.headers.Authorization = `Bearer ${token}`;
   }
   
-  
-
-  console.log(process.env.VITE_API_URL_UPLOADS);
   return config;
 };
