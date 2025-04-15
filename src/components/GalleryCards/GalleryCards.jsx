@@ -8,8 +8,17 @@ import { NavLink } from "react-router-dom";
 import { useScroll } from "../../hooks/useScroll";
 //react
 import { useEffect } from "react";
+//redux
+import { useSelector, useDispatch } from "react-redux";
+//Slice
+import { PaginationArticle, reset } from "../../slices/articleSlice";
 
 const GalleryCards = () => {
+  const dispatch = useDispatch();
+  const { articles, errors, loading, message } = useSelector(
+    (state) => state.article
+  );
+
   //Scroll top
   function ScrollTop() {
     const list = document.querySelectorAll(".ControllerLink-Gallery");
@@ -75,160 +84,9 @@ const GalleryCards = () => {
               </div>
             </div>
 
-            <div className="GalleryCards_card">
-              {/* CARD IMAGE */}
-              <div className="GalleryCards_card-image">
-                <img src="./public/background/bannerArticle.jpg" alt="" />
-              </div>
-              {/* CARD COMMENTS,DATA */}
-              <div className="GalleryCards_card-info">
-                <div className="GalleryCards_card-info-BoxIcons">
-                  <div className="GalleryCards_card-info-BoxIconDada">
-                    <MdDateRange className="GalleryCards_card-info-ICON" />
-                    <p>22/10/25</p>
-                  </div>
-                  <div className="GalleryCards_card-info-BoxIconComments">
-                    <FaRegCommentAlt className="GalleryCards_card-info-ICON" />
-                    <p>10</p>
-                  </div>
-                </div>
-              </div>
-              {/* CARD DESCRIPTION */}
-              <div className="GalleryCards_card-description">
-                <div className="GalleryCards_card-description-boxInfo_card">
-                  <h1>Duis Aute Irure Dolor in Reprehet</h1>
-                  <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Quas nostrum eius id. Provident minima perferendis sapiente
-                    vitae dolor molestiae ipsam facere, reprehenderit sequi,
-                    magni, harum cumque quibusdam quidem quas et.
-                  </p>
-                </div>
-              </div>
-              {/* CARD Link */}
-              <div className="GalleryCards_card-Link">
-                <div className="GalleryCards_card-Link-box">
-                  <NavLink className="ControllerLink-Gallery">
-                    Saber Mais...
-                  </NavLink>
-                </div>
-              </div>
-            </div>
-
-            <div className="GalleryCards_card">
-              {/* CARD IMAGE */}
-              <div className="GalleryCards_card-image">
-                <img src="./public/background/bannerArticle.jpg" alt="" />
-              </div>
-              {/* CARD COMMENTS,DATA */}
-              <div className="GalleryCards_card-info">
-                <div className="GalleryCards_card-info-BoxIcons">
-                  <div className="GalleryCards_card-info-BoxIconDada">
-                    <MdDateRange className="GalleryCards_card-info-ICON" />
-                    <p>22/10/25</p>
-                  </div>
-                  <div className="GalleryCards_card-info-BoxIconComments">
-                    <FaRegCommentAlt className="GalleryCards_card-info-ICON" />
-                    <p>10</p>
-                  </div>
-                </div>
-              </div>
-              {/* CARD DESCRIPTION */}
-              <div className="GalleryCards_card-description">
-                <div className="GalleryCards_card-description-boxInfo_card">
-                  <h1>Duis Aute Irure Dolor in Reprehet</h1>
-                  <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Quas nostrum eius id. Provident minima perferendis sapiente
-                    vitae dolor molestiae ipsam facere, reprehenderit sequi,
-                    magni, harum cumque quibusdam quidem quas et.
-                  </p>
-                </div>
-              </div>
-              {/* CARD Link */}
-              <div className="GalleryCards_card-Link">
-                <div className="GalleryCards_card-Link-box">
-                  <NavLink>Saber Mais...</NavLink>
-                </div>
-              </div>
-            </div>
-
-            <div className="GalleryCards_card">
-              {/* CARD IMAGE */}
-              <div className="GalleryCards_card-image">
-                <img src="./public/background/bannerArticle.jpg" alt="" />
-              </div>
-              {/* CARD COMMENTS,DATA */}
-              <div className="GalleryCards_card-info">
-                <div className="GalleryCards_card-info-BoxIcons">
-                  <div className="GalleryCards_card-info-BoxIconDada">
-                    <MdDateRange className="GalleryCards_card-info-ICON" />
-                    <p>22/10/25</p>
-                  </div>
-                  <div className="GalleryCards_card-info-BoxIconComments">
-                    <FaRegCommentAlt className="GalleryCards_card-info-ICON" />
-                    <p>10</p>
-                  </div>
-                </div>
-              </div>
-              {/* CARD DESCRIPTION */}
-              <div className="GalleryCards_card-description">
-                <div className="GalleryCards_card-description-boxInfo_card">
-                  <h1>Duis Aute Irure Dolor in Reprehet</h1>
-                  <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Quas nostrum eius id. Provident minima perferendis sapiente
-                    vitae dolor molestiae ipsam facere, reprehenderit sequi,
-                    magni, harum cumque quibusdam quidem quas et.
-                  </p>
-                </div>
-              </div>
-              {/* CARD Link */}
-              <div className="GalleryCards_card-Link">
-                <div className="GalleryCards_card-Link-box">
-                  <NavLink>Saber Mais...</NavLink>
-                </div>
-              </div>
-            </div>
-
-            <div className="GalleryCards_card">
-              {/* CARD IMAGE */}
-              <div className="GalleryCards_card-image">
-                <img src="./public/background/bannerArticle.jpg" alt="" />
-              </div>
-              {/* CARD COMMENTS,DATA */}
-              <div className="GalleryCards_card-info">
-                <div className="GalleryCards_card-info-BoxIcons">
-                  <div className="GalleryCards_card-info-BoxIconDada">
-                    <MdDateRange className="GalleryCards_card-info-ICON" />
-                    <p>22/10/25</p>
-                  </div>
-                  <div className="GalleryCards_card-info-BoxIconComments">
-                    <FaRegCommentAlt className="GalleryCards_card-info-ICON" />
-                    <p>10</p>
-                  </div>
-                </div>
-              </div>
-              {/* CARD DESCRIPTION */}
-              <div className="GalleryCards_card-description">
-                <div className="GalleryCards_card-description-boxInfo_card">
-                  <h1>Duis Aute Irure Dolor in Reprehet</h1>
-                  <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Quas nostrum eius id. Provident minima perferendis sapiente
-                    vitae dolor molestiae ipsam facere, reprehenderit sequi,
-                    magni, harum cumque quibusdam quidem quas et.
-                  </p>
-                </div>
-              </div>
-              {/* CARD Link */}
-              <div className="GalleryCards_card-Link">
-                <div className="GalleryCards_card-Link-box">
-                  <NavLink>Saber Mais...</NavLink>
-                </div>
-              </div>
-            </div>
+            {/*CARD*/}
           </div>
+
           <div className="GalleryCards_Pagination">
             <div className="GalleryCards_Pagination-container">
               <div className="GalleryCards_Pagination-content">

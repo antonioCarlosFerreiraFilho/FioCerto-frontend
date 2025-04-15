@@ -1,7 +1,7 @@
 //css
 import "./LateralMenu.css";
 //React
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 //react icons
 import { SiThunderstore } from "react-icons/si";
 //Slices
@@ -12,11 +12,14 @@ import { useDispatch } from "react-redux";
 const LateralMenu = ({ auth }) => {
   //Redux
   const dispatch = useDispatch();
+  //redirect Home
+  const navigate = useNavigate();
 
   //Logout
   const handleLogout = () => {
     dispatch(logout());
     dispatch(reset());
+    navigate("/");
     window.location.reload(true);
   };
 

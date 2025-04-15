@@ -32,9 +32,13 @@ const ProfileUserADM = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [permissions, setPermissions] = useState("");
+  const [idUser, setIdUser] = useState("");
   const [profileImage, setProfileImage] = useState("");
   const [previewImage, setPreviewImage] = useState("");
   const [errorImageFormat, setErrorImageFormat] = useState("");
+  // ADM
+  const [ADM, setADM] = useState(false);
 
   //UPDATE User DATA
   const handleUpdate = async (e) => {
@@ -69,7 +73,7 @@ const ProfileUserADM = () => {
     setTimeout(() => {
       dispatch(reset());
     }, 3000);
-  }
+  };
 
   //LOAD USER DATA
   useEffect(() => {
@@ -77,10 +81,27 @@ const ProfileUserADM = () => {
   }, [dispatch]);
 
   function reloadUser() {
-
     setTimeout(() => {
       dispatch(profile());
     }, 3000);
+  }
+
+  //Rederizando
+  function AdmInfo() {
+    const AdmPermissions = import.meta.env.VITE_API_ADM_PERMISSIONS;
+    const AdmPhone = import.meta.env.VITE_API_ADM_PHONE;
+    const AdmEmail = import.meta.env.VITE_API_ADM_EMAIL;
+    const AdmPass = import.meta.env.VITE_API_ADM_PASS;
+    const AdmId = import.meta.env.VITE_API_ADM_ID;
+
+    if (
+      permissions == AdmPermissions &&
+      phone == AdmPhone &&
+      email == AdmEmail &&
+      idUser == AdmId 
+    ) {
+      setADM(true);
+    }
   }
 
   //SET USER
@@ -90,7 +111,18 @@ const ProfileUserADM = () => {
       setLastName(user.lastName);
       setPhone(user.phone);
       setEmail(user.email);
+      setPassword(user.password);
+      setPermissions(user.permissions);
+      setIdUser(user._id);
     }
+  }, [user]);
+  
+  useEffect(() => {
+    const Time = setTimeout(() => {
+      AdmInfo();
+    }, 2000);
+
+    return () => clearTimeout(Time);
   }, [user]);
 
   return (
@@ -141,10 +173,10 @@ const ProfileUserADM = () => {
                 <label htmlFor="">
                   <span>Senha</span>
                   <input
-                    type="text"
+                    type="password"
                     onChange={(e) => setPassword(e.target.value)}
-                    value={password || ""}
-                    placeholder="******"
+                    placeholder={"**********"}
+                    maxLength={10}
                   />
                 </label>
                 <input
@@ -157,9 +189,9 @@ const ProfileUserADM = () => {
           </div>
         </div>
       </div>
-      {auth && (
+      {ADM && (
         <div className="ProfileUserADM-ADMPermissions">
-          <PanelADM />
+          <PanelADM  ADM={ADM} />
         </div>
       )}
       {errors && (
@@ -173,8 +205,7 @@ const ProfileUserADM = () => {
           <PopUpMessage errors={message} type="sucess" />
         </div>
       )}
-       {message && reloadUser()}
-     
+      {message && reloadUser()}
     </div>
   );
 };
