@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 //Slice
 import { PaginationArticle, reset } from "../../slices/articleSlice";
+import e from "express";
 
 const GalleryCards = () => {
   //initial States Search
@@ -26,6 +27,14 @@ const GalleryCards = () => {
 
   const dispatch = useDispatch();
   const { articles, loading } = useSelector((state) => state.article);
+
+  //Delete
+  function DeleteUser() {
+
+    e.preventDefault();
+
+    const UserId = e.textContent();
+  }
 
   function pageAdd(e) {
     let page = e.target.textContent;
