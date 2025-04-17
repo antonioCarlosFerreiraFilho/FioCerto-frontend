@@ -14,18 +14,18 @@ const CreateArticle = async (data, token) => {
   }
 };
 
-// PAGINATION
-const PaginationArticle = async () => {
-  const config = requestConfig("GET");
+// SEARCH
+const PaginationArticle = async (query) => {
+  const config = requestConfig("GET", null);
 
   try {
-    const res = await fetch(api + "/Article/gallery", config)
+    const res = await fetch(api + "/Article/gallery?q=" + query, config)
       .then((res) => res.json())
       .catch((err) => err);
 
     return res;
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    console.log(err);
   }
 };
 

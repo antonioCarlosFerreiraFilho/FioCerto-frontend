@@ -10,11 +10,11 @@ const initialState = {
   message: null,
 };
 
-// SHOW POSTS
+// SEARCH
 export const PaginationArticle = createAsyncThunk(
-  "article/Pagination",
-  async () => {
-    const data = await articleService.PaginationArticle();
+  "article/search",
+  async (query, thunkAPI) => {
+    const data = await articleService.PaginationArticle(query);
 
     return data;
   }
