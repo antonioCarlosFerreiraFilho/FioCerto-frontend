@@ -28,6 +28,14 @@ const GalleryCards = () => {
   const dispatch = useDispatch();
   const { articles, loading } = useSelector((state) => state.article);
 
+  //Delete
+  function DeleteUser() {
+
+    e.preventDefault();
+
+    const UserId = e.textContent();
+  }
+
   function pageAdd(e) {
     let page = e.target.textContent;
 
