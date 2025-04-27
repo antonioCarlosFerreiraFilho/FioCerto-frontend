@@ -13,13 +13,12 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 //Slice
 import { PaginationArticle, reset } from "../../slices/articleSlice";
-import e from "express";
 
 const GalleryCards = () => {
   //initial States Search
   const [Query, setQuery] = useState("");
-    //redirect Home
-    const navigate = useNavigate();
+  //redirect Home
+  const navigate = useNavigate();
 
   //initial States
   const query = useQuery();
@@ -27,8 +26,6 @@ const GalleryCards = () => {
 
   const dispatch = useDispatch();
   const { articles, loading } = useSelector((state) => state.article);
-
- ssss
 
   function pageAdd(e) {
     let page = e.target.textContent;
@@ -123,10 +120,18 @@ const GalleryCards = () => {
           <div className="GalleryCards_Pagination">
             <div className="GalleryCards_Pagination-container">
               <div className="GalleryCards_Pagination-content">
-                <p className="ControllerLink-Gallery" onClick={pageAdd}>1</p>
-                <p className="ControllerLink-Gallery" onClick={pageAdd}>2</p>
-                <p className="ControllerLink-Gallery" onClick={pageAdd}>3</p>
-                <p className="ControllerLink-Gallery" onClick={pageAdd}>4</p>
+                <p className="ControllerLink-Gallery" onClick={pageAdd}>
+                  1
+                </p>
+                <p className="ControllerLink-Gallery" onClick={pageAdd}>
+                  2
+                </p>
+                <p className="ControllerLink-Gallery" onClick={pageAdd}>
+                  3
+                </p>
+                <p className="ControllerLink-Gallery" onClick={pageAdd}>
+                  4
+                </p>
               </div>
             </div>
           </div>
