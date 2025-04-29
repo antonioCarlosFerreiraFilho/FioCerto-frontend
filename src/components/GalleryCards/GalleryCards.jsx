@@ -15,25 +15,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { PaginationArticle, reset } from "../../slices/articleSlice";
 
 const GalleryCards = () => {
-  //initial States Search
-  const [Query, setQuery] = useState("");
   //redirect Home
   const navigate = useNavigate();
 
-  //initial States
-  const query = useQuery();
-  const search = query.get("q");
-
   const dispatch = useDispatch();
   const { articles, loading } = useSelector((state) => state.article);
-
-  function pageAdd(e) {
-    let page = e.target.textContent;
-
-    setQuery(page);
-
-    navigate(`/gallery?q=${Query}`);
-  }
 
   //Scroll top
   function ScrollTop() {
@@ -48,8 +34,8 @@ const GalleryCards = () => {
 
   //LOAD Articles
   useEffect(() => {
-    dispatch(PaginationArticle(search));
-  }, [Query, search]);
+    dispatch(PaginationArticle());
+  }, []);
 
   //start
   useEffect(() => {
@@ -73,7 +59,7 @@ const GalleryCards = () => {
                   <div className="GalleryCards_card" key={article._id}>
                     {/* CARD IMAGE */}
                     <div className="GalleryCards_card-image">
-                      <img src="./public/background/bannerArticle.jpg" alt="" />
+                      <img src={`${article.imgURL[1]}`} alt="" />
                     </div>
                     {/* CARD COMMENTS,DATA */}
                     <div className="GalleryCards_card-info">
@@ -84,20 +70,16 @@ const GalleryCards = () => {
                         </div>
                         <div className="GalleryCards_card-info-BoxIconComments">
                           <FaRegCommentAlt className="GalleryCards_card-info-ICON" />
-                          <p>10</p>
+                          <p>{article.comments.length }</p>
                         </div>
                       </div>
                     </div>
                     {/* CARD DESCRIPTION */}
                     <div className="GalleryCards_card-description">
                       <div className="GalleryCards_card-description-boxInfo_card">
-                        <h1>Duis Aute Irure Dolor in Reprehet</h1>
+                        <h1>{article.articleTitle}</h1>
                         <p>
-                          Lorem, ipsum dolor sit amet consectetur adipisicing
-                          elit. Quas nostrum eius id. Provident minima
-                          perferendis sapiente vitae dolor molestiae ipsam
-                          facere, reprehenderit sequi, magni, harum cumque
-                          quibusdam quidem quas et.
+                        {article.miniDescri}
                         </p>
                       </div>
                     </div>
@@ -120,18 +102,10 @@ const GalleryCards = () => {
           <div className="GalleryCards_Pagination">
             <div className="GalleryCards_Pagination-container">
               <div className="GalleryCards_Pagination-content">
-                <p className="ControllerLink-Gallery" onClick={pageAdd}>
-                  1
-                </p>
-                <p className="ControllerLink-Gallery" onClick={pageAdd}>
-                  2
-                </p>
-                <p className="ControllerLink-Gallery" onClick={pageAdd}>
-                  3
-                </p>
-                <p className="ControllerLink-Gallery" onClick={pageAdd}>
-                  4
-                </p>
+                <p className="ControllerLink-Gallery">1</p>
+                <p className="ControllerLink-Gallery">2</p>
+                <p className="ControllerLink-Gallery">3</p>
+                <p className="ControllerLink-Gallery">4</p>
               </div>
             </div>
           </div>

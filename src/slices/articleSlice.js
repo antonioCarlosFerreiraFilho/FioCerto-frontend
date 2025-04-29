@@ -12,9 +12,9 @@ const initialState = {
 
 // SEARCH
 export const PaginationArticle = createAsyncThunk(
-  "article/search",
-  async (query, thunkAPI) => {
-    const data = await articleService.PaginationArticle(query);
+  "article/list",
+  async (thunkAPI) => {
+    const data = await articleService.PaginationArticle();
 
     return data;
   }

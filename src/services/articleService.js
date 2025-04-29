@@ -19,7 +19,7 @@ const PaginationArticle = async (query) => {
   const config = requestConfig("GET", null);
 
   try {
-    const res = await fetch(api + "/Article/gallery?q=" + query, config)
+    const res = await fetch(api + "/Article/gallery", config)
       .then((res) => res.json())
       .catch((err) => err);
 
