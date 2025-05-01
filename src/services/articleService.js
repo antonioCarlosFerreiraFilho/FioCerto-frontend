@@ -79,7 +79,7 @@ const GetArticle = async (id) => {
   const config = requestConfig("GET");
 
   try {
-    const res = await fetch(api + "/Posts/getPost/" + id, config)
+    const res = await fetch(api + "/Article/get/" + id, config)
       .then((res) => res.json())
       .catch((err) => err);
 
@@ -94,7 +94,7 @@ const CommentsArticle = async (data, id, token) => {
   const config = requestConfig("PUT", data, token);
 
   try {
-    const res = await fetch(api + "/Posts/comments/" + id, config)
+    const res = await fetch(api + "/Article/comment/" + id, config)
       .then((res) => res.json())
       .catch((error) => error);
 
@@ -121,6 +121,8 @@ const DelCommentsArticle = async (id, token) => {
 
 const articleService = {
   PaginationArticle,
+  GetArticle,
+  CommentsArticle,
 };
 
 export default articleService;

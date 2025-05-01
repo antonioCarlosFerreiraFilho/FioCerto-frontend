@@ -136,6 +136,12 @@
     width: 100%;
   }
 
+  .CommentsContent_box-LengthNull {
+
+    width: 100%;
+    text-align: center;
+  }
+
   .CommentsContent_box-viewsComments-content {
 
     width: 100%;

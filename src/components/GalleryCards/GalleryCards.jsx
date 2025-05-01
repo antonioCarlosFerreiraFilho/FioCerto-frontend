@@ -59,7 +59,7 @@ const GalleryCards = () => {
                   <div className="GalleryCards_card" key={article._id}>
                     {/* CARD IMAGE */}
                     <div className="GalleryCards_card-image">
-                      <img src={`${article.imgURL[1]}`} alt="" />
+                      <img src={`${article.imgURL[0]}`} alt={`${article.imgNAME[0]}`} />
                     </div>
                     {/* CARD COMMENTS,DATA */}
                     <div className="GalleryCards_card-info">
@@ -87,7 +87,7 @@ const GalleryCards = () => {
                     <div className="GalleryCards_card-Link">
                       <div className="GalleryCards_card-Link-box">
                         <NavLink
-                          to="/article"
+                          to={`/article/${article._id}`}
                           className="ControllerLink-Gallery"
                         >
                           Saber Mais...
