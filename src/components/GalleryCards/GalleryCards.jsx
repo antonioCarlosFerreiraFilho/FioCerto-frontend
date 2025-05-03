@@ -6,17 +6,14 @@ import { FaRegCommentAlt } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 //hooks
 import { useScroll } from "../../hooks/useScroll";
-import { useQuery } from "../../hooks/useQuery";
 //react
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 //Slice
-import { PaginationArticle, reset } from "../../slices/articleSlice";
+import { PaginationArticle } from "../../slices/articleSlice";
 
 const GalleryCards = () => {
-  //redirect Home
-  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const { articles, loading } = useSelector((state) => state.article);

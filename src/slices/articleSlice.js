@@ -3,6 +3,8 @@ import articleService from "../services/articleService";
 
 const initialState = {
   articles: [],
+  recently: [],
+  about: [],
   article: {},
   errors: false,
   success: false,
@@ -23,6 +25,23 @@ export const PaginationArticle = createAsyncThunk(
 // GetArticle
 export const GetArticle = createAsyncThunk("article/GetArticle", async (id) => {
   const data = await articleService.GetArticle(id);
+
+  return data;
+});
+
+// RecentlyPostedArticle
+export const RecentlyPostedArticle = createAsyncThunk(
+  "article/show",
+  async () => {
+    const data = await articleService.RecentlyPostedArticle();
+
+    return data;
+  }
+);
+
+// About Article
+export const aboutArticle = createAsyncThunk("article/about", async () => {
+  const data = await articleService.aboutArticle();
 
   return data;
 });
@@ -83,6 +102,28 @@ export const articleSlice = createSlice({
         state.errors = null;
         state.article = action.payload;
       })
+      // Recently
+      .addCase(RecentlyPostedArticle.pending, (state) => {
+        state.loading = true;
+        state.errors = false;
+      })
+      .addCase(RecentlyPostedArticle.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.errors = null;
+        state.recently = action.payload;
+      })
+      // About Article
+      .addCase(aboutArticle.pending, (state) => {
+        state.loading = true;
+        state.errors = false;
+      })
+      .addCase(aboutArticle.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.errors = null;
+        state.about = action.payload;
+      })
       // COMMENTS
       .addCase(CommentsArticle.fulfilled, (state, actions) => {
         state.loading = false;
@@ -90,6 +131,8 @@ export const articleSlice = createSlice({
         state.errors = null;
 
         state.article.comments.push(actions.payload.comments);
+
+        state.message = " Comentário Publicado. ";
       })
       .addCase(CommentsArticle.rejected, (state, actions) => {
         state.loading = false;

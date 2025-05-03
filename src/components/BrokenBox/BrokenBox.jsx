@@ -9,6 +9,10 @@ import { FaRegLightbulb } from "react-icons/fa6";
 import { useScroll } from "../../hooks/useScroll";
 //react
 import { useEffect } from "react";
+//redux
+import { useDispatch, useSelector } from "react-redux";
+//slices
+import { RecentlyPostedArticle } from "../../slices/articleSlice";
 
 const BrokenBox = () => {
   //Scroll top
@@ -22,6 +26,11 @@ const BrokenBox = () => {
     });
   }
 
+  //redux
+  const dispatch = useDispatch();
+  //slices
+  const { articles, recently, loading } = useSelector((state) => state.article);
+
   //start
   useEffect(() => {
     const Time = setTimeout(() => {
@@ -31,60 +40,31 @@ const BrokenBox = () => {
     return () => clearTimeout(Time);
   }, []);
 
+  //Rederizando
+  useEffect(() => {
+    dispatch(RecentlyPostedArticle());
+  }, [dispatch]);
+
   return (
     <div className="BrokenBox">
       <div className="BrokenBox_container">
         <div className="BrokenBox_content">
-          <div className="BrokenBox_box-title-links">
-            <div className="BrokenBox_box-title-links-content">
-              <NavLink className="BrokenBox_box-title-links-content-link ControllerLink-BrokenBox">
-                <h1>Eletricidade Completa</h1>
-                <div className="BrokenBox_box-title-links-content-link-Arrow">
-                  <IoIosArrowForward />
+          {loading ? (
+            <p>Loading</p>
+          ) : (
+            <div className="BrokenBox_box-title-links">
+              {recently.map((recent) => (
+                <div className="BrokenBox_box-title-links-content" key={recent._id}>
+                  <NavLink className="BrokenBox_box-title-links-content-link ControllerLink-BrokenBox" to={`/article/${recent._id}`} >
+                    <h1>{recent.firstTitle}</h1>
+                    <div className="BrokenBox_box-title-links-content-link-Arrow">
+                      <IoIosArrowForward />
+                    </div>
+                  </NavLink>
                 </div>
-              </NavLink>
+              ))}
             </div>
-            <div className="BrokenBox_box-title-links-content">
-              <NavLink className="BrokenBox_box-title-links-content-link ControllerLink-BrokenBox">
-                <h1>Corte Geral</h1>
-                <div className="BrokenBox_box-title-links-content-link-Arrow">
-                  <IoIosArrowForward />
-                </div>
-              </NavLink>
-            </div>
-            <div className="BrokenBox_box-title-links-content">
-              <NavLink className="BrokenBox_box-title-links-content-link ControllerLink-BrokenBox">
-                <h1>Manutenção De Quadros</h1>
-                <div className="BrokenBox_box-title-links-content-link-Arrow">
-                  <IoIosArrowForward />
-                </div>
-              </NavLink>
-            </div>
-            <div className="BrokenBox_box-title-links-content">
-              <NavLink className="BrokenBox_box-title-links-content-link ControllerLink-BrokenBox">
-                <h1>Manutenção Eletrica</h1>
-                <div className="BrokenBox_box-title-links-content-link-Arrow">
-                  <IoIosArrowForward />
-                </div>
-              </NavLink>
-            </div>
-            <div className="BrokenBox_box-title-links-content">
-              <NavLink className="BrokenBox_box-title-links-content-link ControllerLink-BrokenBox">
-                <h1>Quadro Trifasico</h1>
-                <div className="BrokenBox_box-title-links-content-link-Arrow">
-                  <IoIosArrowForward />
-                </div>
-              </NavLink>
-            </div>
-            <div className="BrokenBox_box-title-links-content">
-              <NavLink className="BrokenBox_box-title-links-content-link ControllerLink-BrokenBox">
-                <h1>Novos Circuitos Eletricos</h1>
-                <div className="BrokenBox_box-title-links-content-link-Arrow">
-                  <IoIosArrowForward />
-                </div>
-              </NavLink>
-            </div>
-          </div>
+          )}
         </div>
         <div className="BrokenBox_content-content">
           <div className="BrokenBox_content-content-LinkContact">

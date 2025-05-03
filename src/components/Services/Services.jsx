@@ -6,6 +6,10 @@ import { NavLink } from "react-router-dom";
 import { useScroll } from "../../hooks/useScroll";
 //react
 import { useEffect } from "react";
+//redux
+import { useDispatch, useSelector } from "react-redux";
+//slices
+import { aboutArticle } from "../../slices/articleSlice";
 
 const Services = () => {
   //Scroll top
@@ -19,6 +23,11 @@ const Services = () => {
     });
   }
 
+  //redux
+  const dispatch = useDispatch();
+  //slices
+  const { about, loading } = useSelector((state) => state.article);
+
   //start
   useEffect(() => {
     const Time = setTimeout(() => {
@@ -28,61 +37,36 @@ const Services = () => {
     return () => clearTimeout(Time);
   }, []);
 
+  //Rederizando
+  useEffect(() => {
+    dispatch(aboutArticle());
+  }, [dispatch]);
+
   return (
     <div className="Services">
       <div className="Services_container">
         <div className="Services_content">
           <div className="Services_content-boxes">
-            <div className="Services_content-box">
-              <div className="Services_content-box-Image">
-                <img src="./public/background/service_home_1.jpg" alt="" />
+            {about.map((article) => (
+              <div className="Services_content-box" key={article._id}>
+                <div className="Services_content-box-Image">
+                  <img
+                    src={`${article.imgURL[0]}`}
+                    alt={`${article.imgNAME[0]}`}
+                  />
+                </div>
+                <div className="Services_content-box-descriprion">
+                  <h1>{article.articleTitle}</h1>
+                  <p>{article.miniDescri}</p>
+                  <NavLink
+                    className="ControllerLink-service"
+                    to={`/article/${article._id}`}
+                  >
+                    Saiba mais.....
+                  </NavLink>
+                </div>
               </div>
-              <div className="Services_content-box-descriprion">
-                <h1>Air condition installatioin</h1>
-                <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
-                  facere repudiandae ipsum architecto vel quaerat commodi sed
-                  consectetur, dolorem aliquam
-                </p>
-                <NavLink className="ControllerLink-service">
-                  Saiba mais.....
-                </NavLink>
-              </div>
-            </div>
-
-            <div className="Services_content-box">
-              <div className="Services_content-box-Image">
-                <img src="./public/background/service_home_1.jpg" alt="" />
-              </div>
-              <div className="Services_content-box-descriprion">
-                <h1>Air condition installatioin</h1>
-                <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
-                  facere repudiandae ipsum architecto vel quaerat commodi sed
-                  consectetur, dolorem aliquam
-                </p>
-                <NavLink className="ControllerLink-service">
-                  Saiba mais.....
-                </NavLink>
-              </div>
-            </div>
-
-            <div className="Services_content-box">
-              <div className="Services_content-box-Image">
-                <img src="./public/background/service_home_1.jpg" alt="" />
-              </div>
-              <div className="Services_content-box-descriprion">
-                <h1>Air condition installatioin</h1>
-                <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
-                  facere repudiandae ipsum architecto vel quaerat commodi sed
-                  consectetur, dolorem aliquam
-                </p>
-                <NavLink className="ControllerLink-service">
-                  Saiba mais.....
-                </NavLink>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
         <div className="Services_content-InfoProficional">

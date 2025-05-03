@@ -444,7 +444,7 @@
     height: 50px;
 
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
   }
 
   .CommentsContent_box-Form-container-MessageError-content {
