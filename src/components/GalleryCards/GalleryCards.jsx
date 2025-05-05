@@ -29,6 +29,8 @@ const GalleryCards = () => {
     });
   }
 
+  // Send Pagination
+
   //LOAD Articles
   useEffect(() => {
     dispatch(PaginationArticle());
