@@ -1,0 +1,26 @@
+@media screen and (min-width: 358px) {
+  .LoadingRecently {}
+
+  .LoadingRecently_container {
+
+    width: 100%;
+    height: 400px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .LoadingRecently_content {}
+
+  .LoadingRecently_content-loading {
+
+    width: 100%;
+    height: 50%;
+  }
+
+  .LoadingRecently_content-loading img {
+
+    max-width: 110px;
+  }
+}

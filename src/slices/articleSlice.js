@@ -15,8 +15,8 @@ const initialState = {
 // Pagination
 export const PaginationArticle = createAsyncThunk(
   "article/list",
-  async (thunkAPI) => {
-    const data = await articleService.PaginationArticle();
+  async (page, thunkAPI) => {
+    const data = await articleService.PaginationArticle(page);
 
     return data;
   }
@@ -80,7 +80,7 @@ export const articleSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // SHOW
+      // PaginationArticle
       .addCase(PaginationArticle.pending, (state) => {
         state.loading = true;
         state.errors = false;

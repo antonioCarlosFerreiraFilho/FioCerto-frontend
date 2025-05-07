@@ -7,6 +7,8 @@ import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 //slices
 import { GetArticle } from "../../slices/articleSlice";
+//components
+import LoadingArticle from "../LoadingArticle/LoadingArticle";
 
 const ArticleDescription = () => {
   //react
@@ -26,7 +28,7 @@ const ArticleDescription = () => {
       <div className="ArticleDescription_container">
         {/* ARTICLE */}
         {loading ? (
-          <p>Loading...</p>
+          <LoadingArticle />
         ) : (
           <div className="ArticleDescription_content">
             <div className="ArticleDescription_box-Article">

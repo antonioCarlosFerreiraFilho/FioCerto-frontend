@@ -1,0 +1,52 @@
+@media screen and (min-width: 358px) {
+ 
+  
+  .LoadingArticle {
+
+  }
+
+  .LoadingArticle_container {
+
+    width: 100%;
+    height: 100%;
+  }
+  
+  .LoadingArticle_content {
+
+    width: 100%;
+    min-height: 700px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .LoadingArticle_content-loading {
+
+    width: 100%;
+    height: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .LoadingArticle_content-loading img {
+
+    max-width: 250px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+
+
+  .LoadingArticle_content {
+
+    width: 100%;
+    min-height: 900px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

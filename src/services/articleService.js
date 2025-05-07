@@ -1,11 +1,11 @@
 import { api, requestConfig } from "../utils/config";
 
 // SEARCH
-const PaginationArticle = async (query) => {
+const PaginationArticle = async (page) => {
   const config = requestConfig("GET", null);
 
   try {
-    const res = await fetch(api + "/Article/gallery", config)
+    const res = await fetch(api + "/Article/gallery/" + page, config)
       .then((res) => res.json())
       .catch((err) => err);
 

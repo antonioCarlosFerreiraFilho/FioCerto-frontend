@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CommentsArticle, reset } from "../../slices/articleSlice";
 //components
 import MessageError from "../MessageError/MessageError";
+import LoadingComments from "../LoadingComments/LoadingComments";
 
 const CommentsContent = () => {
   // Redux
@@ -129,7 +130,7 @@ const CommentsContent = () => {
             <div className="CommentsContent_box-viewsComments-container">
               <div className="CommentsContent_box-viewsComments-content">
                 {loading ? (
-                  <p>Loading....</p>
+                  <LoadingComments />
                 ) : (
                   <div>
                     {article.comments &&

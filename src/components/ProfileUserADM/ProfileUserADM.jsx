@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 //componets
 import PanelADM from "../PanelADM/PanelADM";
 import PopUpMessage from "../PopUpMessage/PopUpMessage";
+import LoadingUsers from "../LoadingUsers/LoadingUsers";
 //Hooks
 import { useAuth } from "../../hooks/useAuth";
 //redux
@@ -98,7 +99,7 @@ const ProfileUserADM = () => {
       permissions == AdmPermissions &&
       phone == AdmPhone &&
       email == AdmEmail &&
-      idUser == AdmId 
+      idUser == AdmId
     ) {
       setADM(true);
     }
@@ -116,7 +117,7 @@ const ProfileUserADM = () => {
       setIdUser(user._id);
     }
   }, [user]);
-  
+
   useEffect(() => {
     const Time = setTimeout(() => {
       AdmInfo();
@@ -130,68 +131,72 @@ const ProfileUserADM = () => {
       <div className="ProfileUserADM-container">
         <div className="ProfileUserADM-content">
           <h1>Configurações de Usuario</h1>
-          <div className="ProfileUserADM-boxesProfile">
-            <form
-              className="ProfileUserADM-boxesProfile-container"
-              onSubmit={handleUpdate}
-            >
-              <div className="ProfileUserADM-box FirstInfos">
-                <label htmlFor="">
-                  <span>Primeiro Nome</span>
-                  <input
-                    type="text"
-                    onChange={(e) => setFirstName(e.target.value)}
-                    value={firstName || ""}
-                  />
-                </label>
-                <label htmlFor="">
-                  <span>Ultimo Nome</span>
-                  <input
-                    type="text"
-                    onChange={(e) => setLastName(e.target.value)}
-                    value={lastName || ""}
-                  />
-                </label>
+          {loadingUser ? (
+            <LoadingUsers />
+          ) : (
+            <div className="ProfileUserADM-boxesProfile">
+              <form
+                className="ProfileUserADM-boxesProfile-container"
+                onSubmit={handleUpdate}
+              >
+                <div className="ProfileUserADM-box FirstInfos">
+                  <label htmlFor="">
+                    <span>Primeiro Nome</span>
+                    <input
+                      type="text"
+                      onChange={(e) => setFirstName(e.target.value)}
+                      value={firstName || ""}
+                    />
+                  </label>
+                  <label htmlFor="">
+                    <span>Ultimo Nome</span>
+                    <input
+                      type="text"
+                      onChange={(e) => setLastName(e.target.value)}
+                      value={lastName || ""}
+                    />
+                  </label>
 
-                <input
-                  type="submit"
-                  className="ProfileUserADM-submitForm ControllerButton"
-                  value="Atualizar"
-                />
-              </div>
+                  <input
+                    type="submit"
+                    className="ProfileUserADM-submitForm ControllerButton"
+                    value="Atualizar"
+                  />
+                </div>
 
-              <div className="ProfileUserADM-box FirstInfos">
-                <label htmlFor="">
-                  <span>Numero</span>
+                <div className="ProfileUserADM-box FirstInfos">
+                  <label htmlFor="">
+                    <span>Numero</span>
+                    <input
+                      type="text"
+                      onChange={(e) => setPhone(e.target.value)}
+                      value={phone || ""}
+                      placeholder="Insira Seu contacto."
+                    />
+                  </label>
+                  <label htmlFor="">
+                    <span>Senha</span>
+                    <input
+                      type="password"
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder={"**********"}
+                      maxLength={10}
+                    />
+                  </label>
                   <input
-                    type="text"
-                    onChange={(e) => setPhone(e.target.value)}
-                    value={phone || ""}
-                    placeholder="Insira Seu contacto."
+                    type="submit"
+                    className="ProfileUserADM-submitForm ControllerButton"
+                    value="Atualizar"
                   />
-                </label>
-                <label htmlFor="">
-                  <span>Senha</span>
-                  <input
-                    type="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder={"**********"}
-                    maxLength={10}
-                  />
-                </label>
-                <input
-                  type="submit"
-                  className="ProfileUserADM-submitForm ControllerButton"
-                  value="Atualizar"
-                />
-              </div>
-            </form>
-          </div>
+                </div>
+              </form>
+            </div>
+          )}
         </div>
       </div>
       {ADM && (
         <div className="ProfileUserADM-ADMPermissions">
-          <PanelADM  ADM={ADM} />
+          <PanelADM ADM={ADM} />
         </div>
       )}
       {errors && (

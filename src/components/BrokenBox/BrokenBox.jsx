@@ -13,6 +13,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 //slices
 import { RecentlyPostedArticle } from "../../slices/articleSlice";
+//components
+import LoadingRecently from "../LoadingRecently/LoadingRecently";
 
 const BrokenBox = () => {
   //Scroll top
@@ -50,7 +52,7 @@ const BrokenBox = () => {
       <div className="BrokenBox_container">
         <div className="BrokenBox_content">
           {loading ? (
-            <p>Loading</p>
+            <LoadingRecently/>
           ) : (
             <div className="BrokenBox_box-title-links">
               {recently.map((recent) => (

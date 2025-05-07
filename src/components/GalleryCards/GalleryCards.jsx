@@ -12,9 +12,10 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 //Slice
 import { PaginationArticle } from "../../slices/articleSlice";
+//components
+import LoadingGallery from "../LoadingGallery/LoadingGallery";
 
 const GalleryCards = () => {
-
   const dispatch = useDispatch();
   const { articles, loading } = useSelector((state) => state.article);
 
@@ -29,17 +30,27 @@ const GalleryCards = () => {
     });
   }
 
-  // Send Pagination
+  //New Page
+  function HandlePage() {
+
+    const LinksPages = document.querySelectorAll(".ControllerLink-Gallery");
+
+    LinksPages.addEventListener("click", (page)=> {
+
+      console.log(page.innerText);
+    })
+  }
 
   //LOAD Articles
   useEffect(() => {
-    dispatch(PaginationArticle());
+    dispatch(PaginationArticle(0));
   }, []);
 
   //start
   useEffect(() => {
     const Time = setTimeout(() => {
       ScrollTop();
+      HandlePage();
     }, 1000);
 
     return () => clearTimeout(Time);
@@ -50,7 +61,7 @@ const GalleryCards = () => {
       <div className="GalleryCards_container">
         <div className="GalleryCards_content">
           {loading ? (
-            <p>Loading</p>
+            <LoadingGallery />
           ) : (
             <div className="GalleryCards_Boxes">
               {articles &&
@@ -58,18 +69,23 @@ const GalleryCards = () => {
                   <div className="GalleryCards_card" key={article._id}>
                     {/* CARD IMAGE */}
                     <div className="GalleryCards_card-image">
-                      <img src={`${article.imgURL[0]}`} alt={`${article.imgNAME[0]}`} />
+                      <img
+                        src={`${article.imgURL[0]}`}
+                        alt={`${article.imgNAME[0]}`}
+                      />
                     </div>
                     {/* CARD COMMENTS,DATA */}
                     <div className="GalleryCards_card-info">
                       <div className="GalleryCards_card-info-BoxIcons">
                         <div className="GalleryCards_card-info-BoxIconDada">
+                          {/*
                           <MdDateRange className="GalleryCards_card-info-ICON" />
-                          <p> {article.data} </p>
+                          */}
+                          <p>{article.data}</p>
                         </div>
                         <div className="GalleryCards_card-info-BoxIconComments">
                           <FaRegCommentAlt className="GalleryCards_card-info-ICON" />
-                          <p>{article.comments.length }</p>
+                          <p>{article.comments.length}</p>
                         </div>
                       </div>
                     </div>
@@ -77,9 +93,7 @@ const GalleryCards = () => {
                     <div className="GalleryCards_card-description">
                       <div className="GalleryCards_card-description-boxInfo_card">
                         <h1>{article.articleTitle}</h1>
-                        <p>
-                        {article.miniDescri}
-                        </p>
+                        <p>{article.miniDescri}</p>
                       </div>
                     </div>
                     {/* CARD Link */}
@@ -100,7 +114,7 @@ const GalleryCards = () => {
 
           <div className="GalleryCards_Pagination">
             <div className="GalleryCards_Pagination-container">
-              <div className="GalleryCards_Pagination-content">
+              <div className="GalleryCards_Pagination-content controllersLinks">
                 <p className="ControllerLink-Gallery">1</p>
                 <p className="ControllerLink-Gallery">2</p>
                 <p className="ControllerLink-Gallery">3</p>

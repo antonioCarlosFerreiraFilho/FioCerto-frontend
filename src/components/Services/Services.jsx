@@ -10,6 +10,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 //slices
 import { aboutArticle } from "../../slices/articleSlice";
+//components
+import LoadingAbout from "../LoadingAbout/LoadingAbout";
 
 const Services = () => {
   //Scroll top
@@ -46,28 +48,32 @@ const Services = () => {
     <div className="Services">
       <div className="Services_container">
         <div className="Services_content">
-          <div className="Services_content-boxes">
-            {about.map((article) => (
-              <div className="Services_content-box" key={article._id}>
-                <div className="Services_content-box-Image">
-                  <img
-                    src={`${article.imgURL[0]}`}
-                    alt={`${article.imgNAME[0]}`}
-                  />
+          {loading ? (
+            <LoadingAbout/>
+          ) : (
+            <div className="Services_content-boxes">
+              {about.map((article) => (
+                <div className="Services_content-box" key={article._id}>
+                  <div className="Services_content-box-Image">
+                    <img
+                      src={`${article.imgURL[0]}`}
+                      alt={`${article.imgNAME[0]}`}
+                    />
+                  </div>
+                  <div className="Services_content-box-descriprion">
+                    <h1>{article.articleTitle}</h1>
+                    <p>{article.miniDescri}</p>
+                    <NavLink
+                      className="ControllerLink-service"
+                      to={`/article/${article._id}`}
+                    >
+                      Saiba mais.....
+                    </NavLink>
+                  </div>
                 </div>
-                <div className="Services_content-box-descriprion">
-                  <h1>{article.articleTitle}</h1>
-                  <p>{article.miniDescri}</p>
-                  <NavLink
-                    className="ControllerLink-service"
-                    to={`/article/${article._id}`}
-                  >
-                    Saiba mais.....
-                  </NavLink>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
         <div className="Services_content-InfoProficional">
           <div className="Services_content-InfoProficional-box">
