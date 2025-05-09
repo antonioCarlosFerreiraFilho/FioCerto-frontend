@@ -31,13 +31,19 @@ const GalleryCards = () => {
   }
 
   //New Page
-  function HandlePage() {
+  function nextPage() {
+    const LinksPages = document.querySelectorAll(".controllerNextPage");
+    let page = "";
 
-    const LinksPages = document.querySelectorAll(".ControllerLink-Gallery");
 
-    LinksPages.addEventListener("click", (page)=> {
+    LinksPages.forEach((element)=> {
 
-      console.log(page.innerText);
+      element.addEventListener("click", (e)=> {
+
+        page = e.target.textContent;
+        
+        dispatch(PaginationArticle(page));
+      })
     })
   }
 
@@ -50,7 +56,7 @@ const GalleryCards = () => {
   useEffect(() => {
     const Time = setTimeout(() => {
       ScrollTop();
-      HandlePage();
+      nextPage();
     }, 1000);
 
     return () => clearTimeout(Time);
@@ -115,10 +121,11 @@ const GalleryCards = () => {
           <div className="GalleryCards_Pagination">
             <div className="GalleryCards_Pagination-container">
               <div className="GalleryCards_Pagination-content controllersLinks">
-                <p className="ControllerLink-Gallery">1</p>
-                <p className="ControllerLink-Gallery">2</p>
-                <p className="ControllerLink-Gallery">3</p>
-                <p className="ControllerLink-Gallery">4</p>
+                <p className="ControllerLink-Gallery controllerNextPage">0</p>
+                <p className="ControllerLink-Gallery controllerNextPage">1</p>
+                <p className="ControllerLink-Gallery controllerNextPage">2</p>
+                <p className="ControllerLink-Gallery controllerNextPage">3</p>
+                <p className="ControllerLink-Gallery controllerNextPage">4</p>
               </div>
             </div>
           </div>
