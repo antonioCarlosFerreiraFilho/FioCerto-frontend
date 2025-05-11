@@ -35,16 +35,13 @@ const GalleryCards = () => {
     const LinksPages = document.querySelectorAll(".controllerNextPage");
     let page = "";
 
-
-    LinksPages.forEach((element)=> {
-
-      element.addEventListener("click", (e)=> {
-
+    LinksPages.forEach((element) => {
+      element.addEventListener("click", (e) => {
         page = e.target.textContent;
-        
+
         dispatch(PaginationArticle(page));
-      })
-    })
+      });
+    });
   }
 
   //LOAD Articles
@@ -123,9 +120,6 @@ const GalleryCards = () => {
               <div className="GalleryCards_Pagination-content controllersLinks">
                 <p className="ControllerLink-Gallery controllerNextPage">0</p>
                 <p className="ControllerLink-Gallery controllerNextPage">1</p>
-                <p className="ControllerLink-Gallery controllerNextPage">2</p>
-                <p className="ControllerLink-Gallery controllerNextPage">3</p>
-                <p className="ControllerLink-Gallery controllerNextPage">4</p>
               </div>
             </div>
           </div>
