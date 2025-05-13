@@ -262,7 +262,7 @@
 
   /* Card image */
   .GalleryCards_card-image {
-    height: 240px;
+    height: 350px;
   }
 }
 
@@ -287,7 +287,6 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
   }
 
@@ -297,6 +296,44 @@
   .GalleryCards_card {
 
     width: 49%;
+    min-height: 720px;
+    max-height: 720px;
+
+    position: relative;
+  }
+
+  /* Card Link */
+
+  .GalleryCards_card-Link {
+
+    width: 100%;
+
+    position: absolute;
+    bottom: 0;
+  }
+
+  .GalleryCards_card-Link-box {
+
+    width: 90%;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .GalleryCards_card-Link-box a {
+
+    background-color: rgb(20, 20, 117);
+    color: white;
+
+    width: 50%;
+    height: 30px;
+
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+
+    margin-top: 2rem;
   }
 }
 

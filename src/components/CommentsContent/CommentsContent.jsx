@@ -13,12 +13,16 @@ import { CommentsArticle, reset } from "../../slices/articleSlice";
 //components
 import MessageError from "../MessageError/MessageError";
 import LoadingComments from "../LoadingComments/LoadingComments";
+//Hooks
+import { useAuth } from "../../hooks/useAuth";
 
 const CommentsContent = () => {
   // Redux
   const dispatch = useDispatch();
   // Use Params
   const { id } = useParams();
+  // Auth
+  const { auth } = useAuth();
 
   // States Input FormcommentData
   const [commentText, setCommentText] = useState("");
@@ -160,73 +164,80 @@ const CommentsContent = () => {
                       ))}
                   </div>
                 )}
+                {article.comments && article.comments.length === 0 && (
+                  <p className="CommentsContent_box-LengthNull">
+                    Não existem comentarios
+                  </p>
+                )}
               </div>
             </div>
           </div>
 
-          <div className="CommentsContent_box-Form">
-            <div className="CommentsContent_box-Form-content">
-              <h1>Deixe Sua Opinião.</h1>
-              <form
-                className="CommentsContent_box-Form-container"
-                onSubmit={newComment}
-              >
-                {/* Comment */}
-                <div className="CommentsContent_box-Form-container-comment">
-                  <label>
-                    <span>Comentario</span>
-                    <textarea
-                      placeholder="Qual sua opinião sobre ?"
-                      onChange={(e) => setCommentText(e.target.value)}
-                      value={commentText || ""}
-                      maxLength={300}
-                    ></textarea>
-                  </label>
-                </div>
-                {/* Captcha */}
-                <div className="CommentsContent_box-Form-container-captcha">
-                  <label>
-                    <span>Vocé é Humano ?</span>
-                    <input
-                      type="text"
-                      placeholder={`${valueFirstChecking} + ${valueLastChecking} = ?`}
-                      onChange={(e) => setValueSum(e.target.value)}
-                      value={valueSum || ""}
-                      maxLength={5}
-                    />
-                  </label>
-                </div>
-                {/* Submit */}
-                <div className="CommentsContent_box-Form-container-Submit">
-                  <input type="submit" value="Comentar" />
-                </div>
-                {/* MessageError */}
-                {errors && (
-                  <div className="CommentsContent_box-Form-container-MessageError">
-                    <div className="CommentsContent_box-Form-container-MessageError-content">
-                      <MessageError errors={errors} type="error" />
-                    </div>
+          {auth && (
+            <div className="CommentsContent_box-Form">
+              <div className="CommentsContent_box-Form-content">
+                <h1>Deixe Sua Opinião.</h1>
+                <form
+                  className="CommentsContent_box-Form-container"
+                  onSubmit={newComment}
+                >
+                  {/* Comment */}
+                  <div className="CommentsContent_box-Form-container-comment">
+                    <label>
+                      <span>Comentario</span>
+                      <textarea
+                        placeholder="Qual sua opinião sobre ?"
+                        onChange={(e) => setCommentText(e.target.value)}
+                        value={commentText || ""}
+                        maxLength={300}
+                      ></textarea>
+                    </label>
                   </div>
-                )}
+                  {/* Captcha */}
+                  <div className="CommentsContent_box-Form-container-captcha">
+                    <label>
+                      <span>Vocé é Humano ?</span>
+                      <input
+                        type="text"
+                        placeholder={`${valueFirstChecking} + ${valueLastChecking} = ?`}
+                        onChange={(e) => setValueSum(e.target.value)}
+                        value={valueSum || ""}
+                        maxLength={5}
+                      />
+                    </label>
+                  </div>
+                  {/* Submit */}
+                  <div className="CommentsContent_box-Form-container-Submit">
+                    <input type="submit" value="Comentar" />
+                  </div>
+                  {/* MessageError */}
+                  {errors && (
+                    <div className="CommentsContent_box-Form-container-MessageError">
+                      <div className="CommentsContent_box-Form-container-MessageError-content">
+                        <MessageError errors={errors} type="error" />
+                      </div>
+                    </div>
+                  )}
 
-                {errorValue && (
-                  <div className="CommentsContent_box-Form-container-MessageError">
-                    <div className="CommentsContent_box-Form-container-MessageError-content">
-                      <MessageError errors={errorValue} type="error" />
+                  {errorValue && (
+                    <div className="CommentsContent_box-Form-container-MessageError">
+                      <div className="CommentsContent_box-Form-container-MessageError-content">
+                        <MessageError errors={errorValue} type="error" />
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
-                {message && (
-                  <div className="CommentsContent_box-Form-container-MessageError">
-                    <div className="CommentsContent_box-Form-container-MessageError-content">
-                      <MessageError errors={message} type="sucess" />
+                  {message && (
+                    <div className="CommentsContent_box-Form-container-MessageError">
+                      <div className="CommentsContent_box-Form-container-MessageError-content">
+                        <MessageError errors={message} type="sucess" />
+                      </div>
                     </div>
-                  </div>
-                )}
-              </form>
+                  )}
+                </form>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
