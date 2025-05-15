@@ -75,12 +75,28 @@ const CommentsArticle = async (data, id, token) => {
   }
 };
 
+// Search
+const SearchArticle = async (query) => {
+  const config = requestConfig("GET", null);
+
+  try {
+    const res = await fetch(api + "/Article/search?q=" + query, config)
+      .then((res) => res.json())
+      .catch((err) => err);
+
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 const articleService = {
   PaginationArticle,
   GetArticle,
   RecentlyPostedArticle,
   aboutArticle,
   CommentsArticle,
+  SearchArticle,
 };
 
 export default articleService;

@@ -277,6 +277,8 @@
     color: red;
 
     font-size: 1.4rem;
+
+    cursor: pointer;
   }
 
   .PanelADM_box-Show-User-icon-ADM {

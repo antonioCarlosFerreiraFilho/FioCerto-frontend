@@ -53,7 +53,14 @@
     font-style: normal;
   }
 
-  /* Card */
+  /* Message Errors */
+  .MessageErrorSearch {
+    width: 100%;
 
-
+    color: blue;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: center;
+  }
 }

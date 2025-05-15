@@ -103,6 +103,14 @@ const ProfileUserADM = () => {
     ) {
       setADM(true);
     }
+
+    const InputDesa = document.querySelectorAll(".InputControllerADM");
+
+    if (ADM) {
+      InputDesa.forEach((element) => {
+        element.disabled = true;
+      });
+    }
   }
 
   //SET USER
@@ -121,10 +129,10 @@ const ProfileUserADM = () => {
   useEffect(() => {
     const Time = setTimeout(() => {
       AdmInfo();
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(Time);
-  }, [user]);
+  }, [user, ADM, dispatch]);
 
   return (
     <div className="ProfileUserADM">
@@ -146,6 +154,7 @@ const ProfileUserADM = () => {
                       type="text"
                       onChange={(e) => setFirstName(e.target.value)}
                       value={firstName || ""}
+                      className="InputControllerADM"
                     />
                   </label>
                   <label htmlFor="">
@@ -154,14 +163,16 @@ const ProfileUserADM = () => {
                       type="text"
                       onChange={(e) => setLastName(e.target.value)}
                       value={lastName || ""}
+                      className="InputControllerADM"
                     />
                   </label>
-
-                  <input
-                    type="submit"
-                    className="ProfileUserADM-submitForm ControllerButton"
-                    value="Atualizar"
-                  />
+                  {!ADM && (
+                    <input
+                      type="submit"
+                      className="ProfileUserADM-submitForm ControllerButton"
+                      value="Atualizar"
+                    />
+                  )}
                 </div>
 
                 <div className="ProfileUserADM-box FirstInfos">
@@ -172,6 +183,7 @@ const ProfileUserADM = () => {
                       onChange={(e) => setPhone(e.target.value)}
                       value={phone || ""}
                       placeholder="Insira Seu contacto."
+                      className="InputControllerADM"
                     />
                   </label>
                   <label htmlFor="">
@@ -181,13 +193,16 @@ const ProfileUserADM = () => {
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder={"**********"}
                       maxLength={10}
+                      className="InputControllerADM"
                     />
                   </label>
-                  <input
-                    type="submit"
-                    className="ProfileUserADM-submitForm ControllerButton"
-                    value="Atualizar"
-                  />
+                  {!ADM && (
+                    <input
+                      type="submit"
+                      className="ProfileUserADM-submitForm ControllerButton"
+                      value="Atualizar"
+                    />
+                  )}
                 </div>
               </form>
             </div>

@@ -1,0 +1,42 @@
+@media screen and (min-width: 358px) {
+
+  .LoadingUsersRead {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .LoadingUsersRead_container {
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .LoadingUsersRead_content {
+    width: 100%;
+    min-height: 500px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .LoadingUsersRead_content-loading {
+
+    width: 100%;
+    height: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .LoadingUsersRead_content-loading img {
+
+    max-width: 100px;
+  }
+}

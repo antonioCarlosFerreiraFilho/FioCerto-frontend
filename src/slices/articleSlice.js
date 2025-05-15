@@ -67,6 +67,20 @@ export const CommentsArticle = createAsyncThunk(
   }
 );
 
+// SEARCH
+export const SearchArticle = createAsyncThunk(
+  "article/search",
+  async (query, thunkAPI) => {
+    const data = await articleService.SearchArticle(query);
+
+    if (data.errors) {
+      return thunkAPI.rejectWithValue(data.errors[0]);
+    }
+
+    return data;
+  }
+);
+
 // Slices
 export const articleSlice = createSlice({
   name: "article",
@@ -135,6 +149,22 @@ export const articleSlice = createSlice({
         state.message = " Comentário Publicado. ";
       })
       .addCase(CommentsArticle.rejected, (state, actions) => {
+        state.loading = false;
+        state.success = false;
+        state.errors = actions.payload;
+      })
+      // SEARCH
+      .addCase(SearchArticle.pending, (state) => {
+        state.loading = true;
+        state.errors = false;
+      })
+      .addCase(SearchArticle.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.errors = null;
+        state.articles = action.payload;
+      })
+      .addCase(SearchArticle.rejected, (state, actions) => {
         state.loading = false;
         state.success = false;
         state.errors = actions.payload;

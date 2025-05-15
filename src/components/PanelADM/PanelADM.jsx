@@ -19,6 +19,8 @@ import {
   searchUser,
   reset,
 } from "../../slices/userSlice";
+//components
+import LoadingUsersRead from "../LoadingUsersRead/LoadingUsersRead";
 
 const PanelADM = ({ ADM }) => {
   // Auth
@@ -65,14 +67,9 @@ const PanelADM = ({ ADM }) => {
     dispatch(profile());
   }, [dispatch]);
 
-  function ola() {
-    console.log(users);
-  }
-
   useEffect(() => {
     const Time = setTimeout(() => {
       dispatch(showUser());
-      ola();
     }, 1000);
 
     return () => clearTimeout(Time);
@@ -103,7 +100,7 @@ const PanelADM = ({ ADM }) => {
                     <div className="PanelADM_box-Show-allUsers">
                       <div className="PanelADM_box-Show-Users">
                         {loadingUser ? (
-                          <p>Loading...</p>
+                          <LoadingUsersRead/>
                         ) : (
                           <>
                             {users.map((user) => (

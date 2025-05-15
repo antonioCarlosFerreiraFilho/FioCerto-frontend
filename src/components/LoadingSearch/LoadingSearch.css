@@ -1,0 +1,54 @@
+@media screen and (min-width: 358px) {
+
+  .LoadingSearch {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .LoadingSearch_container {
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .LoadingSearch_content {
+    width: 100%;
+    min-height: 500px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .LoadingSearch_content-loading {
+
+    width: 100%;
+    height: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .LoadingSearch_content-loading img {
+
+    max-width: 250px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  .LoadingSearch_content {
+    width: 100%;
+    min-height: 600px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
