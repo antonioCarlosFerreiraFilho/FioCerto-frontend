@@ -2,9 +2,10 @@
 import "./Header.css";
 //react icons
 import { SiThunderstore } from "react-icons/si";
+import { IoMdLogOut } from "react-icons/io";
 //react
 import { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 //hooks
 import { useScroll } from "../../hooks/useScroll";
 //Components
@@ -12,10 +13,26 @@ import LateralMenu from "../LateralMenu/LateralMenu";
 import ContainerAuth from "../ContainerAuth/ContainerAuth";
 //Hooks
 import { useAuth } from "../../hooks/useAuth";
+//Slices
+import { logout, reset } from "../../slices/authSlice";
+//redux
+import { useDispatch } from "react-redux";
 
 const Header = () => {
   // Auth
   const { auth, loading } = useAuth();
+  //Redux
+  const dispatch = useDispatch();
+  //redirect Home
+  const navigate = useNavigate();
+
+  //LOGOUT
+  function EventLogout() {
+    dispatch(logout());
+    dispatch(reset());
+    navigate("/");
+    window.location.reload(true);
+  }
 
   function DescktopTop() {
     const list = document.querySelectorAll(".linkController");
@@ -69,6 +86,7 @@ const Header = () => {
     }
   }
 
+  // Start Events JS
   useEffect(() => {
     const Time = setTimeout(() => {
       DescktopTop();
@@ -121,6 +139,18 @@ const Header = () => {
                 {auth && (
                   <NavLink className="linkController" to="/profile">
                     Configurações
+                  </NavLink>
+                )}
+
+                {auth && (
+                  <NavLink
+                    className="linkController"
+                    id="logoutBox"
+                    to="#"
+                    onClick={EventLogout}
+                  >
+                    Sair
+                    <IoMdLogOut className="boxLogoutIcon" />
                   </NavLink>
                 )}
               </div>

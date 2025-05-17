@@ -3,6 +3,7 @@ import "./Article.css";
 //Components
 import BannerArticle from "../../components/BannerArticle/BannerArticle";
 import ArticleDescription from "../../components/ArticleDescription/ArticleDescription";
+import UpdateOrDelete from "../../components/UpdateOrDelete/UpdateOrDelete";
 import ArticleService from "../../components/ArticleService/ArticleService";
 import CommentsContent from "../../components/CommentsContent/CommentsContent";
 import BrokenBox from "../../components/BrokenBox/BrokenBox";
@@ -22,6 +23,10 @@ const Article = () => {
               </section>
 
               <section>
+                <UpdateOrDelete />
+              </section>
+
+              <section>
                 <ArticleService />
               </section>
 
@@ -30,7 +35,7 @@ const Article = () => {
               </section>
             </div>
             <div className="Article_content-BrokenBox">
-              <BrokenBox/>
+              <BrokenBox />
             </div>
           </div>
         </div>

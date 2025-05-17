@@ -113,6 +113,25 @@ export const userSlice = createSlice({
 
         state.user = {};
       })
+      //DELETE USER
+      .addCase(deleteUser.pending, (state) => {
+        state.loading = true;
+        state.errors = false;
+      })
+      .addCase(deleteUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.errors = null;
+        state.users = state.users.filter((user) => {
+          return user._id !== action.payload.id;
+        });
+
+        state.message = " Usuario Deletado. ";
+      })
+      .addCase(deleteUser.rejected, (state, action) => {
+        state.loading = false;
+        state.errors = action.payload;
+      })
       //ShowUsers
       .addCase(showUser.pending, (state) => {
         state.loading = true;

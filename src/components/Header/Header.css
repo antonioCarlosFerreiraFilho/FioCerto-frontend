@@ -250,7 +250,26 @@
     font-style: normal;
 
     text-decoration: none;
-    margin-left: 3rem;
+    margin-left: 1.5rem;
+  }
+
+  #logoutBox {
+
+    color: black;
+    font-size: 1.2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: underline;
+  }
+
+  .boxLogoutIcon {
+
+    color: black;
+    font-size: 1.2rem;
+    margin-left: 5px;
   }
 
   .Header_box-linksDescktop-list a.active {

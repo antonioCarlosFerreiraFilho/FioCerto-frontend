@@ -14,6 +14,7 @@ import { useSelector, useDispatch } from "react-redux";
 //Slice
 import {
   profile,
+  deleteUser,
   updateUser,
   showUser,
   searchUser,
@@ -34,6 +35,12 @@ const PanelADM = ({ ADM }) => {
     errors,
     message,
   } = useSelector((state) => state.user);
+
+  const resetComponentMessage = () => {
+    setTimeout(() => {
+      dispatch(reset());
+    }, 4000);
+  };
 
   // Stage Profile Image
   const [profileImage, setProfileImage] = useState("");
@@ -61,6 +68,13 @@ const PanelADM = ({ ADM }) => {
       }, 3000);
     }
   };
+
+  //DELETE
+  function EventDlete(id) {
+    dispatch(deleteUser(id));
+
+    resetComponentMessage();
+  }
 
   //LOAD USER DATA
   useEffect(() => {
@@ -100,7 +114,7 @@ const PanelADM = ({ ADM }) => {
                     <div className="PanelADM_box-Show-allUsers">
                       <div className="PanelADM_box-Show-Users">
                         {loadingUser ? (
-                          <LoadingUsersRead/>
+                          <LoadingUsersRead />
                         ) : (
                           <>
                             {users.map((user) => (
@@ -132,7 +146,10 @@ const PanelADM = ({ ADM }) => {
                                   {user.permissions === "ADM" ? (
                                     <BsFillShieldLockFill className="PanelADM_box-Show-User-icon-ADM" />
                                   ) : (
-                                    <FaTrashAlt className="PanelADM_box-Show-User-icon-delete" />
+                                    <FaTrashAlt
+                                      className="PanelADM_box-Show-User-icon-delete"
+                                      onClick={() => EventDlete(user._id)}
+                                    />
                                   )}
                                 </div>
                               </div>
