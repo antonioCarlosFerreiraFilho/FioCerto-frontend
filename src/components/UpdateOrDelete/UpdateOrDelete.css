@@ -19,6 +19,8 @@
     align-items: center;
 
     margin-top: 2rem;
+
+    position: relative;
   }
 
   /* Box Icons */
@@ -94,11 +96,10 @@
 
   .UpdateOrDelete_box-UpdateView {
 
-    background-color: aqua;
-
     width: 95%;
     height: 0px;
 
+    opacity: 0;
     overflow: hidden;
     transition: all ease-in-out 600ms;
     margin-top: 1rem;
@@ -106,15 +107,233 @@
 
   .UpdateOrDelete_box-UpdateViewJS {
 
-    background-color: aqua;
-
     width: 95%;
     height: 300px;
 
+    opacity: 1;
     overflow: visible;
+    overflow: hidden;
     transition: all ease-in-out 600ms;
     margin-top: 1rem;
   }
+
+  /* Style Form */
+  .UpdateOrDelete-boxForm {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: .2rem;
+    box-sizing: border-box;
+  }
+
+  .UpdateOrDelete-boxForm-Description {
+
+    width: 100%;
+    height: 90%;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: .2rem;
+    box-sizing: border-box;
+  }
+
+  /* Style box1 */
+  .UpdateOrDelete-FirstDescription {
+
+    width: 49%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .UpdateOrDelete-FirstDescription label {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .UpdateOrDelete-FirstDescription span {
+
+    color: rgb(70, 47, 218);
+
+    font-size: 1.1rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin-left: 2px;
+  }
+
+  .UpdateOrDelete-FirstDescription textarea {
+
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    color: black;
+
+    font-size: .9rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    padding: .2rem;
+
+  }
+
+  .UpdateOrDelete-FirstDescription textarea:focus {
+
+    outline: none;
+  }
+
+  .UpdateOrDelete-FirstDescription textarea::placeholder {
+
+    color: rgb(148, 141, 141);
+
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    padding: .2rem;
+    box-sizing: border-box;
+  }
+
+  /* Style Box2 */
+
+  .UpdateOrDelete-MiddlewareANDlastDescription {
+
+    width: 49%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .UpdateOrDelete-MiddlewareANDlastDescription label {
+
+    width: 100%;
+    height: 50%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .UpdateOrDelete-MiddlewareANDlastDescription span {
+
+    color: rgb(70, 47, 218);
+
+    font-size: 1.1rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin-left: 2px;
+  }
+
+  .UpdateOrDelete-MiddlewareANDlastDescription textarea {
+
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    color: black;
+
+    font-size: .9rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    padding: .2rem;
+
+  }
+
+  .UpdateOrDelete-MiddlewareANDlastDescription textarea:focus {
+
+    outline: none;
+  }
+
+  .UpdateOrDelete-MiddlewareANDlastDescription textarea::placeholder {
+
+    color: rgb(148, 141, 141);
+
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    padding: .2rem;
+    box-sizing: border-box;
+  }
+
+  /* Message Error Style */
+
+  .UpdateOrDelete_box-MessageError {
+
+    width: 95%;
+
+    position: absolute;
+    top: 0;
+  }
+
+  .UpdateOrDelete_box-MessageError-box {
+
+    width: 100%;
+    height: 50px;
+
+    border-radius: 5px;
+  }
+
+   /* Style Submit */ 
+
+   .UpdateOrDelete-boxForm-Submit {
+
+    width: 100%;
+    height: 10%;
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+   }
+
+   .UpdateOrDelete-boxForm-Submit-box {
+
+    width: 100%;
+    height: 90%;
+   }
+
+   .UpdateOrDelete-boxForm-Submit-box input {
+
+    background-color: rgb(115, 115, 232);
+    color: white;
+
+    width: 100%;
+    height: 100%;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    border-radius: 10px;
+
+    border: none;
+    outline: none;
+   }
 }
 
 @media screen and (min-width: 768px) {

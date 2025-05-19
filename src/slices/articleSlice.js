@@ -22,14 +22,14 @@ export const PaginationArticle = createAsyncThunk(
   }
 );
 
-// GetArticle
+// Get
 export const GetArticle = createAsyncThunk("article/GetArticle", async (id) => {
   const data = await articleService.GetArticle(id);
 
   return data;
 });
 
-// RecentlyPostedArticle
+// Recently
 export const RecentlyPostedArticle = createAsyncThunk(
   "article/show",
   async () => {
@@ -39,12 +39,52 @@ export const RecentlyPostedArticle = createAsyncThunk(
   }
 );
 
-// About Article
+// About
 export const aboutArticle = createAsyncThunk("article/about", async () => {
   const data = await articleService.aboutArticle();
 
   return data;
 });
+
+// Update
+export const UpdateArticle = createAsyncThunk(
+  "article/update",
+  async (updateData, ThunkAPI) => {
+    const token = ThunkAPI.getState().auth.user.token;
+
+    const data = await articleService.UpdateArticle(
+      {
+        miniDescri: updateData.miniDescri,
+        firstDescri: updateData.firstDescri,
+        lastDescri: updateData.lastDescri,
+      },
+      updateData.id,
+      token
+    );
+
+    if (data.errors) {
+      return ThunkAPI.rejectWithValue(data.errors[0]);
+    }
+
+    return data;
+  }
+);
+
+// Delete
+export const DeleteArticle = createAsyncThunk(
+  "article/delete",
+  async (id, ThunkAPI) => {
+    const token = ThunkAPI.getState().auth.user.token;
+
+    const data = await articleService.DeleteArticle(id, token);
+
+    if (data.errors) {
+      return ThunkAPI.rejectWithValue(data.errors[0]);
+    }
+
+    return data;
+  }
+);
 
 // Comments
 export const CommentsArticle = createAsyncThunk(
@@ -67,7 +107,7 @@ export const CommentsArticle = createAsyncThunk(
   }
 );
 
-// SEARCH
+// Search
 export const SearchArticle = createAsyncThunk(
   "article/search",
   async (query, thunkAPI) => {
@@ -94,7 +134,7 @@ export const articleSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // PaginationArticle
+      // Pagination
       .addCase(PaginationArticle.pending, (state) => {
         state.loading = true;
         state.errors = false;
@@ -105,7 +145,7 @@ export const articleSlice = createSlice({
         state.errors = null;
         state.articles = action.payload;
       })
-      // GetArticle
+      // Get
       .addCase(GetArticle.pending, (state) => {
         state.loading = true;
         state.errors = false;
@@ -127,7 +167,7 @@ export const articleSlice = createSlice({
         state.errors = null;
         state.recently = action.payload;
       })
-      // About Article
+      // About
       .addCase(aboutArticle.pending, (state) => {
         state.loading = true;
         state.errors = false;
@@ -138,7 +178,49 @@ export const articleSlice = createSlice({
         state.errors = null;
         state.about = action.payload;
       })
-      // COMMENTS
+      // Update
+      .addCase(UpdateArticle.pending, (state) => {
+        state.loading = true;
+        state.errors = false;
+      })
+      .addCase(UpdateArticle.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.errors = null;
+        state.article.map((article) => {
+          if (article._id === action.payload.article._id) {
+            return [
+              (article.miniDescri = action.payload.article.miniDescri),
+             
+            ];
+          }
+          return article;
+        });
+        state.message = " Artigo atualizado. ";
+      })
+      .addCase(UpdateArticle.rejected, (state, actions) => {
+        state.loading = false;
+        state.success = false;
+        state.errors = actions.payload;
+      })
+      // Delete
+      .addCase(DeleteArticle.pending, (state) => {
+        state.loading = true;
+        state.errors = false;
+      })
+      .addCase(DeleteArticle.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.errors = null;
+        state.articles = state.articles.filter((article) => {
+          return article._id !== action.payload.id;
+        });
+      })
+      .addCase(DeleteArticle.rejected, (state, action) => {
+        state.loading = false;
+        state.errors = action.payload;
+      })
+      // Comment
       .addCase(CommentsArticle.fulfilled, (state, actions) => {
         state.loading = false;
         state.success = true;
@@ -153,7 +235,7 @@ export const articleSlice = createSlice({
         state.success = false;
         state.errors = actions.payload;
       })
-      // SEARCH
+      // Search
       .addCase(SearchArticle.pending, (state) => {
         state.loading = true;
         state.errors = false;
