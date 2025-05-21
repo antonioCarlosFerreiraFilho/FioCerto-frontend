@@ -66,6 +66,10 @@
     cursor: pointer;
   }
 
+  .CommentsContent_box-viewsComments-comment-box-InfoUser-NameUserData{
+
+  }
+
   .CommentsContent_box-lengthComments-Arrow-Up {
 
     display: none;
@@ -213,9 +217,26 @@
 
   .CommentsContent_box-viewsComments-comment-box-InfoUser-NameUserData {
 
-    width: 80%;
+    width: 70%;
 
     margin-left: 15px;
+  }
+
+  .CommentsContent-DeleteBox {
+
+    width: 10%;
+    height: 100%;
+
+    display: flex;
+    justify-content: end;
+    align-items: start;
+  }
+
+  .CommentsContent-DeleteIcon {
+
+    color: rgb(199, 7, 7);
+
+    font-size: 1.1rem;
   }
 
   .CommentsContent_box-viewsComments-comment-box-InfoUser-NameUserData h1 {

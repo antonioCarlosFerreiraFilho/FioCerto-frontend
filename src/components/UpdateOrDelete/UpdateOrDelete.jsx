@@ -5,14 +5,14 @@ import { CiEdit } from "react-icons/ci";
 import { CiTrash } from "react-icons/ci";
 import { LuOctagonAlert } from "react-icons/lu";
 //react
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 //components
 import MessageError from "../MessageError/MessageError";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 //Slice
-import { UpdateArticle, GetArticle, reset } from "../../slices/articleSlice";
+import { UpdateArticle, DeleteArticle, reset } from "../../slices/articleSlice";
 
 const UpdateOrDelete = () => {
   //react
@@ -29,9 +29,13 @@ const UpdateOrDelete = () => {
   const [firstDescri, setFirstDescri] = useState("");
   const [lastDescri, setLastDescri] = useState("");
 
+  //redirect Gallery
+  const navigate = useNavigate();
   //Delete Article
-  function EventDeleteArticle() {
-    alert(id);
+  function EventDeleteArticle(id) {
+    dispatch(DeleteArticle(id));
+    dispatch(reset());
+    navigate("/gallery");
   }
 
   //Update Article
@@ -87,7 +91,7 @@ const UpdateOrDelete = () => {
             <div className="UpdateOrDelete_content-Event">
               <CiTrash
                 className="UpdateOrDelete_content-Event-icon UpdateOrDelete-iconDelete"
-                onClick={EventDeleteArticle}
+                onClick={() => EventDeleteArticle(id)}
               />
             </div>
           </div>

@@ -36,6 +36,7 @@ const PanelADM = ({ ADM }) => {
     message,
   } = useSelector((state) => state.user);
 
+  // Reset
   const resetComponentMessage = () => {
     setTimeout(() => {
       dispatch(reset());
@@ -46,6 +47,26 @@ const PanelADM = ({ ADM }) => {
   const [profileImage, setProfileImage] = useState("");
   const [previewImage, setPreviewImage] = useState("");
   const [errorImageFormat, setErrorImageFormat] = useState("");
+
+  // Search User
+  function searchUser() {
+    const InputSearch = document.querySelector(".InputSearch");
+    const usersName = document.querySelectorAll(".UserFirstName");
+    let valueSearch = "";
+    InputSearch.addEventListener("input", (e) => {
+      valueSearch = e.target.value;
+
+      usersName.forEach((user) => {
+        if(user.textContent != valueSearch) {
+          user.parentElement.style.display = "none";
+        }
+        if (user.textContent == valueSearch) {
+          console.log(user.textContent);
+          user.parentElement.style.display = "block";
+        }
+      });
+    });
+  }
 
   //imagem user Escolhida
   const HandleFile = (e) => {
@@ -108,6 +129,8 @@ const PanelADM = ({ ADM }) => {
                         <input
                           type="text"
                           placeholder="Procurar por Usuarios...."
+                          className="InputSearch"
+                          onClick={searchUser}
                         />
                       </form>
                     </div>
@@ -133,7 +156,9 @@ const PanelADM = ({ ADM }) => {
                                   </div>
                                   <div className="PanelADM_box-Show-User-ContentImage-ContenInfos">
                                     <div className="PanelADM_box-Show-User-ContentImage-ContenInfos-Description">
-                                      <h1>{user.firstName}</h1>
+                                      <h1 className="UserFirstName">
+                                        {user.firstName}
+                                      </h1>
                                       <p>{user.email}</p>
                                       <p>
                                         Permisão:{" "}

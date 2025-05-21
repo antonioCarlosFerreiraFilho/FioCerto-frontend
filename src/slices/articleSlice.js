@@ -107,6 +107,26 @@ export const CommentsArticle = createAsyncThunk(
   }
 );
 
+// Delete Comment
+export const DelCommentsArticle = createAsyncThunk(
+  "article/deleteComment",
+  async (idArticle, commentId, ThunkAPI) => {
+    const token = ThunkAPI.getState().auth.user.token;
+
+    const data = await articleService.DeleteArticle(
+      idArticle,
+      commentId,
+      token
+    );
+
+    if (data.errors) {
+      return ThunkAPI.rejectWithValue(data.errors[0]);
+    }
+
+    return data;
+  }
+);
+
 // Search
 export const SearchArticle = createAsyncThunk(
   "article/search",
@@ -189,10 +209,7 @@ export const articleSlice = createSlice({
         state.errors = null;
         state.article.map((article) => {
           if (article._id === action.payload.article._id) {
-            return [
-              (article.miniDescri = action.payload.article.miniDescri),
-             
-            ];
+            return [(article.miniDescri = action.payload.article.miniDescri)];
           }
           return article;
         });
@@ -234,6 +251,20 @@ export const articleSlice = createSlice({
         state.loading = false;
         state.success = false;
         state.errors = actions.payload;
+      })
+      // Delete Comment
+      .addCase(DelCommentsArticle.pending, (state) => {
+        state.loading = true;
+        state.errors = false;
+      })
+      .addCase(DelCommentsArticle.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.errors = idArticle;
+      })
+      .addCase(DelCommentsArticle.rejected, (state, action) => {
+        state.loading = false;
+        state.errors = action.payload;
       })
       // Search
       .addCase(SearchArticle.pending, (state) => {

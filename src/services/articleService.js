@@ -105,6 +105,24 @@ const CommentsArticle = async (data, id, token) => {
   }
 };
 
+// Comment Delete
+const DelCommentsArticle = async (idArticle, commentId, token) => {
+  const config = requestConfig("DELETE", null, token);
+
+  try {
+    const res = await fetch(
+      api + "/Article/get/" + idArticle + "/commentID/" + commentId,
+      config
+    )
+      .then((res) => res.json())
+      .catch((err) => err);
+
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 // Search
 const SearchArticle = async (query) => {
   const config = requestConfig("GET", null);
@@ -128,6 +146,7 @@ const articleService = {
   UpdateArticle,
   DeleteArticle,
   CommentsArticle,
+  DelCommentsArticle,
   SearchArticle,
 };
 

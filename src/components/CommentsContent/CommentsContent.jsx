@@ -3,13 +3,18 @@ import "./CommentsContent.css";
 //react icons
 import { FaArrowUp } from "react-icons/fa";
 import { FaArrowDown } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 //react
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 //redux
 import { useDispatch, useSelector } from "react-redux";
 //slices
-import { CommentsArticle, reset } from "../../slices/articleSlice";
+import {
+  CommentsArticle,
+  DelCommentsArticle,
+  reset,
+} from "../../slices/articleSlice";
 //components
 import MessageError from "../MessageError/MessageError";
 import LoadingComments from "../LoadingComments/LoadingComments";
@@ -103,6 +108,12 @@ const CommentsContent = () => {
     }
   }
 
+  // Delete Comment
+  function commentDelete(idArticle, commentId) {
+    dispatch(DelCommentsArticle(idArticle, commentId));
+    console.log(idArticle, commentId);
+  }
+
   // Comments VIe
   useEffect(() => {
     const time = setTimeout(() => {
@@ -154,6 +165,17 @@ const CommentsContent = () => {
                               <div className="CommentsContent_box-viewsComments-comment-box-InfoUser-NameUserData">
                                 <h1>{comment.userName}</h1>
                                 <p>{comment.dataComment}</p>
+                              </div>
+                              <div className="CommentsContent-DeleteBox">
+                                <FaTrash
+                                  className="CommentsContent-DeleteIcon"
+                                  onClick={() =>
+                                    commentDelete(
+                                      article._id,
+                                      comment.idComment
+                                    )
+                                  }
+                                />
                               </div>
                             </div>
                             <div className="CommentsContent_box-viewsComments-comment-box-description">
