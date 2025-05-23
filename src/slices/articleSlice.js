@@ -110,11 +110,11 @@ export const CommentsArticle = createAsyncThunk(
 // Delete Comment
 export const DelCommentsArticle = createAsyncThunk(
   "article/deleteComment",
-  async (idArticle, commentId, ThunkAPI) => {
+  async (postId, commentId, ThunkAPI) => {
     const token = ThunkAPI.getState().auth.user.token;
 
-    const data = await articleService.DeleteArticle(
-      idArticle,
+    const data = await articleService.DelCommentsArticle(
+      postId,
       commentId,
       token
     );
@@ -260,7 +260,8 @@ export const articleSlice = createSlice({
       .addCase(DelCommentsArticle.fulfilled, (state, action) => {
         state.loading = false;
         state.success = true;
-        state.errors = idArticle;
+        state.errors = null;
+        state.article.comments = action.payload;
       })
       .addCase(DelCommentsArticle.rejected, (state, action) => {
         state.loading = false;

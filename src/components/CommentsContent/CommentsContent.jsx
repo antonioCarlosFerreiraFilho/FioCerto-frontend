@@ -109,9 +109,13 @@ const CommentsContent = () => {
   }
 
   // Delete Comment
-  function commentDelete(idArticle, commentId) {
-    dispatch(DelCommentsArticle(idArticle, commentId));
-    console.log(idArticle, commentId);
+  function commentDelete(id, commentId) {
+    const ArticleComment = {
+      postId: id,
+      commentId,
+    };
+
+    dispatch(DelCommentsArticle(ArticleComment));
   }
 
   // Comments VIe

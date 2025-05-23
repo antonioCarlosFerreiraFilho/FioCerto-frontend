@@ -106,14 +106,11 @@ const CommentsArticle = async (data, id, token) => {
 };
 
 // Comment Delete
-const DelCommentsArticle = async (idArticle, commentId, token) => {
-  const config = requestConfig("DELETE", null, token);
+const DelCommentsArticle = async (data,token) => {
+  const config = requestConfig("DELETE", data, token);
 
   try {
-    const res = await fetch(
-      api + "/Article/get/" + idArticle + "/commentID/" + commentId,
-      config
-    )
+    const res = await fetch(api + `/Article/delComment`, config)
       .then((res) => res.json())
       .catch((err) => err);
 
