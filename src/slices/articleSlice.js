@@ -110,17 +110,14 @@ export const CommentsArticle = createAsyncThunk(
 // Delete Comment
 export const DelCommentsArticle = createAsyncThunk(
   "article/deleteComment",
-  async (postId, commentId, ThunkAPI) => {
-    const token = ThunkAPI.getState().auth.user.token;
+  async (dataComment, thunkAPI) => {
+    const token = thunkAPI.getState().auth.user.token;
 
-    const data = await articleService.DelCommentsArticle(
-      postId,
-      commentId,
-      token
-    );
+    const data = await articleService.DelCommentsArticle(dataComment, token);
 
+    //check errors
     if (data.errors) {
-      return ThunkAPI.rejectWithValue(data.errors[0]);
+      return thunkAPI.rejectWithValue(data.errors[0]);
     }
 
     return data;
@@ -261,7 +258,7 @@ export const articleSlice = createSlice({
         state.loading = false;
         state.success = true;
         state.errors = null;
-        state.article.comments = action.payload;
+        state.article.comments.push(action.payload.comments);
       })
       .addCase(DelCommentsArticle.rejected, (state, action) => {
         state.loading = false;

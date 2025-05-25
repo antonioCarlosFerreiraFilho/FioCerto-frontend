@@ -15,6 +15,7 @@ import {
   DelCommentsArticle,
   reset,
 } from "../../slices/articleSlice";
+import { profile } from "../../slices/userSlice";
 //components
 import MessageError from "../MessageError/MessageError";
 import LoadingComments from "../LoadingComments/LoadingComments";
@@ -35,11 +36,46 @@ const CommentsContent = () => {
   const [valueLastChecking, setValueLastChecking] = useState("");
   const [valueSum, setValueSum] = useState("");
   const [errorValue, setErrorValue] = useState("");
+  // States User OR Adm
+  // First data User
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [permissions, setPermissions] = useState("");
+  const [idUser, setIdUser] = useState("");
+  // ADM
+  const [ADM, setADM] = useState(false);
 
   //Slices
   const { article, message, errors, loading } = useSelector(
     (state) => state.article
   );
+  const { user } = useSelector((state) => state.user);
+
+  //Rederizando
+  function AdmInfo() {
+    const AdmPermissions = import.meta.env.VITE_API_ADM_PERMISSIONS;
+    const AdmPhone = import.meta.env.VITE_API_ADM_PHONE;
+    const AdmEmail = import.meta.env.VITE_API_ADM_EMAIL;
+    const AdmId = import.meta.env.VITE_API_ADM_ID;
+
+    if (
+      permissions == AdmPermissions &&
+      phone == AdmPhone &&
+      email == AdmEmail &&
+      idUser == AdmId
+    ) {
+      setADM(true);
+    }
+
+    console.log(permissions);
+    console.log(phone);
+    console.log(email);
+    console.log(idUser);
+    console.log(ADM);
+  }
 
   // Number Random
   function namberRandom() {
@@ -110,23 +146,47 @@ const CommentsContent = () => {
 
   // Delete Comment
   function commentDelete(id, commentId) {
-    const ArticleComment = {
-      postId: id,
+    const dataComment = {
+      id,
       commentId,
     };
 
-    dispatch(DelCommentsArticle(ArticleComment));
+    dispatch(DelCommentsArticle(dataComment));
+    window.location.reload(true);
   }
+
+  useEffect(() => {
+    dispatch(profile());
+  }, []);
 
   // Comments VIe
   useEffect(() => {
     const time = setTimeout(() => {
       arrowView();
       namberRandom();
+
+      AdmInfo();
     }, 1000);
 
     return (e) => clearTimeout(time);
   }, [dispatch]);
+
+  //SET USER
+  useEffect(() => {
+    const time = setTimeout(() => {
+      if (user) {
+        setFirstName(user.firstName);
+        setLastName(user.lastName);
+        setPhone(user.phone);
+        setEmail(user.email);
+        setPassword(user.password);
+        setPermissions(user.permissions);
+        setIdUser(user._id);
+      }
+    }, 1000);
+
+    return (e) => clearTimeout(time);
+  }, [user]);
 
   return (
     <div className="CommentsContent">
@@ -170,17 +230,23 @@ const CommentsContent = () => {
                                 <h1>{comment.userName}</h1>
                                 <p>{comment.dataComment}</p>
                               </div>
-                              <div className="CommentsContent-DeleteBox">
-                                <FaTrash
-                                  className="CommentsContent-DeleteIcon"
-                                  onClick={() =>
-                                    commentDelete(
-                                      article._id,
-                                      comment.idComment
-                                    )
-                                  }
-                                />
-                              </div>
+                              {auth && (
+                                <>
+                                  {ADM && (
+                                    <div className="CommentsContent-DeleteBox">
+                                      <FaTrash
+                                        className="CommentsContent-DeleteIcon"
+                                        onClick={() =>
+                                          commentDelete(
+                                            article._id,
+                                            comment.idComment
+                                          )
+                                        }
+                                      />
+                                    </div>
+                                  )}
+                                </>
+                              )}
                             </div>
                             <div className="CommentsContent_box-viewsComments-comment-box-description">
                               <p>{comment.comments}</p>
