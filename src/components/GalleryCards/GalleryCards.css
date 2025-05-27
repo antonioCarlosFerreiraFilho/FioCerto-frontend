@@ -89,7 +89,7 @@
 
   .GalleryCards_card-info-BoxIconDada {
 
-    width: 50%;
+    width: 75%;
 
     display: flex;
     justify-content: center;
@@ -108,7 +108,7 @@
 
   .GalleryCards_card-info-BoxIconComments {
 
-    width: 50%;
+    width: 25%;
 
     display: flex;
     justify-content: center;

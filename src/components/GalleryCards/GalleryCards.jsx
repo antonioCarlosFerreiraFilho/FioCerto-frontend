@@ -81,11 +81,11 @@ const GalleryCards = () => {
                     <div className="GalleryCards_card-info">
                       <div className="GalleryCards_card-info-BoxIcons">
                         <div className="GalleryCards_card-info-BoxIconDada">
-                          {/*
                           <MdDateRange className="GalleryCards_card-info-ICON" />
-                          */}
+
                           <p>{article.data}</p>
                         </div>
+
                         <div className="GalleryCards_card-info-BoxIconComments">
                           <FaRegCommentAlt className="GalleryCards_card-info-ICON" />
                           <p>{article.comments.length}</p>

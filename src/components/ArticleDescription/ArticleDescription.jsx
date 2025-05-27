@@ -3,20 +3,82 @@ import "./ArticleDescription.css";
 //react
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+//react Icons
+import { FaRegHeart } from "react-icons/fa";
+import { IoEyeOutline } from "react-icons/io5";
+import { FaRegCommentAlt } from "react-icons/fa";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 //slices
 import { GetArticle } from "../../slices/articleSlice";
+import { profile } from "../../slices/userSlice";
 //components
 import LoadingArticle from "../LoadingArticle/LoadingArticle";
+//Hooks
+import { useAuth } from "../../hooks/useAuth";
 
 const ArticleDescription = () => {
+  // Auth
+  const { auth, loading: loadingAuth } = useAuth();
+
   //react
   const { id } = useParams();
 
   //redux
   const dispatch = useDispatch();
   const { article, loading } = useSelector((state) => state.article);
+  const { user } = useSelector((state) => state.user);
+
+  // States User OR Adm
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [permissions, setPermissions] = useState("");
+  const [idUser, setIdUser] = useState("");
+  // ADM
+  const [ADM, setADM] = useState(false);
+
+  //LOAD USER DATA
+  useEffect(() => {
+    dispatch(profile());
+  }, [dispatch]);
+
+  // Verify User OR ADM
+  function AdmInfo() {
+    const AdmPermissions = import.meta.env.VITE_API_ADM_PERMISSIONS;
+    const AdmPhone = import.meta.env.VITE_API_ADM_PHONE;
+    const AdmEmail = import.meta.env.VITE_API_ADM_EMAIL;
+    const AdmId = import.meta.env.VITE_API_ADM_ID;
+
+    setTimeout(() => {
+      if (
+        permissions == AdmPermissions &&
+        phone == AdmPhone &&
+        email == AdmEmail &&
+        idUser == AdmId
+      ) {
+        setADM(true);
+      }
+    }, 1000);
+  }
+
+  //SET USER
+  useEffect(() => {
+    if (user) {
+      setPhone(user.phone);
+      setEmail(user.email);
+      setPermissions(user.permissions);
+      setIdUser(user._id);
+    }
+  }, [user]);
+
+  // Start Verify
+  useEffect(() => {
+    const Time = setTimeout(() => {
+      AdmInfo();
+    }, 1000);
+
+    return () => clearTimeout(Time);
+  }, [user, dispatch]);
 
   //renderizando
   useEffect(() => {
@@ -57,6 +119,34 @@ const ArticleDescription = () => {
                   </div>
                 </div>
               </div>
+
+              {auth && (
+                <div className="ArticleDescription_box-Likes-Views">
+                  <div className="ArticleDescription_box-Likes-Views-Container">
+                    <div className="ArticleDescription_box-Container-Likes">
+                      <div className="ArticleDescription_box-Container-Likes-content">
+                        <FaRegHeart className="ArticleDescription_box-Icons iconHeart" />
+                        <p>{article.likes && article.likes.length}</p>
+                      </div>
+                    </div>
+
+                    <div className="ArticleDescription_box-Container-Views">
+                      <div className="ArticleDescription_box-Container-Views-content">
+                        <IoEyeOutline className="ArticleDescription_box-Icons" />
+                        <p>{article.views && article.views.length}</p>
+                      </div>
+                    </div>
+
+                    <div className="ArticleDescription_box-Container-Commets">
+                      <div className="ArticleDescription_box-Container-Commets-content">
+                        <FaRegCommentAlt className="ArticleDescription_box-Icons" />
+
+                        <p>{article.comments && article.comments.length}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         )}
