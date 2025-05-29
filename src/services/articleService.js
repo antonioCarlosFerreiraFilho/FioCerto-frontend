@@ -30,6 +30,36 @@ const GetArticle = async (id) => {
   }
 };
 
+//Like Project
+const LikesArticle = async (id, token) => {
+  const config = requestConfig("PUT", null, token);
+
+  try {
+    const res = await fetch(api + "/Article/" + id, config)
+      .then((res) => res.json())
+      .catch((err) => err);
+
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+//Views
+const ViewsArticle = async (id) => {
+  const config = requestConfig("PUT");
+
+  try {
+    const res = await fetch(api + "/Article/view/" + id, config)
+      .then((res) => res.json())
+      .catch((err) => err);
+
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 // Recently
 const RecentlyPostedArticle = async () => {
   const config = requestConfig("GET");
@@ -106,7 +136,7 @@ const CommentsArticle = async (data, id, token) => {
 };
 
 // Comment Delete
-const DelCommentsArticle = async (data,token) => {
+const DelCommentsArticle = async (data, token) => {
   const config = requestConfig("PUT", data, token);
 
   try {
@@ -138,6 +168,8 @@ const SearchArticle = async (query) => {
 const articleService = {
   PaginationArticle,
   GetArticle,
+  LikesArticle,
+  ViewsArticle,
   RecentlyPostedArticle,
   aboutArticle,
   UpdateArticle,

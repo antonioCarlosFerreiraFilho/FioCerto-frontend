@@ -29,6 +29,34 @@ export const GetArticle = createAsyncThunk("article/GetArticle", async (id) => {
   return data;
 });
 
+//Like project
+export const LikesArticle = createAsyncThunk(
+  "article/likes",
+  async (id, thunkAPI) => {
+    const token = thunkAPI.getState().auth.user.token;
+    const data = await articleService.LikesArticle(id, token);
+
+    //check errors
+    if (data.errors) {
+      return thunkAPI.rejectWithValue(data.errors[0]);
+    }
+
+    return data;
+  }
+);
+
+//Views
+export const ViewsArticle = createAsyncThunk("article/views", async (id) => {
+  const data = await articleService.ViewsArticle(id);
+
+  //check errors
+  if (data.errors) {
+    return thunkAPI.rejectWithValue(data.errors[0]);
+  }
+
+  return data;
+});
+
 // Recently
 export const RecentlyPostedArticle = createAsyncThunk(
   "article/show",
@@ -172,6 +200,33 @@ export const articleSlice = createSlice({
         state.success = true;
         state.errors = null;
         state.article = action.payload;
+      })
+      //Likes
+      .addCase(LikesArticle.fulfilled, (state, actions) => {
+        state.loading = false;
+        state.success = true;
+        state.errors = null;
+
+        if (state.article.likes) {
+          state.article.likes.push(actions.payload.userId);
+        }
+      })
+      .addCase(LikesArticle.rejected, (state, actions) => {
+        state.loading = false;
+        state.success = false;
+        state.errors = actions.payload;
+      })
+      //Views
+      .addCase(ViewsArticle.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.errors = null;
+        state.article = action.payload;
+      })
+      .addCase(ViewsArticle.rejected, (state, actions) => {
+        state.loading = false;
+        state.success = false;
+        state.errors = actions.payload;
       })
       // Recently
       .addCase(RecentlyPostedArticle.pending, (state) => {

@@ -10,7 +10,7 @@ import { FaRegCommentAlt } from "react-icons/fa";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 //slices
-import { GetArticle } from "../../slices/articleSlice";
+import { GetArticle, LikesArticle, reset } from "../../slices/articleSlice";
 import { profile } from "../../slices/userSlice";
 //components
 import LoadingArticle from "../LoadingArticle/LoadingArticle";
@@ -36,6 +36,15 @@ const ArticleDescription = () => {
   const [idUser, setIdUser] = useState("");
   // ADM
   const [ADM, setADM] = useState(false);
+
+  function addLikes() {
+    dispatch(LikesArticle(id));
+
+    setTimeout(()=> {
+
+      dispatch(reset());
+    }, 4000);
+  }
 
   //LOAD USER DATA
   useEffect(() => {
@@ -125,7 +134,10 @@ const ArticleDescription = () => {
                   <div className="ArticleDescription_box-Likes-Views-Container">
                     <div className="ArticleDescription_box-Container-Likes">
                       <div className="ArticleDescription_box-Container-Likes-content">
-                        <FaRegHeart className="ArticleDescription_box-Icons iconHeart" />
+                        <FaRegHeart
+                          className="ArticleDescription_box-Icons iconHeart"
+                          onClick={addLikes}
+                        />
                         <p>{article.likes && article.likes.length}</p>
                       </div>
                     </div>

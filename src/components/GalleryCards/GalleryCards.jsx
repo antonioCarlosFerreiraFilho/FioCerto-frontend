@@ -11,7 +11,7 @@ import { useEffect } from "react";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 //Slice
-import { PaginationArticle } from "../../slices/articleSlice";
+import { PaginationArticle, ViewsArticle } from "../../slices/articleSlice";
 //components
 import LoadingGallery from "../LoadingGallery/LoadingGallery";
 
@@ -44,6 +44,10 @@ const GalleryCards = () => {
     });
   }
 
+  function addViews(articleID) {
+    dispatch(ViewsArticle(articleID));
+  }
+
   //LOAD Articles
   useEffect(() => {
     dispatch(PaginationArticle(0));
@@ -69,7 +73,11 @@ const GalleryCards = () => {
             <div className="GalleryCards_Boxes">
               {articles &&
                 articles?.map((article) => (
-                  <div className="GalleryCards_card" key={article._id}>
+                  <div
+                    className="GalleryCards_card"
+                    key={article._id}
+                    onClick={() => addViews(article._id)}
+                  >
                     {/* CARD IMAGE */}
                     <div className="GalleryCards_card-image">
                       <img
