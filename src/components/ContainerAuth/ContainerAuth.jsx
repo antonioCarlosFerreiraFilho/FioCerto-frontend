@@ -107,6 +107,7 @@ const ContainerAuth = () => {
 
   return (
     <div className="ContainerAuth">
+      <div className="ContainerAuth-styleBackground"></div>
       <div className="ContainerAuth_container">
         <div className="ContainerAuth_content">
           <div className="ContainerAuth_Container">

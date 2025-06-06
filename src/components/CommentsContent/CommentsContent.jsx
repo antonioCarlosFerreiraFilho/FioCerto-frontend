@@ -153,6 +153,7 @@ const CommentsContent = () => {
 
       setTimeout(() => {
         dispatch(reset());
+        namberRandom();
       }, 4000);
     }
   }

@@ -7,17 +7,18 @@ import { NavLink, useNavigate } from "react-router-dom";
 //hooks
 import { useScroll } from "../../hooks/useScroll";
 //react
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 //Slice
-import { PaginationArticle, ViewsArticle } from "../../slices/articleSlice";
+import { PaginationArticle } from "../../slices/articleSlice";
 //components
 import LoadingGallery from "../LoadingGallery/LoadingGallery";
 
 const GalleryCards = () => {
   const dispatch = useDispatch();
   const { articles, loading } = useSelector((state) => state.article);
+  const [pageCurrent, setPageCurrent] = useState(0);
 
   //Scroll top
   function ScrollTop() {
@@ -40,13 +41,26 @@ const GalleryCards = () => {
         page = e.target.textContent;
 
         dispatch(PaginationArticle(page));
+        setPageCurrent(page);
       });
     });
   }
 
-  function addViews(articleID) {
-    dispatch(ViewsArticle(articleID));
-  }
+  useEffect(() => {
+    const time = setTimeout(() => {
+      const pagesJSX = document.querySelectorAll(".controllerNextPage");
+
+      pagesJSX.forEach((ele) => {
+        if (ele.textContent == pageCurrent) {
+          ele.classList.add("activeBack");
+        } else {
+          ele.classList.remove("activeBack");
+        }
+      });
+    }, 500);
+
+    return () => clearTimeout(time);
+  }, [pageCurrent]);
 
   //LOAD Articles
   useEffect(() => {
@@ -73,11 +87,7 @@ const GalleryCards = () => {
             <div className="GalleryCards_Boxes">
               {articles &&
                 articles?.map((article) => (
-                  <div
-                    className="GalleryCards_card"
-                    key={article._id}
-                    onClick={() => addViews(article._id)}
-                  >
+                  <div className="GalleryCards_card" key={article._id}>
                     {/* CARD IMAGE */}
                     <div className="GalleryCards_card-image">
                       <img

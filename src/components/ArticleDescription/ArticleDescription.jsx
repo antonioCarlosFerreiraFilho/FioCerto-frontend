@@ -10,7 +10,12 @@ import { FaRegCommentAlt } from "react-icons/fa";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 //slices
-import { GetArticle, LikesArticle, reset } from "../../slices/articleSlice";
+import {
+  GetArticle,
+  LikesArticle,
+  ViewsArticle,
+  reset,
+} from "../../slices/articleSlice";
 import { profile } from "../../slices/userSlice";
 //components
 import LoadingArticle from "../LoadingArticle/LoadingArticle";
@@ -34,14 +39,14 @@ const ArticleDescription = () => {
   const [email, setEmail] = useState("");
   const [permissions, setPermissions] = useState("");
   const [idUser, setIdUser] = useState("");
+  const [view, setView] = useState("");
   // ADM
   const [ADM, setADM] = useState(false);
 
   function addLikes() {
     dispatch(LikesArticle(id));
 
-    setTimeout(()=> {
-
+    setTimeout(() => {
       dispatch(reset());
     }, 4000);
   }
@@ -79,6 +84,21 @@ const ArticleDescription = () => {
       setIdUser(user._id);
     }
   }, [user]);
+
+  //SET USER
+  useEffect(() => {
+   
+
+    const time = setTimeout(() => {
+      dispatch(ViewsArticle(id));
+    }, 2000);
+
+     if (article.views && article.views.length) {
+      setView(article.views);
+    }
+
+    return () => clearTimeout(time);
+  }, [article.views]);
 
   // Start Verify
   useEffect(() => {
@@ -145,7 +165,7 @@ const ArticleDescription = () => {
                     <div className="ArticleDescription_box-Container-Views">
                       <div className="ArticleDescription_box-Container-Views-content">
                         <IoEyeOutline className="ArticleDescription_box-Icons" />
-                        <p>{article.views && article.views.length}</p>
+                        <p>{view.length}</p>
                       </div>
                     </div>
 

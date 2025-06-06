@@ -228,7 +228,7 @@
 
   .GalleryCards_Pagination-content p {
 
-    background-color: rgb(63, 40, 181);
+    background-color: rgb(168, 163, 193);
     color: white;
 
     width: 30px;
@@ -236,6 +236,7 @@
     border: 1px solid rgb(98, 54, 209);
     border-radius: 50%;
 
+    color: black;
     font-size: 1.1rem;
     font-family: "Bree Serif", serif;
     font-weight: 400;
@@ -247,6 +248,12 @@
     margin: 0 1rem 0 1rem;
 
     cursor: pointer;
+  }
+
+  .GalleryCards_Pagination-content .activeBack {
+
+    background-color: rgb(85, 54, 239);
+    color: white;
   }
 }
 

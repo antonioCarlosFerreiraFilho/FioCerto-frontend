@@ -221,7 +221,7 @@ export const articleSlice = createSlice({
         state.loading = false;
         state.success = true;
         state.errors = null;
-        state.article = action.payload;
+        state.article.views = action.payload;
       })
       .addCase(ViewsArticle.rejected, (state, actions) => {
         state.loading = false;

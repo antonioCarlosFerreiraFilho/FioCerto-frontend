@@ -50,22 +50,16 @@ const PanelADM = ({ ADM }) => {
 
   // Search User
   function searchUser() {
-    const InputSearch = document.querySelector(".InputSearch");
-    const usersName = document.querySelectorAll(".UserFirstName");
-    let valueSearch = "";
-    InputSearch.addEventListener("input", (e) => {
-      valueSearch = e.target.value;
+    const txt = document.querySelector(".InputSearch");
+    const itens = document.querySelectorAll(".UserFirstName");
 
-      usersName.forEach((user) => {
-        if(user.textContent != valueSearch) {
-          user.parentElement.style.display = "none";
-        }
-        if (user.textContent == valueSearch) {
-          console.log(user.textContent);
-          user.parentElement.style.display = "block";
-        }
-      });
-    });
+    let Letter = "";
+
+    txt.oninput = (e) => {
+      Letter = e.target.value.toLowerCase();
+
+      console.log(itens);
+    };
   }
 
   //imagem user Escolhida
@@ -100,6 +94,7 @@ const PanelADM = ({ ADM }) => {
   //LOAD USER DATA
   useEffect(() => {
     dispatch(profile());
+    searchUser();
   }, [dispatch]);
 
   useEffect(() => {
@@ -130,7 +125,6 @@ const PanelADM = ({ ADM }) => {
                           type="text"
                           placeholder="Procurar por Usuarios...."
                           className="InputSearch"
-                          onClick={searchUser}
                         />
                       </form>
                     </div>

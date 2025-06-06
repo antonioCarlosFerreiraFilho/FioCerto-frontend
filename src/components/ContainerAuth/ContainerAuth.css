@@ -13,6 +13,11 @@
     z-index: 2000;
   }
 
+  .ContainerAuth-styleBackground {
+
+    display: none;
+  }
+
   .ContainerAuth.hidden {
 
     display: none;
@@ -184,7 +189,7 @@
     z-index: 2000;
   }
 
-  .ContainerAuth.visible  .ContainerAuth_box-Form-container-MessageError-content {
+  .ContainerAuth.visible .ContainerAuth_box-Form-container-MessageError-content {
 
     width: 100%;
     height: 100%;
@@ -442,5 +447,33 @@
 
     padding: 0rem;
 
+  }
+}
+
+@media screen and (min-width: 1100px) {
+
+
+  .ContainerAuth.visible .ContainerAuth_container {
+    width: 100%;
+  }
+
+  .ContainerAuth.visible .ContainerAuth-styleBackground {
+
+    display: block;
+
+    background-image: url("../../../public/background/professionalImage.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+
+    width: 25%;
+    max-width: 440px;
+    height: 100vh;
+  }
+
+  /* Box */
+  .ContainerAuth.visible .ContainerAuth_Container {
+   
   }
 }
