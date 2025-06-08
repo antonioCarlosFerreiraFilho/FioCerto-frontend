@@ -11,10 +11,11 @@ const Profile = () => {
       <section>
         <ProfileBanner />
       </section>
+
       <section>
         <ProfileUserADM />
       </section>
-     
+
       <section>
         <AboutProfile />
       </section>

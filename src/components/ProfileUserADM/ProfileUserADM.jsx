@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import PanelADM from "../PanelADM/PanelADM";
 import PopUpMessage from "../PopUpMessage/PopUpMessage";
 import LoadingUsers from "../LoadingUsers/LoadingUsers";
+import PostArticle from "../PostArticle/PostArticle";
 //Hooks
 import { useAuth } from "../../hooks/useAuth";
 //redux
@@ -81,7 +82,6 @@ const ProfileUserADM = () => {
     dispatch(profile());
   }, [dispatch]);
 
-  
   function reloadUser() {
     setTimeout(() => {
       dispatch(profile());
@@ -211,9 +211,14 @@ const ProfileUserADM = () => {
         </div>
       </div>
       {ADM && (
-        <div className="ProfileUserADM-ADMPermissions">
-          <PanelADM ADM={ADM} />
-        </div>
+        <>
+          <div className="ProfileUserADM-ADMPermissions">
+            <PanelADM ADM={ADM} />
+          </div>
+          <div className="ProfileUserADM-ADMPost">
+            <PostArticle ADM={ADM}/>
+          </div>
+        </>
       )}
       {errors && (
         <div className="ProfileUserADM-MessageError">
