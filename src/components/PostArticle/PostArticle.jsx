@@ -15,6 +15,7 @@ const PostArticle = () => {
                 </div>
               </div>
             </div>
+            
             {/* DATA */}
             <div className="PostArticle-boxArticle-containerDATA">
               {/* articleTitle & miniDescri */}
