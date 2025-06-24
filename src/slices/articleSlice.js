@@ -12,6 +12,22 @@ const initialState = {
   message: null,
 };
 
+//Publish Article
+export const publishArticle = createAsyncThunk(
+  "article/publish",
+  async (newPost, thunkAPI) => {
+    const token = thunkAPI.getState().auth.user.token;
+
+    const data = await articleService.publishArticle(newPost, token);
+
+    if (data.errors) {
+      return thunkAPI.rejectWithValue(data.errors[0]);
+    }
+
+    return data;
+  }
+);
+
 // Pagination
 export const PaginationArticle = createAsyncThunk(
   "article/list",
@@ -179,6 +195,24 @@ export const articleSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      // PUBLISH PHOTO
+      .addCase(publishArticle.pending, (state) => {
+        state.loading = true;
+        state.errors = false;
+      })
+      .addCase(publishArticle.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.errors = null;
+        state.article = action.payload;
+        state.articles.unshift(state.article);
+        state.message = "Artigo Postado com sucesso!";
+      })
+      .addCase(publishArticle.rejected, (state, action) => {
+        state.loading = false;
+        state.errors = action.payload;
+        state.article = {};
+      })
       // Pagination
       .addCase(PaginationArticle.pending, (state) => {
         state.loading = true;

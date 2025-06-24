@@ -1,5 +1,19 @@
 import { api, requestConfig } from "../utils/config";
 
+// PUBLISH Article
+const publishArticle = async (data, token) => {
+  const config = requestConfig("POST", data, token, true);
+
+  try {
+    const res = await fetch(api + "/Article/newarticle", config)
+      .then((res) => res.json())
+      .catch((err) => err);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // Read
 const PaginationArticle = async (page) => {
   const config = requestConfig("GET", null);
@@ -166,6 +180,7 @@ const SearchArticle = async (query) => {
 };
 
 const articleService = {
+  publishArticle,
   PaginationArticle,
   GetArticle,
   LikesArticle,

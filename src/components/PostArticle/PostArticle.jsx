@@ -8,39 +8,77 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { useAuth } from "../../hooks/useAuth";
 //react
 import { useEffect, useState } from "react";
+//Slice
+import { publishArticle, reset } from "../../slices/articleSlice";
+//redux
+import { useSelector, useDispatch } from "react-redux";
+//components
+import MessageError from "../MessageError/MessageError";
 
 const PostArticle = () => {
 
-  // Stage Profile Image
-  const [image1, setImage1] = useState("");
-  const [image2, setImage2] = useState("");
-  const [image3, setImage3] = useState("");
-  const [previewImage1, setPreviewImage1] = useState("");
-  const [previewImage2, setPreviewImage2] = useState("");
-  const [previewImage3, setPreviewImage3] = useState("");
+  //Redux
+  const dispatch = useDispatch();
+  const {
+    article,
+    articles,
+    loading: loadingArticle,
+    errors,
+    message,
+  } = useSelector((state) => state.article);
 
-  //imagem user Escolhida
-  const HandleFiles = (e) => {
-    const images = e.target.files;
+  // Article params
+  const [articleTitle, setArticleTitle] = useState("");
+  const [miniDescri, setMiniDescri] = useState("");
+  const [firstTitle, setFirstTitle] = useState("");
+  const [firstDescri, setFirstDescri] = useState("");
+  const [lastTitle, setLastTitle] = useState("");
+  const [lastDescri, setLastDescri] = useState("");
+  const [images, setImages] = useState({ image1: null, image2: null, image3: null });
 
-    if (images.length > 3 || images.length < 3) {
-      alert("Somente 3 imagens");
 
-      setTimeout(() => {
-
-        setPreviewImage1("");
-        setPreviewImage2("");
-        setPreviewImage3("");
-      }, 2000);
-
-      return
-    } else {
-
-      setPreviewImage1(images[0]);
-      setPreviewImage2(images[1]);
-      setPreviewImage3(images[2]);
-    }
+  const handleChange = (e) => {
+    const { name, files } = e.target;
+    setImages((prev) => ({ ...prev, [name]: files[0] }));
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formDataStrig = new FormData();
+    const formDataFiles = new FormData();
+    formDataFiles.append('image1', images.image1);
+    formDataFiles.append('image2', images.image2);
+    formDataFiles.append('image3', images.image3);
+
+    const newPost = {
+
+      files: formDataFiles,
+      articleTitle,
+      miniDescri,
+      firstTitle,
+      firstDescri,
+      lastTitle,
+      lastDescri
+    }
+
+    const photoFormData = Object.keys(newPost).foeEach((key) => formDataStrig.append(key, newPost[key]));
+
+    formDataStrig.append("article", photoFormData);
+
+    await dispatch(publishArticle(formDataStrig));
+
+    setTimeout(() => {
+
+      dispatch(reset());
+    }, 4000);
+  };
+
+  // Upload Article
+  const postArticle = async (e) => {
+
+
+  }
 
   return (
     <div className="PostArticle-container">
@@ -53,7 +91,7 @@ const PostArticle = () => {
           </div>
         </div>
         <div className="PostArticle-boxArticle">
-          <form className="PostArticle-boxArticle-form">
+          <form className="PostArticle-boxArticle-form" onSubmit={handleSubmit}>
 
             {/* FILES */}
             <div className="PostArticle-boxArticle-formContentFILES">
@@ -61,55 +99,12 @@ const PostArticle = () => {
               <div className="PostArticle-Files">
                 <div className="PostArticle-contentFiles">
                   <div className="PostArticle_content">
-
-                    <div className="PostArticle_ImagesUP">
-                      <img
-                        src={
-                          previewImage1
-                            ? URL.createObjectURL(previewImage1)
-                            : `./background/defaultImage.png`
-                        }
-                        alt=""
-                      />
-                    </div>
-
-                    <div className="PostArticle_ImagesUP">
-                      <img
-                        src={
-                          previewImage2
-                            ? URL.createObjectURL(previewImage2)
-                            : `./background/defaultImage.png`
-                        }
-                        alt=""
-                      />
-                    </div>
-
-                    <div className="PostArticle_ImagesUP">
-                      <img
-                        src={
-                          previewImage3
-                            ? URL.createObjectURL(previewImage3)
-                            : `./background/defaultImage.png`
-                        }
-                        alt=""
-                      />
-                    </div>
-
-                    <div className="PostArticle-box-upload-image">
-                      <div className="PostArticle-boxInputFile">
-                        <label htmlFor="inFiles">
-                          <FaCirclePlus className="PostArticle-boxInputFile-icon-update" />
-                        </label>
-                        <input
-                          type="file"
-                          id="inFiles"
-                          name="images[]"
-                          multiple
-                          onChange={HandleFiles}
-                          className="PostArticle-InputFile"
-                        />
-                      </div>
-                    </div>
+                    <input type="file" name="image1" accept="image/*" onChange={handleChange} required />
+                    <br />
+                    <input type="file" name="image2" accept="image/*" onChange={handleChange} required />
+                    <br />
+                    <input type="file" name="image3" accept="image/*" onChange={handleChange} required />
+                    <br />
                   </div>
                 </div>
               </div>
@@ -122,12 +117,18 @@ const PostArticle = () => {
               <div className="PostArticle-boxArticle-formContent">
                 <label className="PostArticle-ArticleTitle">
                   <span>Titulo Artigo</span>
-                  <input type="text" />
+                  <input type="text"
+                    onChange={(e) => setArticleTitle(e.target.value)}
+                    value={articleTitle || ""}
+                  />
                 </label>
 
                 <label className="PostArticle-Descri">
                   <span>Mini-Descrição</span>
-                  <textarea></textarea>
+                  <textarea
+                    onChange={(e) => setMiniDescri(e.target.value)}
+                    value={miniDescri || ""}
+                  ></textarea>
                 </label>
               </div>
 
@@ -135,12 +136,18 @@ const PostArticle = () => {
               <div className="PostArticle-boxArticle-formContent">
                 <label className="PostArticle-ArticleTitle">
                   <span>2º Titulo</span>
-                  <input type="text" />
+                  <input type="text"
+                    onChange={(e) => setFirstTitle(e.target.value)}
+                    value={firstTitle || ""}
+                  />
                 </label>
 
                 <label className="PostArticle-Descri">
                   <span>2º Descrição</span>
-                  <textarea></textarea>
+                  <textarea
+                    onChange={(e) => setFirstDescri(e.target.value)}
+                    value={firstDescri || ""}
+                  ></textarea>
                 </label>
               </div>
 
@@ -148,12 +155,18 @@ const PostArticle = () => {
               <div className="PostArticle-boxArticle-formContent">
                 <label className="PostArticle-ArticleTitle">
                   <span>3º Titulo</span>
-                  <input type="text" />
+                  <input type="text"
+                    onChange={(e) => setLastTitle(e.target.value)}
+                    value={lastTitle || ""}
+                  />
                 </label>
 
                 <label className="PostArticle-Descri">
                   <span>3º Descrição</span>
-                  <textarea></textarea>
+                  <textarea
+                    onChange={(e) => setLastDescri(e.target.value)}
+                    value={lastDescri || ""}
+                  ></textarea>
                 </label>
               </div>
 
@@ -165,6 +178,21 @@ const PostArticle = () => {
               </div>
             </div>
           </form>
+          {errors && (
+            <div className="PostArticle_MessageError-container">
+              <div className="PostArticle_MessageError-content">
+                <MessageError errors={errors} type="error" />
+              </div>
+            </div>
+          )}
+          {message && (
+            <div className="PostArticle_MessageError-container">
+              <div className="PostArticle_MessageError-content">
+                <MessageError errors={message} type="sucess" />
+              </div>
+            </div>
+          )}
+
         </div>
       </div>
     </div>
