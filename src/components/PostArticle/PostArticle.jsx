@@ -28,56 +28,38 @@ const PostArticle = () => {
   } = useSelector((state) => state.article);
 
   // Article params
-  const [articleTitle, setArticleTitle] = useState("");
-  const [miniDescri, setMiniDescri] = useState("");
-  const [firstTitle, setFirstTitle] = useState("");
-  const [firstDescri, setFirstDescri] = useState("");
-  const [lastTitle, setLastTitle] = useState("");
-  const [lastDescri, setLastDescri] = useState("");
-  const [images, setImages] = useState({ image1: null, image2: null, image3: null });
+  const [articleData, setArticleData] = useState({});
 
+  function onFileChange(e) {
 
-  const handleChange = (e) => {
-    const { name, files } = e.target;
-    setImages((prev) => ({ ...prev, [name]: files[0] }));
-  };
+    setArticleData({ ...articleData, file: [...e.target.files] });
+  }
 
-  const handleSubmit = async (e) => {
+  function handleChange(e) {
+
+    setArticleData({ ...articleData, [e.target.name]: e.target.value });
+  }
+
+  async function submitNewArticle(e) {
+
     e.preventDefault();
 
-    const formDataStrig = new FormData();
-    const formDataFiles = new FormData();
-    formDataFiles.append('image1', images.image1);
-    formDataFiles.append('image2', images.image2);
-    formDataFiles.append('image3', images.image3);
+    const formData = new FormData;
 
-    const newPost = {
+    await Object.keys(articleData).forEach((key) => {
+      if (key === 'file') {
+        console.log("ola")
+      } else {
+        formData.append(key, articleData[key]);
+      }
+    })
 
-      files: formDataFiles,
-      articleTitle,
-      miniDescri,
-      firstTitle,
-      firstDescri,
-      lastTitle,
-      lastDescri
-    }
-
-    const photoFormData = Object.keys(newPost).foeEach((key) => formDataStrig.append(key, newPost[key]));
-
-    formDataStrig.append("article", photoFormData);
-
-    await dispatch(publishArticle(formDataStrig));
+    console.log(formData);
 
     setTimeout(() => {
 
       dispatch(reset());
     }, 4000);
-  };
-
-  // Upload Article
-  const postArticle = async (e) => {
-
-
   }
 
   return (
@@ -91,7 +73,7 @@ const PostArticle = () => {
           </div>
         </div>
         <div className="PostArticle-boxArticle">
-          <form className="PostArticle-boxArticle-form" onSubmit={handleSubmit}>
+          <form className="PostArticle-boxArticle-form" onSubmit={submitNewArticle} >
 
             {/* FILES */}
             <div className="PostArticle-boxArticle-formContentFILES">
@@ -99,11 +81,14 @@ const PostArticle = () => {
               <div className="PostArticle-Files">
                 <div className="PostArticle-contentFiles">
                   <div className="PostArticle_content">
-                    <input type="file" name="image1" accept="image/*" onChange={handleChange} required />
-                    <br />
-                    <input type="file" name="image2" accept="image/*" onChange={handleChange} required />
-                    <br />
-                    <input type="file" name="image3" accept="image/*" onChange={handleChange} required />
+                    <input
+                      text="Artigos images"
+                      type="file"
+                      name="file"
+                      onChange={onFileChange}
+                      multiple={true}
+
+                    />
                     <br />
                   </div>
                 </div>
@@ -118,16 +103,17 @@ const PostArticle = () => {
                 <label className="PostArticle-ArticleTitle">
                   <span>Titulo Artigo</span>
                   <input type="text"
-                    onChange={(e) => setArticleTitle(e.target.value)}
-                    value={articleTitle || ""}
+                    name="articleTitle"
+                    onChange={handleChange}
                   />
                 </label>
 
                 <label className="PostArticle-Descri">
                   <span>Mini-Descrição</span>
                   <textarea
-                    onChange={(e) => setMiniDescri(e.target.value)}
-                    value={miniDescri || ""}
+                    name="miniDescri"
+                    onChange={handleChange}
+
                   ></textarea>
                 </label>
               </div>
@@ -137,16 +123,18 @@ const PostArticle = () => {
                 <label className="PostArticle-ArticleTitle">
                   <span>2º Titulo</span>
                   <input type="text"
-                    onChange={(e) => setFirstTitle(e.target.value)}
-                    value={firstTitle || ""}
+                    name="firstTitle"
+                    onChange={handleChange}
+
                   />
                 </label>
 
                 <label className="PostArticle-Descri">
                   <span>2º Descrição</span>
                   <textarea
-                    onChange={(e) => setFirstDescri(e.target.value)}
-                    value={firstDescri || ""}
+                    name="firstDescri"
+                    onChange={handleChange}
+
                   ></textarea>
                 </label>
               </div>
@@ -156,16 +144,16 @@ const PostArticle = () => {
                 <label className="PostArticle-ArticleTitle">
                   <span>3º Titulo</span>
                   <input type="text"
-                    onChange={(e) => setLastTitle(e.target.value)}
-                    value={lastTitle || ""}
+                    name="lastTitle"
+                    onChange={handleChange}
                   />
                 </label>
 
                 <label className="PostArticle-Descri">
                   <span>3º Descrição</span>
                   <textarea
-                    onChange={(e) => setLastDescri(e.target.value)}
-                    value={lastDescri || ""}
+                    name="lastDescri"
+                    onChange={handleChange}
                   ></textarea>
                 </label>
               </div>
