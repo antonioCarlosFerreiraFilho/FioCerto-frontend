@@ -205,7 +205,7 @@ export const articleSlice = createSlice({
         state.success = true;
         state.errors = null;
         state.article = action.payload;
-        state.articles.unshift(state.article);
+        
         state.message = "Artigo Postado com sucesso!";
       })
       .addCase(publishArticle.rejected, (state, action) => {

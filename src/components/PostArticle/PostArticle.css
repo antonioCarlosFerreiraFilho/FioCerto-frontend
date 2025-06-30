@@ -183,52 +183,35 @@
     align-items: center;
   }
 
-  .PostArticle-SelectFile {
+  /* FILES - containers */
+
+
+  .PostArticle-Boxview-Image{
 
     width: 100%;
-    height: 300px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    margin: 1rem 0 1rem 0;
-
-    box-sizing: border-box;
-  }
-
-  .PostArticle_ImagesUP {
-
-    width: 100%;
-    max-width: 250px;
     height: 250px;
 
-    margin-bottom: 1rem;
+   
 
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .PostArticle_ImagesUP img {
+  .PostArticle-Boxview-Image-content {
+
+    width: 90%;
+    height: 90%;
+
+    
+  }
+
+  .PostArticle-Boxview-Image-content img {
 
     width: 100%;
     height: 100%;
 
     object-fit: cover;
-    object-fit: cover;
-  }
-
-  /* Input File select */
-
-  .PostArticle-boxInputFile-icon-update {
-    color: rgb(23, 23, 170);
-
-    font-size: 2.5rem;
-    cursor: pointer;
-  }
-
-  .PostArticle-InputFile {
-    display: none;
   }
 
   /* articleTitle & miniDescri */
