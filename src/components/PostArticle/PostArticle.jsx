@@ -38,17 +38,24 @@ const PostArticle = () => {
   const [lastDescri, setLastDescri] = useState('');
   
   const [images, setImages] = useState([]);
-  const [previewImage1, setPreviewImage1] = useState([]);
-  const [previewImage2, setPreviewImage2] = useState([]);
-  const [previewImage3, setPreviewImage3] = useState([]);
+  const [previewImage1, setPreviewImage1] = useState("");
+  const [previewImage2, setPreviewImage2] = useState("");
+  const [previewImage3, setPreviewImage3] = useState("");
 
-const handleImageChange = (e) => {
+  const handleImageChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
     if (selectedFiles.length > 3) {
       alert("Você só pode enviar no máximo 3 imagens.");
       return;
     }
     setImages(selectedFiles);
+
+    setTimeout(()=> {
+      
+      setPreviewImage1(selectedFiles[0]);
+      setPreviewImage2(selectedFiles[1]);
+      setPreviewImage3(selectedFiles[2]);
+    }, 1000);
   };
 
   const handleSubmit = async (e) => {
@@ -107,30 +114,55 @@ const handleImageChange = (e) => {
             <div className="PostArticle-boxArticle-formContentFILES">
               <div className="PostArticle-Files">
                 <div className="PostArticle-contentFiles">
-
+                  {/* Box image01 */}
                   <div className="PostArticle-Boxview-Image">
-                <div className="PostArticle-Boxview-Image-content">
-                  <img src={
+                    <div className="PostArticle-Boxview-Image-content">
+                      <img src={
                         previewImage1
-                          ? previewImage1
-                          : `./ImageUserDefault/User02.png`
+                          ? URL.createObjectURL(previewImage1)
+                          : `./background/defaultImage.png`
                       } 
                       alt="" 
                       />
-                </div>
+                    </div>
                   </div>
-
+                  {/* Box image02 */}
+                  <div className="PostArticle-Boxview-Image">
+                    <div className="PostArticle-Boxview-Image-content">
+                      <img src={
+                         previewImage2
+                          ? URL.createObjectURL(previewImage2)
+                          : `./background/defaultImage.png`
+                      } 
+                      alt="" 
+                      />
+                    </div>
+                  </div>
+                  {/* Box image03 */}
+                  <div className="PostArticle-Boxview-Image">
+                    <div className="PostArticle-Boxview-Image-content">
+                      <img src={
+                         previewImage3
+                          ? URL.createObjectURL(previewImage3)
+                          : `./background/defaultImage.png`
+                      } 
+                      alt="" 
+                      />
+                    </div>
+                  </div>
+                  {/* Box inputFile */}
                   <div className="PostArticle_content">
+                    <label htmlFor="selectFiles">
+                      <FaCirclePlus className="iconSelectFiles"/>
+                    </label>
                     <input
-
                     type="file"
                     multiple
+                    id="selectFiles"
                     accept="image/*"
                     onChange={handleImageChange}
-                    
-                    
+                    className="selectFilesInputfile"
                     />
-                    <br />
                   </div>
                 </div>
               </div>
