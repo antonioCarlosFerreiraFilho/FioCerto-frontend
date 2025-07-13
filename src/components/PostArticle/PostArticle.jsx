@@ -30,24 +30,33 @@ const PostArticle = () => {
   // Article params
   const [articleTitle, setArticleTitle] = useState('');
   const [miniDescri, setMiniDescri] = useState('');
-
   const [firstTitle, setFirstTitle] = useState('');
   const [firstDescri, setFirstDescri] = useState('');
-
   const [lastTitle, setLastTitle] = useState('');
   const [lastDescri, setLastDescri] = useState('');
-  
+
+  // Images Stages
   const [images, setImages] = useState([]);
+  const [errorsImages, setErrorsImages] = useState("");
+  const [loadingImages, setLoadingImages] = useState(false);
   const [previewImage1, setPreviewImage1] = useState("");
   const [previewImage2, setPreviewImage2] = useState("");
   const [previewImage3, setPreviewImage3] = useState("");
 
   const handleImageChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
-    if (selectedFiles.length > 3) {
-      alert("Você só pode enviar no máximo 3 imagens.");
+    if (selectedFiles.length > 3 || selectedFiles.length < 3) {
+      setErrorsImages("são necessarias 3 imagens.");
+      setPreviewImage1("");
+      setPreviewImage2("");
+      setPreviewImage3("");
+       setTimeout(()=> {
+
+        setErrorsImages("");
+      }, 4000);
       return;
     }
+    setLoadingImages(true);
     setImages(selectedFiles);
 
     setTimeout(()=> {
@@ -55,6 +64,7 @@ const PostArticle = () => {
       setPreviewImage1(selectedFiles[0]);
       setPreviewImage2(selectedFiles[1]);
       setPreviewImage3(selectedFiles[2]);
+      setLoadingImages(false);
     }, 1000);
   };
 
@@ -117,39 +127,63 @@ const PostArticle = () => {
                   {/* Box image01 */}
                   <div className="PostArticle-Boxview-Image">
                     <div className="PostArticle-Boxview-Image-content">
-                      <img src={
-                        previewImage1
+                      {loadingImages ? (
+                         <img src="./loading/loading-images_01.gif"
+                          alt="loading-images"
+                        
+                        />
+                      ):(
+                        <img src={
+                          previewImage1
                           ? URL.createObjectURL(previewImage1)
                           : `./background/defaultImage.png`
-                      } 
-                      alt="" 
-                      />
+                        } 
+                        alt="" 
+                        />
+                      )}
                     </div>
                   </div>
+
                   {/* Box image02 */}
                   <div className="PostArticle-Boxview-Image">
                     <div className="PostArticle-Boxview-Image-content">
-                      <img src={
-                         previewImage2
+                      {loadingImages ? (
+                         <img src="./loading/loading-images_01.gif"
+                          alt="loading-images"
+                        
+                        />
+                      ):(
+                        <img src={
+                          previewImage2
                           ? URL.createObjectURL(previewImage2)
                           : `./background/defaultImage.png`
-                      } 
-                      alt="" 
-                      />
+                        } 
+                        alt="" 
+                        />
+                      )}
                     </div>
                   </div>
+
                   {/* Box image03 */}
                   <div className="PostArticle-Boxview-Image">
                     <div className="PostArticle-Boxview-Image-content">
-                      <img src={
-                         previewImage3
+                      {loadingImages ? (
+                         <img src="./loading/loading-images_01.gif"
+                          alt="loading-images"
+                        
+                        />
+                      ):(
+                        <img src={
+                          previewImage3
                           ? URL.createObjectURL(previewImage3)
                           : `./background/defaultImage.png`
-                      } 
-                      alt="" 
-                      />
+                        } 
+                        alt="" 
+                        />
+                      )}
                     </div>
                   </div>
+
                   {/* Box inputFile */}
                   <div className="PostArticle_content">
                     <label htmlFor="selectFiles">
@@ -237,7 +271,12 @@ const PostArticle = () => {
               {/* Submit */}
               <div className="PostArticle-boxArticle-formContent">
                 <div className="PostArticle-Submit">
-                  <input type="submit" />
+                  {loadingArticle && (
+                    <input type="submit" value="aguarde...." disabled />
+                  )}
+                  {!loadingArticle && (
+                    <input type="submit" value="postar" />
+                  )}
                 </div>
               </div>
             </div>
@@ -246,6 +285,13 @@ const PostArticle = () => {
             <div className="PostArticle_MessageError-container">
               <div className="PostArticle_MessageError-content">
                 <MessageError errors={errors} type="error" />
+              </div>
+            </div>
+          )}
+          {errorsImages && (
+             <div className="PostArticle_MessageError-container">
+              <div className="PostArticle_MessageError-content">
+                <MessageError errors={errorsImages} type="error" />
               </div>
             </div>
           )}
