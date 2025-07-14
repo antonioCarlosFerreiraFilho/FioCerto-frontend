@@ -1,6 +1,6 @@
 //css
 import "./PostArticle.css";
-//react icons
+//react icons 
 import { FaTrashAlt } from "react-icons/fa";
 //react icons
 import { FaCirclePlus } from "react-icons/fa6";
@@ -43,8 +43,24 @@ const PostArticle = () => {
   const [previewImage2, setPreviewImage2] = useState("");
   const [previewImage3, setPreviewImage3] = useState("");
 
+  //Verify Images mimetype|fileSize
   const handleImageChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
+
+    //Verify Images fileSize
+    selectedFiles.forEach((img)=> {
+
+      if(img.size > 50000) {
+
+        setErrorsImages("são permitidas imagens de no maximo 50MB");
+        setTimeout(()=> {
+          setErrorsImages("");
+        }, 4000);
+        return;
+      }
+    });
+
+    //Verify Images Length
     if (selectedFiles.length > 3 || selectedFiles.length < 3) {
       setErrorsImages("são necessarias 3 imagens.");
       setPreviewImage1("");
@@ -55,17 +71,18 @@ const PostArticle = () => {
         setErrorsImages("");
       }, 4000);
       return;
-    }
-    setLoadingImages(true);
-    setImages(selectedFiles);
+    }else {
 
-    setTimeout(()=> {
-      
-      setPreviewImage1(selectedFiles[0]);
-      setPreviewImage2(selectedFiles[1]);
-      setPreviewImage3(selectedFiles[2]);
-      setLoadingImages(false);
-    }, 1000);
+      setLoadingImages(true);
+      setImages(selectedFiles);
+
+      setTimeout(()=> {
+        setPreviewImage1(selectedFiles[0]);
+        setPreviewImage2(selectedFiles[1]);
+        setPreviewImage3(selectedFiles[2]);
+        setLoadingImages(false);
+      }, 1000);
+    }    
   };
 
   const handleSubmit = async (e) => {
